@@ -1,0 +1,307 @@
+$ruler: 15px;
+$color-red: #ae1100;
+$color-bg: #ebecf0;
+$color-shadow: #babecc;
+$color-white: #fff;
+
+.loginAll {
+  height: 100vh;
+  background-color: #ecf0f3;
+}
+
+.logTitle {
+  padding-top: 4%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: "poppins";
+}
+
+.formLogin {
+  width: 30%;
+  padding-top: 2%;
+  margin: 0 auto;
+}
+
+.buttonLogg,
+.inputLogg {
+  border: 0;
+  outline: 0;
+  font-size: $ruler;
+  border-radius: $ruler * 2;
+  padding: $ruler;
+  background-color: $color-bg;
+  text-shadow: 1px 1px 0 $color-white;
+  font-weight: bolder;
+  z-index: 0;
+  padding-right: 20px;
+}
+
+.labelLogg {
+  display: block;
+  margin-bottom: 2%;
+  text-align: center;
+  position: relative;
+}
+
+.labelLoggPass {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3%;
+  text-align: center;
+  position: relative;
+}
+
+.labelLoggInfo {
+  display: block;
+  margin-bottom: 1%;
+  width: 100%;
+}
+
+.inputLogg {
+  box-shadow: inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+
+  &:focus {
+    box-shadow: inset 1px 1px 2px $color-shadow,
+      inset -1px -1px 2px $color-white;
+  }
+}
+
+@media (max-width: 768px) {
+  .formLogin {
+    width: 90%;
+  }
+  .buttonLogg .redd{
+    width: 50px;
+    text-align: center;
+    margin: 2%;
+  }
+  .regsDiv {
+    display: block;
+  }
+  .loginAll {
+    height: 100vh;
+  }
+}
+
+.buttonLogg {
+  width: 15%;
+  color: #61677c;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px #c8c8c9, 5px 5px 20px $color-shadow;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+    font-size: 15px;
+    font-weight: bold;
+    color: green !important;
+  }
+
+  &.red {
+    display: block;
+    width: 100%;
+    color: $color-red;
+  }
+}
+
+// .buttonLogin {
+//   width: 15%;
+//   color: #61677c;
+//   font-weight: bold;
+//   box-shadow: -5px -5px 20px #c8c8c9, 5px 5px 20px $color-shadow;
+//   transition: all 0.2s ease-in-out;
+//   border-radius: 20px;
+//   cursor: pointer;
+
+//   &:hover {
+//     box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+//   }
+
+//   &.red {
+//     display: block;
+//     width: 100%;
+//     color: $color-red;
+//   }
+// }
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .labelLogg {
+    margin: 0;
+    flex: 1;
+  }
+}
+
+.coverLoginReg {
+  text-align: center;
+  display: flex;
+}
+
+.linkLogg {
+  border: 0;
+  outline: 0;
+  font-size: $ruler;
+  border-radius: $ruler;
+  background-color: $color-bg;
+  text-shadow: 1px 1px 0 $color-white;
+}
+
+.regsDiv {
+  text-align: center;
+  padding-top: 5%;
+}
+
+.regBtn {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.infoCompanyText {
+  font-size: 15px;
+  font-weight: bolder;
+  text-align: left;
+  width: 200px;
+}
+
+.textAndInput {
+  display: flex;
+}
+
+.formInfoUserComp {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.inputInfoUserComp {
+  border: 0;
+  outline: 0;
+  font-size: $ruler;
+  border-radius: $ruler;
+  padding: $ruler;
+  background-color: $color-bg;
+  text-shadow: 1px 1px 0 $color-white;
+  box-shadow: inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
+  width: 90%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+  margin-left: 2%;
+
+  &:focus {
+    box-shadow: inset 1px 1px 2px $color-shadow,
+      inset -1px -1px 2px $color-white;
+  }
+}
+
+.InfoUserCompTitle {
+  padding-top: 5%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .InfoUserCompTitle {
+    padding-top: 15%;
+    padding-bottom: 3%;
+  }
+  .textAndInput {
+    display: block;
+  }
+  .infoCompanyText {
+    text-align: center;
+    padding-top: 4%;
+  }
+
+  .buttonLogin {
+    margin-top: 10%;
+    text-align: center;
+    width: 50%;
+  }
+  .inputInfoUserComp {
+    width: 100%;
+  }
+}
+.iconReg {
+  margin-top: 5%;
+  font-size: 20px;
+  width: 100px;
+  color: #61677c;
+  text-align: center;
+  padding: 3%;
+}
+
+.iconReg:hover {
+  margin-top: 3%;
+  width: 100px;
+  color: #742222;
+}
+
+.bottonTextLog {
+  margin-top: 5%;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #ff0000;
+  text-align: center;
+  font-style: italic;
+  &:hover {
+    color: #365c22;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+  }
+}
+
+.checkPass{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2% !important;
+  cursor: default;
+}
+
+.clssIcnOn{
+  font-size: 15px;
+  color: #177a1f;
+  transition: 1s;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+}
+
+.clssIcnOff{
+  font-size: 15px;
+    color: #ae1100;
+    transition: 1s;
+    cursor: pointer;
+    right: 10px;
+    position: absolute;
+}
+
+.clssIcnOnLog{
+  font-size: 15px;
+  color: #177a1f;
+  transition: 1s;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 30%;
+}
+
+.clssIcnOffLog{
+  font-size: 15px;
+    color: #ae1100;
+    transition: 1s;
+    cursor: pointer;
+    right: 10px;
+    position: absolute;
+    top: 30%;
+}

@@ -1,0 +1,205 @@
+$color-grey: rgb(207, 204, 204);
+$color-bg: #ebecf0;
+$color-shadow: #aeb1bd;
+
+.myOfferBody {
+  background-color: #ecf0f3;
+  height: 100vh;
+}
+
+.myOfferTopText {
+  text-align: center;
+  padding-top: 5%;
+  font-size: 25px;
+}
+
+.myOfferAllModal {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1%;
+}
+
+.myOfferCover {
+  display: flex;
+}
+
+.myOfferAll {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.radiogroupMyOffer {
+  color: #6f7691;
+  box-shadow: -5px -5px 20px $color-grey, 5px 5px 20px $color-shadow;
+  transition: all 0.2s ease-in-out;
+  cursor: auto;
+  margin: 1%;
+  padding: 0.5%;
+  // border: #333;
+  font-size: 13px;
+  font-weight: bolder;
+  border-radius: 10px;
+  width: 29%;
+
+  &:hover {
+    box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;
+    background-color: rgb(228, 227, 227);
+  }
+}
+
+.myOfferAllCol {
+  display: flex;
+}
+
+.myOfferLeftCol {
+  width: 40%;
+}
+
+.myOfferRightCol {
+  width: 60%;
+}
+
+.downButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.myOfferBtnContent {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.myOfferDetailBtn {
+  color: #ecf0f3;
+  width: 200px;
+}
+
+.myOfferDeleteBtn {
+  color: #ecf0f3;
+  // width: 200px;
+}
+
+.myOfferBtn {
+  box-shadow: -5px 1px 20px $color-grey, 5px 1px 20px $color-shadow;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  margin: 1%;
+  padding: 1%;
+  border: #333;
+  font-size: 13px;
+  font-weight: bolder;
+  color: rgb(56, 16, 16);
+  border-radius: 15px;
+  text-decoration: dashed;
+
+  &:hover {
+    box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;
+    background-color: rgba(204, 201, 201, 0.979);
+  }
+}
+
+.myOfferBtnDelete {
+  box-shadow: -5px -5px 20px $color-grey, 5px 5px 20px $color-shadow;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  margin: 1%;
+  padding: 1%;
+  border: #333;
+  font-size: 25px;
+  border-radius: 5px;
+  color: #333;
+
+  &:hover {
+    transition: 0.5s;
+    color: rgb(143, 22, 22);
+  }
+}
+
+.myOfferBtnDel {
+  width: 25%;
+  margin: 2%;
+  background-color: rgb(182, 32, 32);
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.myOfferBtnDel:hover {
+  margin: 2%;
+  background-color: rgb(6, 7, 3);
+  transition: 0.7s;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  color: rgb(255, 0, 0);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.myOfferTitle {
+  display: flex;
+}
+
+.myOfferComp {
+  height: 200px;
+}
+
+.tiks {
+  font-size: 18px;
+  color: rgb(36, 40, 75);
+  padding-right: 3px;
+  cursor: context-menu;
+}
+
+.labelMyOfferLeft {
+  font-size: 13px;
+  color: blue;
+}
+.labelMyOfferRight {
+  text-align: justify;
+  font-size: 12px;
+  padding-left: 1%;
+  color: #333;
+}
+
+.labelMyOfferRightPrice {
+  padding-left: 2%;
+}
+
+.textGiveOfferCss {
+  font-size: 13px;
+  cursor: context-menu;
+  // white-space: nowrap;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis; /* Yazının kesildiği yerden üç nokta vermesini sağlıyoruz*/
+}
+
+.gridList {
+  font-size: 18px;
+}
+
+.gridListBtn {
+  border: 0px;
+  background-color: rgb(108, 107, 107);
+  padding: 0.3%;
+  margin: 0.5%;
+  width: 4%;
+}
+
+@media (max-width: 700px) {
+ .radiogroupMyOffer{
+  width: 100% !important;
+  margin-left: 3%;
+  margin-right: 5%;
+ }
+}
+
+@media (max-width: 1150px) {
+ .radiogroupMyOffer{
+  width: 45%;
+ }
+}

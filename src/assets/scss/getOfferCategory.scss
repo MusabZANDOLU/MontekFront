@@ -1,0 +1,112 @@
+.categoryAllContent {
+  padding-top: 5%;
+  background-color: #ecf0f3;
+  height: 100%;
+}
+
+.categoryTitle {
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(61, 61, 61);
+}
+
+.categoryTitleShow {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(61, 61, 61);
+}
+
+@media (min-width: 1200px) {
+  .categoryCardOne {
+    display: block;
+    width: 30%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .categoryCardOne {
+    display: block;
+  }
+}
+
+.cardText {
+  font-size: 15px;
+  text-align: center;
+  color: rgb(61, 61, 61);
+  font-weight: bold;
+  padding-bottom: 2%;
+  // margin-top: -15px;
+}
+
+.iconCategory {
+  opacity: 0;
+  font-size: 30px;
+}
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image_bottom {
+  width: 100px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    flex-direction: column;
+  }
+}
+
+.infoShow1 {
+  writing-mode: tb-rl;
+  font-size: 18px;
+}
+
+.infoShowTitle{
+  font-size: 20px;
+  text-align: center;
+}
+
+.flexShow{
+  display: block;
+}
+
+.flexShowRadios{
+  display: flex;
+}

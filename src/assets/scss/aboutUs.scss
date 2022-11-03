@@ -1,0 +1,210 @@
+$color-grey: rgb(207, 204, 204);
+$color-bg: #ebecf0;
+$color-shadow: #9f9fa2;
+$iconColor: #0f9315;
+$accent: #234a17;
+$bluefade: #00e03c;
+$gradient: #00f510;
+$timing: 265ms;
+
+@mixin transformScale($size: 1) {
+  transform: scale($size);
+  -ms-transform: scale($size);
+  -webkit-transform: scale($size);
+}
+
+.aboutAllPage {
+  // background-image: url(../images/dashboard/about-wall.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.aboutFlex {
+  display: flex;
+}
+
+.aboutRightContent {
+  width: 70%;
+}
+
+.aboutLogo {
+  padding-top: 9%;
+  width: 99%;
+  text-align: center;
+  align-items: center;
+}
+.logoCover {
+  background-color: #aeafb1;
+  // margin: 8%;
+  transition: all 0.2s ease-in-out;
+  cursor: auto;
+  width: 50%;
+  // border-radius: 25px;
+  &:hover {
+    box-shadow: -25px 20px 20px $color-grey, 0px 0px 0px $color-shadow;
+    transform: rotate3d(30, 30, 0, 15deg);
+    transition: 1s;
+  }
+}
+
+.infoIcons {
+  // margin-top: 16%;
+  // margin-right: 8%;
+  height: auto;
+  padding-bottom: 2%;
+  background-color: #aeafb1;
+  transition: all 0.2s ease-in-out;
+  cursor: auto;
+  &:hover {
+    box-shadow: 25px 20px 20px $color-grey, 0px 0px 0px $color-shadow;
+    transform: rotate3d(-30, -30, 0, 10deg);
+    transition: 1s;
+  }
+}
+
+.social-icons {
+margin-left: -1%;
+  .liFooter {
+    display: inline-block;
+    margin: 0.15em;
+    position: relative;
+    font-size: 1.4em;
+  }
+
+  .iFooter {
+    color: rgb(23, 11, 11);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: all $timing ease-out;
+  }
+
+  .linkFooterIcon {
+    display: inline-block;
+
+    &:before {
+      @include transformScale();
+      content: " ";
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      display: block;
+      background: linear-gradient(45deg, $iconColor, $accent);
+      transition: all $timing ease-out;
+    }
+
+    &:hover:before {
+      transform: scale(0);
+      transition: all $timing ease-in;
+    }
+
+    &:hover .iFooter {
+      @include transformScale(2.2);
+      color: $iconColor;
+      background: -webkit-linear-gradient(45deg, $iconColor, $accent);
+      background-image: none;
+      transition: all $timing ease-in;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutFlex {
+    display: block;
+  }
+  .infoIcons{
+    width: 100%;
+  }
+  .logoCover{
+    width: 100%;
+  }
+  .aboutTextTitle{
+    width: 100%;
+    text-align: center;
+  }
+  .aboutRightContent {
+    width: 100%;
+  }
+  .aboutContactTitle{
+    text-align: center;
+  }
+  .social-icons{
+    text-align: center;
+  }
+}
+
+.aboutText{
+  // padding-top: 8%;
+  width: 90%;
+  text-align: justify;
+  font-weight: bolder;
+  padding-left: 1%;
+
+}
+
+.aboutTextTitle{
+padding-top: 8%;
+font-size: 3rem;
+font-weight: bold;
+text-align: center;
+}
+
+.aboutContactTitle{
+  font-size: 2rem;
+}
+
+.aboutFooterAllLeft{
+  width: 40%;
+  background-color: #aeafb1;
+  height: 38.8vh;
+  padding: 2%;
+  &:hover {
+    box-shadow: -25px 20px 20px $color-grey, 0px 0px 0px $color-shadow;
+    transform: rotate3d(30, 30, 0, 10deg);
+    transition: 1s;
+  }
+}
+
+.aboutFooterAllRight{
+  width: 60%;
+  background-color: #aeafb1;
+  height: 38.8vh;
+  padding: 2%;
+}
+
+.aboutSpaceBtween{
+  justify-content: space-around !important;
+}
+
+.aboutFooterText{
+  display: flex;
+}
+
+.aFooterT{
+  width: 10%;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.aFooterA{
+  width: auto;
+  font-size: 18px;
+  color: #234a17;
+  padding-left: 1%;
+  font-weight: bolder;
+  text-decoration: none;
+  cursor: default;
+}
+
+.aFooterL{
+  width: auto;
+  font-size: 18px;
+  color: #234a17;
+  padding-left: 1%;
+  font-weight: bolder;
+  text-decoration: none;
+  &:hover{
+    color: #368b1d;
+  }
+}

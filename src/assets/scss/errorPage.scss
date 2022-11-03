@@ -1,0 +1,141 @@
+.ErrorPageAll {
+  font-family: "Lato", sans-serif;
+  height: 100vh;
+  width: 100%;
+  color: rgb(248, 248, 248);
+  margin: 0;
+  text-align: center;
+  background-image: url("../images/err.jpg");
+  background-size: cover;
+}
+
+.err404 {
+  color: -webkit-linear-gradient(#eee, #333);
+  font-size: 100px;
+  font-weight: bold;
+}
+.errH2 {
+  font-size: 30px;
+}
+
+@keyframes type {
+  from {
+    box-shadow: inset -3px 0px 0px #888;
+  }
+  to {
+    box-shadow: inset -3px 0px 0px transparent;
+  }
+}
+
+.errContainer {
+  display: inline-block;
+}
+
+.typed-out {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(60) forwards, blinking 0.8s infinite;
+  font-size: 1.6rem;
+}
+
+@media (max-width: 700px) {
+  .typed-out {
+    text-align: center;
+    padding-top: 10%;
+    font-size: 1rem;
+    width: 90% !important;
+    height: 200px;
+  }
+  .err404 {
+    padding-top: 10%;
+    color: -webkit-linear-gradient(#eee, #333);
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .errH2 {
+    padding-top: 10%;
+    font-size: 20px;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blinking {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: grey;
+  }
+}
+.btn-16 {
+  border: none;
+  color: #000;
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-16:hover {
+  color: rgb(255, 254, 254);
+  width: 200px;
+  height: 70px;
+}
+.btn-16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-16:active {
+  top: 2px;
+}
+
+.frame {
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.errorBtn {
+  width: 150px;
+  height: 50px;
+  color: rgb(238, 238, 238);
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  font-size: 15px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.errorContent {
+  display: block;
+  min-height: 70vh;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 12px;
+  padding-top: 5%;
+}

@@ -1,0 +1,135 @@
+$color-grey: rgb(207, 204, 204);
+$color-bg: #ebecf0;
+$color-shadow: #aeb1bd;
+
+.companies-all-content {
+  padding-top: 4%;
+  font-weight: bold;
+  background-color: #ecf0f3;
+  height: 100vh;
+}
+
+.companies-text {
+  text-align: center;
+  font-size: 50px;
+}
+
+.companies-all-table {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.companies-table {
+  padding: 1%;
+  width: 48%;
+  height: 100%;
+}
+
+.company-sttng {
+  padding: 3rem 3rem;
+  border-radius: 1.5rem;
+  background: #ecf0f3;
+  box-shadow: 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
+  margin: 2%;
+  height: 100%;
+}
+
+.radiogroupCompanies {
+  color: #6f7691;
+  box-shadow: -5px -5px 20px $color-grey, 5px 5px 20px $color-shadow;
+  transition: all 0.2s ease-in-out;
+  cursor: auto;
+  margin: 1%;
+  padding: 0.5%;
+  font-size: 13px;
+  font-weight: bolder;
+  width: 45%;
+
+  &:hover {
+    box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;
+    background-color: rgb(228, 227, 227);
+  }
+}
+
+@media (max-width: 1000px) {
+  .radiogroupCompanies {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .radiogroupCompanies {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .companies-table {
+    width: 100%;
+  }
+  .company-sttng {
+    padding: 1rem 1rem;
+    margin: 1%;
+    height: 100%;
+    width: 90%;
+  }
+  .radiogroupCompanies {
+    width: 100%;
+  }
+}
+
+.company-sttng:hover {
+  box-shadow: 5px 20px 10px rgb(62, 55, 78, 0.9);
+  border-start-start-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  margin-top: -2px;
+  transition: 0.5s;
+}
+
+.cmpny-text {
+  padding: 0.5%;
+  width: 100%;
+}
+
+.company-logo {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}
+
+.company-title {
+  float: left;
+  color: #000cff;
+  font-weight: bolder;
+  width: 150px;
+  padding-left: 1%;
+}
+
+.company-contnt {
+  font-size: medium;
+}
+
+.company-name {
+  padding-left: 1%;
+  color: blue;
+  font-weight: bolder;
+  float: left;
+  width: 150px;
+}
+
+.company-name-contnt {
+  color: rgb(110, 110, 172);
+  font-weight: bold;
+}
+
+.comp-url {
+  text-align: right;
+  padding: 1%;
+  font-size: 19px;
+  color: rgb(39, 37, 37);
+}
+
+.spaceToIcon {
+  padding-left: 1%;
+  color: #0c0f58;
+}

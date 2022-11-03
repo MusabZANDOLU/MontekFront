@@ -1,0 +1,448 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  // background-color: #ecf0f3;
+}
+
+.allDash {
+  background-color: #ecf0f3;
+}
+
+.top {
+  margin-top: 0;
+  height: 60px;
+  align-items: center;
+  background-color: #0f1222;
+}
+
+.top-mail p {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(../images/dashboard/background-city.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .nav-links {
+    display: block;
+    justify-content: baseline;
+  }
+}
+
+.nav-links {
+  /*Navbar sabit kalması için*/
+  // flex: 1;
+  // align-items: center;
+  // text-align: left;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: rgb(29, 28, 28);
+  opacity: 90%;
+  z-index: 1;
+}
+
+.nav-links:hover {
+  opacity: 100;
+  background-color: black;
+  transition: 1s;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block; /* navbarı yatay yapmak için */
+  padding: 15px 10px;
+  position: relative;
+  color: white;
+}
+
+.nav-links ul li a {
+  padding: 8px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  background: rgb(255, 255, 255);
+  display: block;
+  margin: auto;
+  transition: 0.2s;
+}
+
+.nav-links ul li:hover::after {
+  width: 90%;
+}
+
+.text-box {
+  width: 90%;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text-box h1 {
+  font-size: 40px;
+}
+
+.text-box p {
+  margin: 10px 0 40px;
+  font-size: 14px;
+  color: white;
+}
+
+.more-btn {
+  display: inline;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  padding: 12px 34px;
+  font-size: 13px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+/*-------------------- ADIMLAR --------------------*/
+
+.steps {
+  margin: auto;
+  // text-align: center;
+  padding-top: 10%;
+  // padding: 8px;
+}
+
+.stepRow {
+  padding: 10px;
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(110, 110, 110);
+  font-size: 20px;
+}
+
+.categori-col {
+  flex-basis: 31%;
+  background: #fff3f3;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.categori-col p {
+  font-size: 15px;
+  color: #777;
+}
+
+.categori-col:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 700px) {
+  .stepRow {
+    flex-direction: column;
+  }
+  .AllCardCount {
+    display: block;
+  }
+  .rotateNumber {
+    font-size: 0.5rem;
+  }
+}
+
+.urun-detay-buton {
+  opacity: 0;
+  color: #3b4553;
+  text-decoration: none;
+}
+
+/*-------------------- ÜRÜNLER --------------------*/
+
+.dashProductText {
+  text-align: center;
+  padding-top: 5%;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.products {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.product-col {
+  flex-basis: 32%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-col img {
+  width: 100%;
+  display: block;
+}
+
+.layers {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+.layers:hover {
+  background: rgba(77, 75, 75, 0.7);
+  cursor: default;
+}
+
+.layers h3 {
+  width: 100%;
+  font-weight: 500;
+  color: white;
+  font-size: 26px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.layers:hover h3 {
+  bottom: 49%;
+  opacity: 1;
+}
+
+.sliderClass {
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.slider-edit {
+  padding: 10px;
+}
+
+.more-prodct {
+  text-align: right;
+  text-decoration: none;
+  cursor: default;
+}
+
+.dash-prdct {
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 15px;
+  color: #647285;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.dash-prdct:hover {
+  border-bottom: 1px solid rgb(2, 2, 2);
+}
+
+/*-------------------- İÇERİK --------------------*/
+
+.icerikAll {
+  text-align: center;
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-top: 10%;
+  cursor: default;
+}
+
+.iceriks {
+  display: flex;
+  padding: 5%;
+}
+
+.icerik-baslik-1 {
+  font-size: 23px;
+  font-weight: bolder;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #3b4553;
+  text-align: left;
+  padding-bottom: 2%;
+}
+
+.icerik-1 {
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #3b4553;
+  text-align: left;
+}
+
+.icerik-resim-1 {
+  width: 60%;
+  position: relative;
+}
+
+.icerik-baslik-2 {
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #3b4553;
+  text-align: right;
+  padding-bottom: 2%;
+}
+
+.icerik-2 {
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #3b4553;
+  text-align: right;
+}
+
+.icerik-resim-2 {
+  width: 60%;
+  position: relative;
+}
+
+.log-bttn {
+  display: inline;
+  text-decoration: none;
+  color: rgb(49, 48, 48);
+  border: 1px solid rgb(66, 66, 66);
+  padding: 12px 34px;
+  font-size: 13px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.log-bttn:hover {
+  border: 1px solid #080808;
+  background: #331d1b;
+  transition: 1s;
+  color: white;
+}
+
+.wrapperSliderText {
+  // height: 100vh;
+  /*This part is important for centering*/
+  display: grid;
+  place-items: center;
+}
+
+.typing-demo {
+  width: 30ch;
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  // border-right: 3px solid;
+  // font-family: monospace;
+  // font-size: 2em;
+}
+
+.typingDemoLogin {
+  width: 30ch;
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  // border-right: 1px solid;
+  font-size: 1.5em;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+// ---------------InfoDataCount----------- //.CountCard
+.dSideAll{
+  width:92%;
+}
+
+.AllCardCount {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+  // justify-content: space-around;
+}
+
+.CountCard {
+  transform: rotate(45deg);
+  background-color: rgb(106, 106, 106);
+  position: relative;
+  width: 15%;
+  height: 0;
+  padding-bottom: 15%;
+  border-radius: 35px;
+  margin-bottom: 10%;
+  margin-top: 10%;
+  box-shadow: -5px -5px 20px #c8c8c9, 5px 5px 20px #babecc;
+  &:hover {
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+    transition: 1s;
+  }
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rotateIcon {
+  transform: rotate(-45deg);
+  padding-top: 20%;
+  margin-left: -58%;
+  background-clip: padding-box;
+  font-size: 35px;
+}
+
+.rotateNumber {
+  transform: rotate(-45deg);
+  background-clip: padding-box;
+  font-size: 3rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: white;
+}
+
+.rotateText {
+  transform: rotate(-45deg);
+  background-clip: padding-box;
+  font-size: 2rem;
+  margin-right: 2%;
+  font-weight: bolder;
+  color: rgb(69, 31, 31);
+  padding: 70%;
+  padding-left: 85%;
+}

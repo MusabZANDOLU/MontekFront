@@ -1,0 +1,141 @@
+$color-grey: rgb(175, 172, 172);
+$color-shadow: #898b92;
+$timing: 265ms;
+$iconColor: #0f9315;
+$accent: #234a17;
+$bluefade: #00e03c;
+$gradient: #00f510;
+
+@mixin transformScale($size: 1) {
+  transform: scale($size);
+  -ms-transform: scale($size);
+  -webkit-transform: scale($size);
+}
+
+.footer {
+  width: 90%;
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(183, 186, 183);
+  margin-right: 3%;
+  margin-left: 3%;
+  padding-right: 2%;
+  padding-left: 2%;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  &:hover {
+    box-shadow: -4px -4px 5px $color-grey, 5px 5px 10px $color-shadow;
+    transition: 1s;
+  }
+}
+
+.footerText {
+  font-size: 15px;
+  height: 25px;
+}
+
+@media (max-width: 700px) {
+  .footerText {
+    font-size: 10px;
+    text-align: center;
+    padding: 5%;
+  }
+}
+
+.footerLogo {
+  width: 100%;
+  height: 150px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.flexFooter {
+  display: flex;
+}
+
+.blockFooter {
+  display: block;
+  width: 90%;
+}
+
+.blockFooterOnly {
+  display: block;
+}
+
+.titleFooter {
+  width: 33%;
+  font-size: 1.1rem;
+}
+
+.widthHr {
+  width: 90%;
+}
+
+.linkCoverFooter {
+  padding-top: 2%;
+}
+
+.linkFooter {
+  text-decoration: none;
+  color: rgb(253, 254, 255);
+  &:hover {
+    color: rgb(66, 15, 15);
+    transition: 0.5s;
+    font-weight: bolder;
+  }
+}
+
+.socialContainer {
+  // width: 400px;
+  // margin: 40vh auto;
+  text-align: center;
+}
+
+.social-icons {
+  padding: 0;
+  list-style: none;
+  margin: 0.7em;
+
+  .liFooter {
+    display: inline-block;
+    margin: 0.15em;
+    position: relative;
+    font-size: 1.4em;
+  }
+
+  .iFooter {
+    color: rgb(23, 11, 11);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: all $timing ease-out;
+  }
+
+  .linkFooterIcon {
+    display: inline-block;
+
+    &:before {
+      @include transformScale();
+      content: " ";
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      display: block;
+      background: linear-gradient(45deg, $iconColor, $accent);
+      transition: all $timing ease-out;
+    }
+
+    &:hover:before {
+      transform: scale(0);
+      transition: all $timing ease-in;
+    }
+
+    &:hover .iFooter {
+      @include transformScale(2.2);
+      color: $iconColor;
+      background: -webkit-linear-gradient(45deg, $iconColor, $accent);
+      background-image: none;
+      transition: all $timing ease-in;
+    }
+  }
+}
