@@ -11,7 +11,7 @@ function Companies() {
   }, []);
 
   const getCompanies = async () => {
-    const response = await axios.get("http://localhost:5000/companies");
+    const response = await axios.get("https://montekserver.herokuapp.com/companies");
     setCompanies(response.data);
   };
   return (
