@@ -59,7 +59,7 @@ export const login = data => {
   return async (dispatch) => {
     try {
       await axios
-        .post("http://localhost:5000/login", data)
+        .post("https://montekserver.herokuapp.com/login", data)
         .then(res => dispatch(successLogin(res.data)));
     } catch (err) {
       console.log(err);
@@ -71,7 +71,7 @@ export const registerCompanny = data => {
   return async (dispatch) => {
     try {
       await axios
-        .post("http://localhost:5000/users", data)
+        .post("https://montekserver.herokuapp.com/users", data)
         .then(res => dispatch(succesRegisterCompany(res.data)));
     } catch (err) {
       console.log(err);

@@ -33,7 +33,7 @@ const CompanyInfoPage = () => {
 
   const getCompanyById = async () => {
     await axios
-      .get(`http://localhost:5000/companies/${id}`, {
+      .get(`https://montekserver.herokuapp.com/companies/${id}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {
@@ -52,7 +52,7 @@ const CompanyInfoPage = () => {
     try {
       await axios
         .patch(
-          `http://localhost:5000/companies/${id}`,
+          `https://montekserver.herokuapp.com/companies/${id}`,
           {
             firmName,
             firmOfficial,

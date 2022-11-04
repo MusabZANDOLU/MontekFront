@@ -48,7 +48,7 @@ const GetOfferPvc = () => {
     const saveOffer = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/Offers', {
+            await axios.post('https://montekserver.herokuapp.com/Offers', {
                 productName: inputCheck,
                 productWidth: inputCheck1,
                 productHeight: inputCheck2,
@@ -113,7 +113,7 @@ const GetOfferPvc = () => {
                                 </div>
                             </div>
                             <div className="buttons">
-                                <button className="getOfferButton" onClick={() => { setDivs(2) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                                <button className="getOfferButton" onClick={() => {inputCheck ? setDivs(2) : alert('Devam edebilmek için öncelikle seçim yapınız!')}}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                                 <hr />
                                 <button onClick={info1} className="getOfferButton"><i className="fa-solid fa-circle-question"></i> Bilgi Al</button>
                                 <hr />
@@ -229,7 +229,7 @@ const GetOfferPvc = () => {
                                     </div>
                                 </div>
                                 <div className="buttons">
-                                    <button className="getOfferButton" onClick={() => { setDivs(3) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                                    <button className="getOfferButton" onClick={() => {inputCheck1 ? setDivs(3) : alert('Devam edebilmek için öncelikle seçim yapınız!') }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                                     <hr />
                                     <button className="getOfferButton" onClick={() => { setDivs(1) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                                     <hr />
@@ -345,7 +345,7 @@ const GetOfferPvc = () => {
                                         </div>
                                     </div>
                                     <div className="buttons">
-                                        <button className="getOfferButton" onClick={() => { setDivs(4) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                                        <button className="getOfferButton" onClick={() => {inputCheck2 ? setDivs(4) : alert('Devam edebilmek için öncelikle seçim yapınız!') }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                                         <hr />
                                         <button className="getOfferButton" onClick={() => { setDivs(2) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                                         <hr />
@@ -409,7 +409,7 @@ const GetOfferPvc = () => {
                                             </div>
                                         </div>
                                         <div className="buttons">
-                                            <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                                            <button className="getOfferButton" onClick={() => {inputCheck3 ? setDivs(5) : alert('Devam edebilmek için öncelikle seçim yapınız!') }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                                             <hr />
                                             <button className="getOfferButton" onClick={() => { setDivs(3) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                                             <hr />
@@ -466,7 +466,7 @@ const GetOfferPvc = () => {
                                                 </div>
                                             </div>
                                             <div className="buttons">
-                                                <button className="getOfferButton" onClick={() => { setDivs(6) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                                                <button className="getOfferButton" onClick={() => { inputCheck4 ? setDivs(6) : alert('Devam edebilmek için öncelikle seçim yapınız!') }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                                                 <hr />
                                                 <button className="getOfferButton" onClick={() => { setDivs(4) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                                                 <hr />
@@ -483,7 +483,7 @@ const GetOfferPvc = () => {
                                                     <textarea className="getOffer-input" onChange={e => setTextArea(e.target.value)} type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; yanlar ağaç, sıva yok, mermer yok vb.)' />
                                                 </div>
                                                 <div className="buttons">
-                                                    <button className="getOfferButton" onClick={() => { setDivs(7) }}><i className="fa-solid fa-eye"></i> Teklifimi Göster</button>
+                                                    <button className="getOfferButton" onClick={() => { textArea ? setDivs(7) : alert('Devam edebilmek için öncelikle seçim yapınız!') }}><i className="fa-solid fa-eye"></i> Teklifimi Göster</button>
                                                     <hr />
                                                     <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                                                 </div>

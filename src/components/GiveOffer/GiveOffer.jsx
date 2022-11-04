@@ -25,7 +25,7 @@ const GiveOffer = () => {
   const [comment, setComment] = useState();
   const [price, setPrice] = useState();
   const [currentOffer, setCurrentOffer] = useState({});
-  const { accessToken, id, name, surName } = AuthLocalStorage();
+  const { accessToken} = AuthLocalStorage();
   const [lastDate, setLastDate] = useState(new Date());
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -44,7 +44,7 @@ const GiveOffer = () => {
 
   const getOffer = async () => {
     await axios
-      .get("http://localhost:5000/offers/allOffer", {
+      .get("https://montekserver.herokuapp.com/offers/allOffer", {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {
@@ -52,53 +52,37 @@ const GiveOffer = () => {
       });
   };
 
-  // const updatedInOffer = async e => {
+  // const saveGiveOffer = async e => {
   //   e.preventDefault();
   //   try {
-  //     await axios.patch(
-  //       `http://localhost:5000/offers/deneme/${currentOffer._id}`,
-  //       {
-  //         firmIdList:currentOffer.id
-  //       },
-  //       { headers: { Authorization: `Bearer ${accessToken}` } }
-  //     );
-  //     console.log("oldu sanırım");
+  //     if (!currentOffer || !price) {
+  //       alert("Açıklama ya da fiyat alanı boş bırakılamaz!");
+  //     }
+  //     await axios
+  //       .post(
+  //         "http://localhost:5000/giveOffers",
+  //         {
+  //           offersId: currentOffer._id,
+  //           firmId: id,
+  //           offerUserId: currentOffer.userId,
+  //           firmName: name,
+  //           firmSurName: surName,
+  //           comment,
+  //           price,
+  //           isThereOffer: true,
+  //           lastDate: lastDate,
+  //         },
+  //         { headers: { Authorization: `Bearer ${accessToken}` } }
+  //       )
+  //       .then(res => {
+  //         console.log(res);
+  //         console.log("girdi girdi");
+  //       });
   //   } catch (error) {
   //     console.log(error);
+  //     alert("başarısız işlem.");
   //   }
   // };
-
-  const saveGiveOffer = async e => {
-    e.preventDefault();
-    try {
-      if (!currentOffer || !price) {
-        alert("Açıklama ya da fiyat alanı boş bırakılamaz!");
-      }
-      await axios
-        .post(
-          "http://localhost:5000/giveOffers",
-          {
-            offersId: currentOffer._id,
-            firmId: id,
-            offerUserId: currentOffer.userId,
-            firmName: name,
-            firmSurName: surName,
-            comment,
-            price,
-            isThereOffer: true,
-            lastDate: lastDate,
-          },
-          { headers: { Authorization: `Bearer ${accessToken}` } }
-        )
-        .then(res => {
-          console.log(res);
-          console.log("girdi girdi");
-        });
-    } catch (error) {
-      console.log(error);
-      alert("başarısız işlem.");
-    }
-  };
 
   const showOfferModal = offer => {
     setCurrentOffer(offer);
@@ -235,9 +219,9 @@ const GiveOffer = () => {
                     <div className="modalSendButtonCover">
                       <button
                         className="modalSendButton"
-                        onClick={e => {
-                          saveGiveOffer(e);
-                        }}
+                        // onClick={e => {
+                        //   saveGiveOffer(e);
+                        // }}
                       >
                         Fiyat Teklifini Gönder
                       </button>

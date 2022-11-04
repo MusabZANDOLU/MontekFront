@@ -33,7 +33,7 @@ const MyOffers = () => {
 
   const getMyOffer = async () => {
     await axios
-      .get("http://localhost:5000/Offers", {
+      .get("https://montekserver.herokuapp.com/Offers", {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {

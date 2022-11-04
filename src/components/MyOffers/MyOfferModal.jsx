@@ -14,7 +14,7 @@ const MyOfferModal = () => {
 
   const getGiveOfferWidthId = async () => {
     await axios
-      .get(`http://localhost:5000/giveoffers/mine/${id}`, {
+      .get(`https://montekserver.herokuapp.com/giveoffers/mine/${id}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {

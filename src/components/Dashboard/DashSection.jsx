@@ -24,7 +24,7 @@ const slider = () => {
               <div className="wrapperSliderText">
                 {/* <div className="typing-demo">Montek'e hoşgeldiniz. Kalite ve güven herkesin hakkı</div> */}
                 <div className="typingDemoLogin">
-                  Sn. {name.toUpperCase()} {surName.toUpperCase()}
+                  Sn. {name} {surName}
                 </div>
               </div>
             </h3>

@@ -29,9 +29,12 @@ const UserInfoPage = () => {
   }, []);
 
   async function getUsersById() {
-    const response = await axios.get(`http://localhost:5000/users/${id}`, {
-      headers: { Authorization: `Bearer ${accessToken}` },
-    });
+    const response = await axios.get(
+      `https://montekserver.herokuapp.com/users/${id}`,
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
     setName(response.data.name);
     setSurname(response.data.surName);
     setIl(response.data.il);
@@ -44,7 +47,7 @@ const UserInfoPage = () => {
     e.preventDefault();
     try {
       await axios.patch(
-        `http://localhost:5000/users/${id}`,
+        `https://montekserver.herokuapp.com/users/${id}`,
         {
           name,
           surName,
@@ -129,5 +132,5 @@ const UserInfoPage = () => {
       </form>
     </div>
   );
-}
+};
 export default UserInfoPage;

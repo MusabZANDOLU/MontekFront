@@ -47,7 +47,7 @@ const GetOfferAluminumHandrail = () => {
     const saveOffer = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/Offers', {
+            await axios.post('https://montekserver.herokuapp.com/Offers', {
                 productName: inputCheck,
                 productWidth: inputCheck1,
                 productHeight: inputCheck2,

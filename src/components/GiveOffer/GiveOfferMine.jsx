@@ -20,7 +20,7 @@ const GiveOfferMinePage = () => {
 
   const getGiveOfferById = async () => {
     await axios
-      .get(`http://localhost:5000/giveOffers/${id}`, {
+      .get(`https://montekserver.herokuapp.com/giveOffers/${id}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {
