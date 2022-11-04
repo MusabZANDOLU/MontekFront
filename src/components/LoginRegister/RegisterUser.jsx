@@ -45,7 +45,7 @@ function RegisterUser() {
     e.preventDefault();
     try {
       await axios
-        .post("http://localhost:5000/users", {
+        .post("https://montekserver.herokuapp.com/users", {
           name,
           surName,
           type: "user",
