@@ -8,7 +8,6 @@ import "../../assets/scss/myOffers.scss";
 
 const MyOffers = () => {
   const [myOffers, setMyOffer] = useState([]);
-  const [btnstate, setBtnState] = useState(false);
 
   let myDate = myOffers.createdAt;
   myDate = moment().format("LL");
@@ -45,10 +44,6 @@ const MyOffers = () => {
 
   // className={`true ? "dark" : "light"` ------------ÖNEMLİ
 
-function handleClick(){//butonİçin
-  setBtnState(btnstate => !btnstate);
-}
-let toggleClassCheck = btnstate ? ' active' : '';//butonİçin
 
   return (
     <div className="myOfferBody">
@@ -66,10 +61,6 @@ let toggleClassCheck = btnstate ? ' active' : '';//butonİçin
      {/* <button className="gridListBtn"><i className="fa-solid fa-table-cells-large gridList"></i></button>
      <button className="gridListBtn"><i className="fa-solid fa-list gridList"></i></button> */}
 
-<button
-className={`btn${toggleClassCheck}`}//butonİçin
-onClick={handleClick}
->a</button>
 
       <div className="myOfferAll">
         {myOffers.map(getOffers => (
