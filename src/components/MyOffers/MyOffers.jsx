@@ -6,6 +6,7 @@ import moment from "moment";
 import AuthLocalStorage from "../localStorage";
 import "../../assets/scss/myOffers.scss";
 import { BASE_URL } from "../../base";
+import svgTrash from '../../assets/svg/myOffer/svgTrash.svg'
 
 const MyOffers = () => {
   const [myOffers, setMyOffer] = useState([]);
@@ -151,7 +152,8 @@ const MyOffers = () => {
                     </Link>
                   </div>
                   <div className="myOfferDeleteBtn">
-                    <i className="fa-solid fa-trash myOfferBtnDelete"></i>
+                    {/* <i className="fa-solid fa-trash myOfferBtnDelete"></i> */}
+                    <img className="spaceToIcon" src={svgTrash} alt="" />
                   </div>
                 </div>
               </div>

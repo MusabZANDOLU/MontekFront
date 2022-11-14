@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { AuthLocalStorage } from "../localStorage";
+import { BASE_URL } from '../../base.js'
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Carousel from "./Carousel";
 import InfoDataCount from "./InfoDataCount";
-import { AuthLocalStorage } from "../localStorage";
+import axios from "axios";
 import "react-multi-carousel/lib/styles.css";
 import "../../assets/scss/dashSection.scss";
 import "../../assets/scss/search.scss";
 
+
+
+
 const slider = () => {
   const { isLogin, name, surName, type } = AuthLocalStorage();
-  console.log(type);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [count, setCount] = useState([]);
+console.log(count);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    getDbCount();
+  }, []);
+
+  const getDbCount = async () => {
+    const response = await axios.get(`${BASE_URL}/count`);
+    setCount(response.data);
+  };
   return (
     <div className="allDash">
       <Navbar />

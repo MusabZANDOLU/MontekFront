@@ -7,6 +7,7 @@
 
 .allDash {
   background-color: #ecf0f3;
+  height: 100%;
 }
 
 .top {
@@ -386,63 +387,58 @@ nav {
   }
 }
 
+.svgNavbar{
+  width: 20px;
+  color: wheat;
+}
 // ---------------InfoDataCount----------- //.CountCard
-.dSideAll{
-  width:92%;
-}
 
-.AllCardCount {
+.idcAll {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  font-size: 20px;
   text-align: center;
-  // justify-content: space-around;
+  justify-content: space-around;
 }
 
-.CountCard {
-  transform: rotate(45deg);
-  background-color: rgb(106, 106, 106);
-  position: relative;
-  width: 15%;
-  height: 0;
-  padding-bottom: 15%;
-  border-radius: 35px;
-  margin-bottom: 10%;
-  margin-top: 10%;
-  box-shadow: -5px -5px 20px #c8c8c9, 5px 5px 20px #babecc;
-  &:hover {
-    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+.idcCard {
+  width: 25%;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.idcLeftArea {
+  // width: 60%;
+  font-size: 30px;
+}
+
+.idcImage {
+  width: 100%;
+  border-radius: 5px;
+  &:hover{
+    margin-top: -10px;
     transition: 1s;
   }
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.rotateIcon {
-  transform: rotate(-45deg);
-  padding-top: 20%;
-  margin-left: -58%;
-  background-clip: padding-box;
-  font-size: 35px;
+.idcRightArea {
+  // width: 40%;
+  text-align: right;
 }
 
-.rotateNumber {
-  transform: rotate(-45deg);
-  background-clip: padding-box;
-  font-size: 3rem;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bolder;
-  color: white;
+.idcTitle {
+  font-size: 25px;
+  color: rgb(45, 46, 45);
+  font-weight: bold;
+  padding: 5px;
+  margin-bottom: 2%;
 }
 
-.rotateText {
-  transform: rotate(-45deg);
-  background-clip: padding-box;
-  font-size: 2rem;
-  margin-right: 2%;
-  font-weight: bolder;
-  color: rgb(69, 31, 31);
-  padding: 70%;
-  padding-left: 85%;
+.idcCount {
+  font-size: 28px;
+  padding: 2%;
+  text-align: center;
+  color: rgb(57, 57, 57);
+  margin-top: -10px;
+  font-weight: bold;
+  font-family: 'FontAwesome';
 }

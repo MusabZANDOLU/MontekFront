@@ -3,6 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/AuthSlice";
 import AuthLocalStorage from "../localStorage";
 
+import svgCompanies from "../../assets/svg/navbar/svgCompanies.svg";
+import svgProduct from "../../assets/svg/navbar/svgProduct.svg";
+import svgGetOffer from "../../assets/svg/navbar/svgGetOffer.svg";
+import svgAboutUs from "../../assets/svg/navbar/svgAboutUs.svg";
+import svgHome from "../../assets/svg/navbar/svgHome.svg";
+import svgInformation from "../../assets/svg/navbar/svgInformations.svg";
+import svgMyOffer from "../../assets/svg/navbar/svgMyOffer.svg";
+import svgLogin from "../../assets/svg/navbar/svgLogin.svg";
+import svgLogout from "../../assets/svg/navbar/svgLogout.svg";
+import svgGiveOffer from "../../assets/svg/navbar/svgGiveOffer.svg";
+
 function Navbar() {
   const dispatch = useDispatch();
   const { isLogin } = useSelector(state => state.auth);
@@ -19,68 +30,75 @@ function Navbar() {
         <div className="nav-links" id="navLink">
           <ul>
             <li>
-              <i className="fa-solid fa-house-user"></i>
+              {/* <i className="fa-solid fa-house-user"></i> */}
+              <img className="svgNavbar" src={svgHome} alt="" />
               <Link to="/">Ana Sayfa</Link>
             </li>
             <li>
-              <i className="fa-solid fa-building"></i>
+              {/* <i className="fa-solid fa-building"></i> */}
+              <img className="svgNavbar" src={svgCompanies} alt="" />
               <Link to="/companies">Firmalar</Link>
             </li>
             <li>
-              <i className="fa-solid fa-window-restore"></i>
+              {/* <i className="fa-solid fa-window-restore"></i> */}
+              <img className="svgNavbar" src={svgProduct} alt="" />
               <Link to="/products">Ürünler</Link>
             </li>
 
             {isLogin && type === "user" ? (
               <li>
-                <i className="fa-solid fa-pen-to-square"></i>
+                {/* <i className="fa-solid fa-pen-to-square"></i> */}
+                <img className="svgNavbar" src={svgGetOffer} alt="" />
                 <Link to="/getOffer/category">Teklif Al</Link>
               </li>
             ) : (
               <li>
-                <i className="fa-solid fa-pen-to-square"></i>
+                {/* <i className="fa-solid fa-pen-to-square"></i> */}
+                <img className="svgNavbar" src={svgGetOffer} alt="" />
                 <Link to="/getOffer/categoryShow">Teklif Al</Link>
               </li>
             )}
 
-            {/* <li>
-              <i className="fa-solid fa-pen-to-square"></i>
-              <Link to="/getOffer/category">Teklif Al</Link>
-            </li> */}
             <li>
-              <i className="fa-solid fa-circle-info"></i>
+              {/* <i className="fa-solid fa-circle-info"></i> */}
+              <img className="svgNavbar" src={svgAboutUs} alt="" />
               <Link to="/aboutUs">Hakkımızda</Link>
             </li>
           </ul>
           <ul>
             {isLogin && type === "user" && (
               <li>
-                <i className="fa-solid fa-book-bookmark"></i>
+                {/* <i className="fa-solid fa-book-bookmark"></i> */}
+                <img className="svgNavbar" src={svgMyOffer} alt="" />
                 <Link to="/myOffers">Tekliflerim</Link>
               </li>
             )}
             {isLogin && type === "company" && (
               <li>
-                <i className="fa-solid fa-paperclip"></i>
+                {/* <i className="fa-solid fa-paperclip"></i> */}
+                <img className="svgNavbar" src={svgGiveOffer} alt="" />
                 <Link to="/giveOffer">Teklif Ver</Link>
               </li>
             )}
             {isLogin && type === "company" && (
               <li>
-                <i className="fa-solid fa-book-bookmark"></i>
+                {/* <i className="fa-solid fa-book-bookmark"></i> */}
+                <img className="svgNavbar" src={svgMyOffer} alt="" />
                 <Link to="/giveOfferOther">Tekliflerim</Link>
               </li>
             )}
             {isLogin && type === "user" && (
               <li>
-                <i className="fa-solid fa-gear"></i>
+                {/* <i className="fa-solid fa-gear"></i> */}
+                <img className="svgNavbar" src={svgInformation} alt="" />
                 <Link to={`/user/informations/${id}`}>Kullanıcı Ayarlarım</Link>
               </li>
             )}
 
             {isLogin && type === "company" && (
               <li>
-                <i className="fa-solid fa-gear"></i>
+                {/* <i className="fa-solid fa-gear"></i> */}
+                <img className="svgNavbar" src={svgInformation} alt="" />
                 <Link to={`/companies/informations/${id}`}>
                   Firma Ayarlarım
                 </Link>
@@ -90,11 +108,11 @@ function Navbar() {
             <li>
               {isLogin ? (
                 <Link to="/login" onClick={logoutHandler}>
-                  <i className="fa-solid fa-right-from-bracket"></i> Çıkış Yap
+                  <img className="svgNavbar" src={svgLogout} alt="" /> Çıkış Yap
                 </Link>
               ) : (
                 <Link to="/login">
-                  <i className="fa-solid fa-right-to-bracket"></i> Giriş Yap
+                  <img className="svgNavbar" src={svgLogin} alt="" /> Giriş Yap
                 </Link>
               )}
             </li>

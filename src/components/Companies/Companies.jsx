@@ -4,6 +4,11 @@ import "../../assets/scss/companies.scss";
 import axios from "axios";
 import { BASE_URL } from '../../base.js'
 
+import svgWebLink from "../../assets/svg/company/svgWebLink.svg";
+import svgFaceBook from "../../assets/svg/company/svgFacebook.svg";
+import svgInstagram from "../../assets/svg/company/svgInstagram.svg";
+import svgLinkedIn from "../../assets/svg/company/svgLinkedIn.svg";
+
 function Companies() {
   const [companies, setCompanies] = useState([]);
 
@@ -54,16 +59,20 @@ function Companies() {
                 <hr />
                 <div className="comp-url">
                   <a href={companies.firmUrl}>
-                    <i className="fa-solid fa-globe spaceToIcon"></i>
+                    {/* <i className="fa-solid fa-globe spaceToIcon"></i> */}
+                    <img className="spaceToIcon" src={svgWebLink} alt="" />
                   </a>
                   <a href="https://www.facebook.com/">
-                    <i className="fa-brands fa-facebook spaceToIcon"></i>
+                    {/* <i className="fa-brands fa-facebook spaceToIcon"></i> */}
+                    <img className="spaceToIcon" src={svgFaceBook} alt="" />
                   </a>
                   <a href="https://www.instagram.com/">
-                    <i className="fa-brands fa-instagram spaceToIcon"></i>
+                    {/* <i className="fa-brands fa-instagram spaceToIcon"></i> */}
+                    <img className="spaceToIcon" src={svgInstagram} alt="" />
                   </a>
                   <a href="https://www.linkedin.com/">
-                    <i className="fa-brands fa-linkedin spaceToIcon"></i>
+                    {/* <i className="fa-brands fa-linkedin spaceToIcon"></i> */}
+                    <img className="spaceToIcon" src={svgLinkedIn} alt="" />
                   </a>
                 </div>
               </div>
