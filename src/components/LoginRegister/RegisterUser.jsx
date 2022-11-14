@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import alertify from "alertifyjs";
 import PasswordChecklist from "react-password-checklist";
+import { BASE_URL } from "../../base";
 
 const unSuccesfullRegister = async () => {
   alertify.alert(
@@ -41,11 +42,11 @@ function RegisterUser() {
     setPasswordShowIcon(!passwordShowIcon);
   };
 
-  const saveUser = async (e) => {
+  const saveUser = async e => {
     e.preventDefault();
     try {
       await axios
-        .post("https://montekserver.herokuapp.com/users", {
+        .post(`${BASE_URL}/users`, {
           name,
           surName,
           type: "user",
@@ -109,7 +110,9 @@ function RegisterUser() {
               />
               <i
                 className={
-                  passwordShowIcon ? "fa-solid fa-eye clssIcnOn" : "fa-solid fa-eye-slash clssIcnOff"
+                  passwordShowIcon
+                    ? "fa-solid fa-eye clssIcnOn"
+                    : "fa-solid fa-eye-slash clssIcnOff"
                 }
                 onClick={togglePassword}
               />
@@ -127,7 +130,7 @@ function RegisterUser() {
           </label>
 
           <PasswordChecklist
-          className="checkPass"
+            className="checkPass"
             rules={["number", "match", "notEmpty"]}
             minLength={8}
             value={password}

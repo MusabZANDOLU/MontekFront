@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router';
 import axios from 'axios';
 import 'alertifyjs/build/css/alertify.min.css';
 import AuthLocalStorage from '../localStorage';
+import { BASE_URL } from '../../base';
 
 function info1() {
   alertify.alert('Seçilecek Ürünler Hakkında', 'Hangi tarz duş kabini istediğinizi seçiniz. Altında plastik havuz olanlar tekneli, olmayanlar teknesiz olarak adlandırılır. Duvardan duvara ve oval seçeneklerinde de tekneli ürünler mevcuttur. hangisini ne şekilde istediğinizi açıklama olarak yazabilirsiniz.');
@@ -38,7 +39,7 @@ const GetOfferShowerBox = () => {
   const saveOffer = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://montekserver.herokuapp.com/Offers', {
+      await axios.post(`${BASE_URL}/Offers`, {
         productName: inputCheck,
         productWidth: inputCheck1,
         productHeight: inputCheck2,

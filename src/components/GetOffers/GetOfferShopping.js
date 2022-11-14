@@ -7,6 +7,7 @@ import axios from 'axios';
 import '../../assets/scss/getOffer.scss';
 import AuthLocalStorage from '../localStorage';
 import 'alertifyjs/build/css/alertify.min.css';
+import { BASE_URL } from '../../base';
 
 function info1() {
   alertify.alert('Ürünler Hakkında', 'Montaj yaptırmak istediğiniz ürün türünü seçiniz. Ürünler alüminyumdur.');
@@ -43,7 +44,7 @@ const GetOfferShopping = () => {
   const saveOffer = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://montekserver.herokuapp.com/Offers', {
+      await axios.post(`${BASE_URL}/Offers`, {
         productName: inputCheck,
         productWidth: inputCheck1,
         productHeight: inputCheck2,

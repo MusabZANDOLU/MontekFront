@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Navbar from "../Dashboard/Navbar";
 import AuthLocalStorage from "../localStorage";
+import { BASE_URL } from "../../base";
 
 const MyOfferModal = () => {
   const [mineGiveOffers, setMineGiveOffer] = useState([]);
@@ -14,7 +15,7 @@ const MyOfferModal = () => {
 
   const getGiveOfferWidthId = async () => {
     await axios
-      .get(`https://montekserver.herokuapp.com/giveoffers/mine/${id}`, {
+      .get(`${BASE_URL}/giveoffers/mine/${id}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {
@@ -80,6 +81,6 @@ const MyOfferModal = () => {
       </div>
     </div>
   );
-}
+};
 
 export default MyOfferModal;

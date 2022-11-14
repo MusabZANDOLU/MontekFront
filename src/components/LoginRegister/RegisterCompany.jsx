@@ -32,9 +32,9 @@ function RegisterCompany() {
       registerCompanny({
         name,
         surName,
+        type: "company",
         eMail,
         password,
-        type: "company",
       })
     );
     setTimeout(() => {
@@ -94,7 +94,9 @@ function RegisterCompany() {
               />
               <i
                 className={
-                  passwordShowIcon ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
+                  passwordShowIcon
+                    ? "fa-solid fa-eye clssIcnOn"
+                    : "fa-solid fa-eye-slash clssIcnOff"
                 }
                 onClick={togglePassword}
               />
@@ -108,12 +110,6 @@ function RegisterCompany() {
               onChange={e => setPasswordAgain(e.target.value)}
               type={passwordShown ? "text" : "password"}
               placeholder="Şifre Tekrarı"
-            />
-            <i
-              className={
-                passwordShowIcon ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
-              }
-              onClick={togglePassword}
             />
           </label>
 

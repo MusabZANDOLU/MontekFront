@@ -7,6 +7,7 @@ import alertify from 'alertifyjs';
 import '../../assets/scss/getOffer.scss';
 import AuthLocalStorage from '../localStorage';
 import 'alertifyjs/build/css/alertify.min.css';
+import { BASE_URL } from '../../base.js'
 
 function info1() {
     alertify.alert('Seçilecek Ürünler Hakkında', 'Ölçülerinizi balkonun eni ve yüksekliği olacak şekilde alınız. Verilen teklifler yalnızca yaklaşık sonuçları verebilir. Kesin bilgi içermemektedir!');
@@ -47,7 +48,7 @@ const GetOfferAluminumHandrail = () => {
     const saveOffer = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://montekserver.herokuapp.com/Offers', {
+            await axios.post(`${BASE_URL}/Offers`, {
                 productName: inputCheck,
                 productWidth: inputCheck1,
                 productHeight: inputCheck2,

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../../base";
 
 export const AuthSlice = createSlice({
   name: "Auth",
@@ -56,10 +57,10 @@ export const AuthSlice = createSlice({
 export const { successLogin, succesRegisterCompany } = AuthSlice.actions;
 
 export const login = data => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       await axios
-        .post("https://montekserver.herokuapp.com/login", data)
+        .post(`${BASE_URL}/login`, data)
         .then(res => dispatch(successLogin(res.data)));
     } catch (err) {
       console.log(err);
@@ -68,10 +69,10 @@ export const login = data => {
 };
 
 export const registerCompanny = data => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       await axios
-        .post("https://montekserver.herokuapp.com/users", data)
+        .post(`${BASE_URL}/users`, data)
         .then(res => dispatch(succesRegisterCompany(res.data)));
     } catch (err) {
       console.log(err);
@@ -80,7 +81,7 @@ export const registerCompanny = data => {
 };
 
 export const logout = data => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       localStorage.clear("userData", data);
     } catch (err) {

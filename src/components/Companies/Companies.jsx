@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Dashboard/Navbar";
 import "../../assets/scss/companies.scss";
 import axios from "axios";
+import { BASE_URL } from '../../base.js'
 
 function Companies() {
   const [companies, setCompanies] = useState([]);
@@ -11,7 +12,7 @@ function Companies() {
   }, []);
 
   const getCompanies = async () => {
-    const response = await axios.get("https://montekserver.herokuapp.com/companies");
+    const response = await axios.get(`${BASE_URL}/companies`);
     setCompanies(response.data);
   };
   return (

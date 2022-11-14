@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Dashboard/Navbar";
 import axios from "axios";
-import { useNavigate } from "react-router";
 import AuthLocalStorage from "../localStorage";
+import { useNavigate } from "react-router";
+import { BASE_URL } from "../../base.js";
 import "../../assets/scss/login_Register_Info.scss";
 import alertify from "alertifyjs";
 
@@ -29,12 +30,9 @@ const UserInfoPage = () => {
   }, []);
 
   async function getUsersById() {
-    const response = await axios.get(
-      `https://montekserver.herokuapp.com/users/${id}`,
-      {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      }
-    );
+    const response = await axios.get(`${BASE_URL}/users/${id}`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
     setName(response.data.name);
     setSurname(response.data.surName);
     setIl(response.data.il);
@@ -47,7 +45,7 @@ const UserInfoPage = () => {
     e.preventDefault();
     try {
       await axios.patch(
-        `https://montekserver.herokuapp.com/users/${id}`,
+        `${BASE_URL}/users/${id}`,
         {
           name,
           surName,

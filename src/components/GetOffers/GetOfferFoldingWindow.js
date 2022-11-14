@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router';
 import '../../assets/scss/getOffer.scss';
 import 'alertifyjs/build/css/alertify.min.css';
 import AuthLocalStorage from '../localStorage';
+import { BASE_URL } from '../../base';
 
 function info1() {
   alertify.alert('Seçilecek Ürünler Hakkında', 'Balkonunuza hangi ürünün montajını yaptırmak istiyorsanız seçiniz. Adaptörlü cam ortasında kayıt olmayan camdır');
@@ -47,7 +48,7 @@ const GetOfferFoldingWindow = () => {
   const saveOffer = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://montekserver.herokuapp.com/Offers', {
+      await axios.post(`${BASE_URL}/Offers`, {
         productName: inputCheck,
         productWidth: inputCheck1,
         productHeight: inputCheck2,

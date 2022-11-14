@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AuthLocalStorage } from "../localStorage";
+import { BASE_URL } from "../../base.js";
 import Navbar from "../Dashboard/Navbar";
 import axios from "axios";
 import alertify from "alertifyjs";
@@ -11,6 +12,7 @@ function updateSuccessful() {
     "Firma bilgilerinizi başarıyla güncellediniz."
   );
 }
+
 function updateUnsuccessful() {
   alertify.alert("Bilgi Güncelleme", "Firma bilgileri güncellenemedi");
 }
@@ -24,35 +26,30 @@ const CompanyInfoPage = () => {
   const [firmUrl, setFirmUrl] = useState();
   const [firmServices, setFirmServices] = useState();
   const { accessToken, id } = AuthLocalStorage();
-  // const { id} = OfferLocalStorage();
 
   useEffect(() => {
     getCompanyById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getCompanyById = async () => {
-    await axios
-      .get(`https://montekserver.herokuapp.com/companies/${id}`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      })
-      .then(res => {
-        setFirmName(res.data.firmName);
-        setFirmOfficial(res.data.firmOfficial);
-        setFirmPhone(res.data.firmPhone);
-        setFirmAdress(res.data.firmAddress);
-        setFirmMail(res.data.firmMail);
-        setFirmUrl(res.data.firmUrl);
-        setFirmServices(res.data.firmServices);
-      });
-  };
+  async function getCompanyById() {
+    const res = await axios.get(`${BASE_URL}/companies/${id}`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+    setFirmName(res.data.firmName);
+    setFirmOfficial(res.data.firmOfficial);
+    setFirmPhone(res.data.firmPhone);
+    setFirmAdress(res.data.firmAddress);
+    setFirmMail(res.data.firmMail);
+    setFirmUrl(res.data.firmUrl);
+    setFirmServices(res.data.firmServices);
+  }
 
   const updateCompany = async e => {
     e.preventDefault();
     try {
-      await axios
-        .patch(
-          `https://montekserver.herokuapp.com/companies/${id}`,
+      await axios.patch(
+          `${BASE_URL}/companies/${id}`,
           {
             firmName,
             firmOfficial,

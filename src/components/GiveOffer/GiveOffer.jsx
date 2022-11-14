@@ -7,6 +7,7 @@ import Modal from "react-modal";
 import { AuthLocalStorage } from "../localStorage";
 import "../../assets/scss/giveOffer.scss";
 import "react-calendar/dist/Calendar.css";
+import { BASE_URL } from "../../base";
 Modal.setAppElement('*');
 
 const customStyles = {
@@ -44,7 +45,7 @@ const GiveOffer = () => {
 
   const getOffer = async () => {
     await axios
-      .get("https://montekserver.herokuapp.com/offers/allOffer", {
+      .get(`${BASE_URL}/offers/allOffer`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {
@@ -60,7 +61,7 @@ const GiveOffer = () => {
   //     }
   //     await axios
   //       .post(
-  //         "http://localhost:5000/giveOffers",
+  //         `${BASE_URL}/offers/allOffer`,
   //         {
   //           offersId: currentOffer._id,
   //           firmId: id,

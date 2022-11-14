@@ -4,6 +4,7 @@ import Navbar from "../Dashboard/Navbar";
 import axios from "axios";
 import moment from "moment";
 import "../../assets/scss/giveOffer.scss";
+import { BASE_URL } from "../../base.js";
 
 const GiveOfferMinePage = () => {
   const [offers, setOffers] = useState([]);
@@ -20,7 +21,7 @@ const GiveOfferMinePage = () => {
 
   const getGiveOfferById = async () => {
     await axios
-      .get(`https://montekserver.herokuapp.com/giveOffers/${id}`, {
+      .get(`${BASE_URL}/giveOffers/${id}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {
@@ -33,7 +34,7 @@ const GiveOfferMinePage = () => {
   //   try {
   //     await axios
   //       .delete(
-  //         `http://localhost:5000/giveOffers/${currentOffer.id}`,
+  //         `${BASE_URL}/giveOffers/${currentOffer.id}`,
   //         { headers: { Authorization: `Bearer ${accessToken}` } }
   //       )
   //       .then(res => {

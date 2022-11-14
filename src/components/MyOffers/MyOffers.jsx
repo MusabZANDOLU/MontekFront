@@ -5,6 +5,7 @@ import axios from "axios";
 import moment from "moment";
 import AuthLocalStorage from "../localStorage";
 import "../../assets/scss/myOffers.scss";
+import { BASE_URL } from "../../base";
 
 const MyOffers = () => {
   const [myOffers, setMyOffer] = useState([]);
@@ -20,7 +21,7 @@ const MyOffers = () => {
 
   // const deletedOffer = async () => {
   //   await axios
-  //     .get("http://localhost:5000/Offers", {
+  //     .get(`${BASE_URL}/Offers`, {
   //       headers: { Authorization: `Bearer ${accessToken}` },
   //     })
   //     .then(res => {
@@ -32,7 +33,7 @@ const MyOffers = () => {
 
   const getMyOffer = async () => {
     await axios
-      .get("https://montekserver.herokuapp.com/Offers", {
+      .get(`${BASE_URL}/Offers`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {
