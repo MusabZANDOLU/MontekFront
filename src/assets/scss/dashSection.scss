@@ -54,7 +54,7 @@ nav {
   // text-align: left;
   display: flex;
   justify-content: space-between;
-  position: fixed;
+  // position: fixed;
   width: 100%;
   top: 0;
   background-color: rgb(29, 28, 28);
@@ -128,6 +128,23 @@ nav {
   position: relative;
   cursor: pointer;
 }
+
+
+@media (max-width: 768px) {
+  .nav-links{
+    padding-top: 5%;
+    font-size: 23px;
+    display: block;
+    text-align: center;
+  }
+  .nav-links ul li {
+    display: block;
+  }
+}
+
+
+
+
 /*-------------------- ADIMLAR --------------------*/
 
 .steps {

@@ -102,13 +102,15 @@ function footer() {
                         </li>
                       </ul>
                     </div>
-                    <div>Designed By Musab ZANDOLU</div>
-                    <a
-                      href="mailto:zandolu73@gmail.com"
-                      className="linkFooter cursorFooter"
-                    >
-                      zandolu73@gmail.com
-                    </a>
+                    <div>
+                      Designed By Musab ZANDOLU <br />
+                      <a
+                        href="mailto:zandolu73@gmail.com"
+                        className="linkFooter cursorFooter"
+                      >
+                        zandolu73@gmail.com
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
