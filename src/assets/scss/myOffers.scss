@@ -77,7 +77,9 @@ $color-shadow: #aeb1bd;
 
 .myOfferDeleteBtn {
   color: #ecf0f3;
-  // width: 200px;
+  border: 0px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .myOfferBtn {
@@ -92,6 +94,7 @@ $color-shadow: #aeb1bd;
   color: rgb(56, 16, 16);
   border-radius: 15px;
   text-decoration: dashed;
+  width: 70%;
 
   &:hover {
     box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;

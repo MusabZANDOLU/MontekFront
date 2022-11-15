@@ -83,7 +83,7 @@ const AboutUs = () => {
           <div className="aboutFooterAllRight aboutBlock">
             <div className="aboutFooterText">
               <div className="aFooterT">Adres:</div>
-              <div className="aFooterA">Ataşehir / İSTANBUL</div>
+              <div className="aFooterA">Serdivan / SAKARYA</div>
             </div>
             <div className="aboutFooterText">
               <div className="aFooterT">Telefon:</div>

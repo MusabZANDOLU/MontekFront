@@ -6,7 +6,7 @@ import moment from "moment";
 import AuthLocalStorage from "../localStorage";
 import "../../assets/scss/myOffers.scss";
 import { BASE_URL } from "../../base";
-import svgTrash from '../../assets/svg/myOffer/svgTrash.svg'
+import svgTrash from "../../assets/svg/myOffer/svgTrash.svg";
 
 const MyOffers = () => {
   const [myOffers, setMyOffer] = useState([]);
@@ -20,17 +20,16 @@ const MyOffers = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const deletedOffer = async () => {
-  //   await axios
-  //     .get(`${BASE_URL}/Offers`, {
-  //       headers: { Authorization: `Bearer ${accessToken}` },
-  //     })
-  //     .then(res => {
-  //       setMyOffer(res.data);
-  //       console.log(res)
-  //     });
-  //   // setMyOffer(response.data.data);
-  // };
+  const deletedOffer = async deleteOfferId => {
+    await axios
+      .delete(`${BASE_URL}/Offers/${deleteOfferId}`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      })
+      .then(res => {
+        window.location.reload(false)
+      });
+    // setMyOffer(response.data.data);
+  };
 
   const getMyOffer = async () => {
     await axios
@@ -46,7 +45,6 @@ const MyOffers = () => {
 
   // className={`true ? "dark" : "light"` ------------ÖNEMLİ
 
-
   return (
     <div className="myOfferBody">
       <Navbar />
@@ -60,9 +58,8 @@ const MyOffers = () => {
       ) : (
         <div className="myOfferTopText">Tüm teklifleriniz</div>
       )}
-     {/* <button className="gridListBtn"><i className="fa-solid fa-table-cells-large gridList"></i></button>
+      {/* <button className="gridListBtn"><i className="fa-solid fa-table-cells-large gridList"></i></button>
      <button className="gridListBtn"><i className="fa-solid fa-list gridList"></i></button> */}
-
 
       <div className="myOfferAll">
         {myOffers.map(getOffers => (
@@ -151,10 +148,12 @@ const MyOffers = () => {
                       <button className="myOfferBtn">Gelen tekliflerim.</button>
                     </Link>
                   </div>
-                  <div className="myOfferDeleteBtn">
-                    {/* <i className="fa-solid fa-trash myOfferBtnDelete"></i> */}
+                  <button
+                    className="myOfferDeleteBtn"
+                    onClick={e => deletedOffer(getOffers._id)}
+                  >
                     <img className="spaceToIcon" src={svgTrash} alt="" />
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -163,5 +162,5 @@ const MyOffers = () => {
       </div>
     </div>
   );
-}
+};
 export default MyOffers;

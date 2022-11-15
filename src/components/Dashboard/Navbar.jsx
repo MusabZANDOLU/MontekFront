@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logout } from "../../redux/auth/AuthSlice";
 import AuthLocalStorage from "../localStorage";
 
@@ -16,10 +16,8 @@ import svgGiveOffer from "../../assets/svg/navbar/svgGiveOffer.svg";
 
 function Navbar() {
   const dispatch = useDispatch();
-  const { isLogin } = useSelector(state => state.auth);
   // const { isLogin } = useSelector(state => state.auth);
-  const { id, type } = AuthLocalStorage();
-
+  const { isLogin, id, type } = AuthLocalStorage();
   const logoutHandler = () => {
     dispatch(logout());
   };
