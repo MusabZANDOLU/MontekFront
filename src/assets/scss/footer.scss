@@ -34,22 +34,45 @@ $gradient: #00f510;
   height: 25px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .footerText {
     font-size: 10px;
     text-align: center;
     padding: 5%;
   }
+
+  .cursorFooter{
+    display: none;
+  }
+  .iceriks{
+    display: block !important;
+  }
+  .footer .flexFooter{
+    display: block;
+  
+  }
+  .footerLogo{
+    width: 80%;
+  }
+}
+
+.footerLogoCover{
+width: 100%;
 }
 
 .footerLogo {
-  width: 100%;
+  width: 70%;
   height: 150px;
   text-align: left;
   border-radius: 10px;
 }
 
 .flexFooter {
+  display: flex;
+}
+
+.flexFooterInfo {
+  padding-top: 10%;
   display: flex;
 }
 
@@ -76,6 +99,7 @@ $gradient: #00f510;
 }
 
 .linkFooter {
+  font-size: 15px;
   text-decoration: none;
   color: rgb(253, 254, 255);
   &:hover {
@@ -139,3 +163,4 @@ $gradient: #00f510;
     }
   }
 }
+

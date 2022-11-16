@@ -63,19 +63,27 @@ const Login = () => {
                 />
               </label>
             </div>
-            <button className="red buttonLogg">
-              <i className="icon ion-md-lock"></i> Giriş
-            </button>
+            <div className="logBtnCenter">
+              <button className="red buttonLogg">
+                <i className="icon ion-md-lock"></i> Giriş
+              </button>
+            </div>
           </div>
         </form>
         <div className="regsDiv">
-          <Link to="/register/user">
-            <button className="buttonLogg regBtn">Yeni Kullanıcı Kayıt</button>
+          <Link className="regLink" to="/register/user">
+            <button className="buttonLoggRegister regBtn">
+              Kullanıcı Kayıt
+            </button>
           </Link>
-          <Link to="/register/company">
-            <button className="buttonLogg regBtn">Yeni Firma Kayıt</button>
+
+          <Link className="regLink" to="/register/company">
+            <button className="buttonLoggRegister regBtn">
+              Firma Kayıt
+            </button>
           </Link>
         </div>
+
         <div className="bottonTextLog">
           <a className="bottonTextLog" href="/">
             Kayıt olmadan devam et

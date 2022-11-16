@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AuthLocalStorage } from "../localStorage";
-import { BASE_URL } from '../../base.js'
-import { Link } from "react-router-dom";
+import { BASE_URL } from "../../base.js";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Carousel from "./Carousel";
@@ -11,14 +10,11 @@ import "react-multi-carousel/lib/styles.css";
 import "../../assets/scss/dashSection.scss";
 import "../../assets/scss/search.scss";
 
-
-
-
 const slider = () => {
   const { isLogin, name, surName, type } = AuthLocalStorage();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [count, setCount] = useState([]);
-console.log(count);
+  console.log(count);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     getDbCount();
@@ -85,9 +81,6 @@ console.log(count);
                   Teklif alabilmek için öncelikle sitemize giriş yapmadıysanız
                   lütfen giriş yapınız...
                 </p>
-                <Link to="/login" className="log-bttn">
-                  Giriş Yap
-                </Link>
               </div>
               <div className="categori-col">
                 <h3>2. Adım</h3>

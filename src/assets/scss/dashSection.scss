@@ -40,10 +40,19 @@ nav {
   align-items: center;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+  .wrapperSliderText{
+    font-size: 12px;
+  }
   .nav-links {
     display: block;
     justify-content: baseline;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: rgb(29, 28, 28);
+    opacity: 90%;
+    z-index: 1;
   }
 }
 
@@ -54,7 +63,7 @@ nav {
   // text-align: left;
   display: flex;
   justify-content: space-between;
-  // position: fixed;
+  position: fixed;
   width: 100%;
   top: 0;
   background-color: rgb(29, 28, 28);
@@ -182,7 +191,7 @@ nav {
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .stepRow {
     flex-direction: column;
   }
@@ -191,6 +200,13 @@ nav {
   }
   .rotateNumber {
     font-size: 0.5rem;
+  }
+  .idcAll{
+    display: block !important;
+    text-align: center;
+  }
+  .idcAll .idcCard{
+    width: 90%;
   }
 }
 
@@ -371,6 +387,7 @@ nav {
   /*This part is important for centering*/
   display: grid;
   place-items: center;
+  width: 90%;
 }
 
 .typing-demo {
@@ -459,3 +476,4 @@ nav {
   font-weight: bold;
   font-family: 'FontAwesome';
 }
+

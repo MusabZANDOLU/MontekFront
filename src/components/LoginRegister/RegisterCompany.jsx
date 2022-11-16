@@ -5,6 +5,7 @@ import alertify from "alertifyjs";
 import { useDispatch } from "react-redux";
 import { registerCompanny } from "../../redux/auth/AuthSlice";
 import PasswordChecklist from "react-password-checklist";
+import svgHome from '../../assets/svg/loginRegister/svgHome.svg'
 
 function RegisterCompany() {
   // const { id,isLogin, type, } = useSelector(state => state.auth);
@@ -39,7 +40,7 @@ function RegisterCompany() {
     );
     setTimeout(() => {
       navigate("/login");
-      info1()
+      info1();
     }, 2000);
   };
 
@@ -82,7 +83,7 @@ function RegisterCompany() {
               placeholder="Email Adresiniz"
             />
           </label>
-          <div>
+          <div className="regPassCenter">
             <label className="labelLoggPass">
               <input
                 required
@@ -102,38 +103,42 @@ function RegisterCompany() {
               />
             </label>
           </div>
-          <label className="labelLoggPass">
-            <input
-              required
-              className="inputLogg"
-              value={passwordAgain}
-              onChange={e => setPasswordAgain(e.target.value)}
-              type={passwordShown ? "text" : "password"}
-              placeholder="Şifre Tekrarı"
+          <div className="regPassCenter">
+            <label className="labelLoggPass">
+              <input
+                required
+                className="inputLogg"
+                value={passwordAgain}
+                onChange={e => setPasswordAgain(e.target.value)}
+                type={passwordShown ? "text" : "password"}
+                placeholder="Şifre Tekrarı"
+              />
+            </label>
+          </div>
+          <div className="logBtnCenter">
+            <PasswordChecklist
+              className="checkPass"
+              rules={["number", "match", "notEmpty"]}
+              minLength={8}
+              value={password}
+              valueAgain={passwordAgain}
+              messages={{
+                // minLength: "8 Karakter",
+                number: "En az 1 numara ",
+                match: "Şifreler eşleşiyor.",
+                notEmpty: "Boş olamaz",
+              }}
             />
-          </label>
-
-          <PasswordChecklist
-          className="checkPass"
-            rules={["number", "match", "notEmpty"]}
-            minLength={8}
-            value={password}
-            valueAgain={passwordAgain}
-            messages={{
-              // minLength: "8 Karakter",
-              number: "En az 1 numara ",
-              match: "Şifreler eşleşiyor.",
-              notEmpty: "Boş olamaz",
-            }}
-          />
-          <button onClick={info1} className="red buttonLogg">
-            Kayıt Ol
-          </button>
-          <label className="labelLogg">
-            <Link to="/login">
-              <i className="fa-solid fa-house-user inputLogg iconReg"></i>
+          </div>
+          <div className="logBtnCenter">
+            <button className="red buttonLogg">Kayıt Ol</button>
+          </div>
+          <div className="homeCenter">
+            <Link className="svgCover" to="/login">
+              {/* <i className="fa-solid fa-house-user iconSize"></i> */}
+              <img className="svgLogReg" src={svgHome} alt="" />
             </Link>
-          </label>
+          </div>
         </div>
       </form>
     </div>

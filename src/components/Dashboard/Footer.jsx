@@ -8,7 +8,7 @@ function footer() {
       <div className="footer">
         <div className="flexFooter">
           <div className="blockFooterOnly">
-            <div>
+            <div className="footerLogoCover">
               <img
                 className="footerLogo"
                 src={require("../../assets/images/footer/montekFooter.png")}
@@ -21,7 +21,7 @@ function footer() {
           </div>
 
           <div className="blockFooter">
-            <div className="flexFooter">
+            <div className="flexFooterInfo">
               <div className="titleFooter">
                 Bilgilendirme <hr className="widthHr" />
                 <div className="linkCoverFooter">

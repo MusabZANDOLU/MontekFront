@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import alertify from "alertifyjs";
 import PasswordChecklist from "react-password-checklist";
 import { BASE_URL } from "../../base";
+import svgHome from '../../assets/svg/loginRegister/svgHome.svg'
 
 const unSuccesfullRegister = async () => {
   alertify.alert(
@@ -98,7 +99,7 @@ function RegisterUser() {
               placeholder="Email Adresiniz"
             />
           </label>
-          <div>
+          <div className="regPassCenter">
             <label className="labelLoggPass">
               <input
                 required
@@ -118,37 +119,42 @@ function RegisterUser() {
               />
             </label>
           </div>
-          <label className="labelLoggPass">
-            <input
-              required
-              className="inputLogg"
-              value={passwordAgain}
-              onChange={e => setPasswordAgain(e.target.value)}
-              type={passwordShown ? "text" : "password"}
-              placeholder="Şifre Tekrarı"
+          <div className="regPassCenter">
+            <label className="labelLoggPass">
+              <input
+                required
+                className="inputLogg"
+                value={passwordAgain}
+                onChange={e => setPasswordAgain(e.target.value)}
+                type={passwordShown ? "text" : "password"}
+                placeholder="Şifre Tekrarı"
+              />
+            </label>
+          </div>
+          <div className="logBtnCenter">
+            <PasswordChecklist
+              className="checkPass"
+              rules={["number", "match", "notEmpty"]}
+              minLength={8}
+              value={password}
+              valueAgain={passwordAgain}
+              messages={{
+                // minLength: "8 Karakter",
+                number: "En az 1 numara ",
+                match: "Şifreler eşleşiyor.",
+                notEmpty: "Boş olamaz",
+              }}
             />
-          </label>
-
-          <PasswordChecklist
-            className="checkPass"
-            rules={["number", "match", "notEmpty"]}
-            minLength={8}
-            value={password}
-            valueAgain={passwordAgain}
-            messages={{
-              // minLength: "8 Karakter",
-              number: "En az 1 numara ",
-              match: "Şifreler eşleşiyor.",
-              notEmpty: "Boş olamaz",
-            }}
-          />
-
-          <button className="red buttonLogg">Kayıt Ol</button>
-          <label className="labelLogg">
-            <Link to="/login">
-              <i className="fa-solid fa-house-user inputLogg iconReg"></i>
+          </div>
+          <div className="logBtnCenter">
+            <button className="red buttonLogg">Kayıt Ol</button>
+          </div>
+          <div className="homeCenter">
+            <Link className="svgCover" to="/login">
+              {/* <i className="fa-solid fa-house-user iconSize"></i> */}
+              <img className="svgLogReg" src={svgHome} alt="" />
             </Link>
-          </label>
+          </div>
         </div>
       </form>
     </div>

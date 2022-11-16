@@ -22,6 +22,14 @@ $color-white: #fff;
   margin: 0 auto;
 }
 
+.regLink {
+  text-align: center;
+  text-decoration: none;
+  color: #61677c;
+  &:hover {
+    color: #256727;
+  }
+}
 .buttonLogg,
 .inputLogg {
   border: 0;
@@ -31,9 +39,31 @@ $color-white: #fff;
   padding: $ruler;
   background-color: $color-bg;
   text-shadow: 1px 1px 0 $color-white;
+  z-index: 0;
+}
+
+.regsDiv .buttonLoggRegister {
+  border: 0;
+  outline: 0;
+  font-size: $ruler;
+  border-radius: $ruler * 2;
+  padding: $ruler;
+  background-color: $color-bg;
+  text-shadow: 1px 1px 0 $color-white;
   font-weight: bolder;
   z-index: 0;
-  padding-right: 20px;
+  width: 15%;
+  color: #61677c;
+  box-shadow: -5px -5px 20px #c8c8c9, 5px 5px 20px $color-shadow;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+    font-size: 15px;
+    font-weight: bold;
+    color: green;
+  }
 }
 
 .labelLogg {
@@ -41,6 +71,13 @@ $color-white: #fff;
   margin-bottom: 2%;
   text-align: center;
   position: relative;
+}
+
+.homeCenter {
+  display: flex;
+justify-content: center;
+
+
 }
 
 .labelLoggPass {
@@ -55,6 +92,11 @@ $color-white: #fff;
   display: block;
   margin-bottom: 1%;
   width: 100%;
+}
+
+.iconSize{
+font-size: 20px;
+padding-top: 80%;
 }
 
 .inputLogg {
@@ -74,7 +116,7 @@ $color-white: #fff;
   .formLogin {
     width: 90%;
   }
-  .buttonLogg .redd{
+  .buttonLogg .redd {
     width: 50px;
     text-align: center;
     margin: 2%;
@@ -82,11 +124,86 @@ $color-white: #fff;
   .regsDiv {
     display: block;
   }
+  .regsDiv .buttonLoggRegister {
+    width: 35%;
+    margin-bottom: 5%;
+    margin-top: 20%;
+    font-size: 12px;
+  }
+  .regsDiv .buttonLoggRegister a {
+    font-size: 13px;
+  }
   .loginAll {
     height: 100vh;
   }
+  .segment .logTitle {
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+  }
+  .loginAll .segment .logTitle {
+    padding-top: 30%;
+    font-weight: bold;
+  }
+  .labelLogg .inputLogg {
+    width: 80%;
+    text-align: center;
+  }
+  .loginAll .formLogin .coverLogin .labelLoggPass {
+    text-align: center;
+    width: 80%;
+  }
+  .logBtnCenter {
+    display: flex;
+    justify-content: center;
+  }
+  .labelLoggPass .inputLogg {
+    width: 100%;
+    text-align: center;
+  }
+  .loginAll .formLogin .coverLogin .buttonLogg {
+    width: 50%;
+    text-align: center;
+  }
+  .labelLogg .clssIcnOffLog {
+    right: 13%;
+  }
+  .labelLogg .clssIcnOnLog {
+    right: 13%;
+  }
+  .loginAll .regsDiv {
+    display: block;
+  }
+  .regPassCenter {
+    display: flex;
+    justify-content: center;
+  }
+  .coverLogin .checkPass {
+    text-align: left;
+    display: block !important;
+  }
 }
 
+.svgLogReg{
+width: 30px;
+}
+
+.svgCover{
+  margin-top: 8%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: 0;
+  outline: 0;
+  width: 30%;
+  align-items: center;
+  text-align: center;
+  font-size: $ruler;
+  border-radius: $ruler * 2;
+  background-color: $color-bg;
+  text-shadow: 1px 1px 0 $color-white;
+  z-index: 0;
+  box-shadow: inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
+}
 .buttonLogg {
   width: 15%;
   color: #61677c;
@@ -109,26 +226,6 @@ $color-white: #fff;
   }
 }
 
-// .buttonLogin {
-//   width: 15%;
-//   color: #61677c;
-//   font-weight: bold;
-//   box-shadow: -5px -5px 20px #c8c8c9, 5px 5px 20px $color-shadow;
-//   transition: all 0.2s ease-in-out;
-//   border-radius: 20px;
-//   cursor: pointer;
-
-//   &:hover {
-//     box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
-//   }
-
-//   &.red {
-//     display: block;
-//     width: 100%;
-//     color: $color-red;
-//   }
-// }
-
 .input-group {
   display: flex;
   align-items: center;
@@ -140,6 +237,9 @@ $color-white: #fff;
   }
 }
 
+.logBtnCenter {
+  text-align: center;
+}
 .coverLoginReg {
   text-align: center;
   display: flex;
@@ -261,14 +361,14 @@ $color-white: #fff;
   }
 }
 
-.checkPass{
+.coverLogin .checkPass {
   display: flex;
   justify-content: space-between;
   padding-bottom: 2% !important;
   cursor: default;
 }
 
-.clssIcnOn{
+.clssIcnOn {
   font-size: 15px;
   color: #177a1f;
   transition: 1s;
@@ -277,16 +377,16 @@ $color-white: #fff;
   right: 15px;
 }
 
-.clssIcnOff{
+.clssIcnOff {
   font-size: 15px;
-    color: #ae1100;
-    transition: 1s;
-    cursor: pointer;
-    right: 10px;
-    position: absolute;
+  color: #ae1100;
+  transition: 1s;
+  cursor: pointer;
+  right: 10px;
+  position: absolute;
 }
 
-.clssIcnOnLog{
+.clssIcnOnLog {
   font-size: 15px;
   color: #177a1f;
   transition: 1s;
@@ -296,12 +396,12 @@ $color-white: #fff;
   top: 30%;
 }
 
-.clssIcnOffLog{
+.clssIcnOffLog {
   font-size: 15px;
-    color: #ae1100;
-    transition: 1s;
-    cursor: pointer;
-    right: 10px;
-    position: absolute;
-    top: 30%;
+  color: #ae1100;
+  transition: 1s;
+  cursor: pointer;
+  right: 10px;
+  position: absolute;
+  top: 30%;
 }
