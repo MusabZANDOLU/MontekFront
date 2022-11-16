@@ -35,9 +35,7 @@ const slider = () => {
               <br />
               <div className="wrapperSliderText">
                 {/* <div className="typing-demo">Montek'e hoşgeldiniz. Kalite ve güven herkesin hakkı</div> */}
-                <div className="typingDemoLogin">
                   Sn. {name} {surName}
-                </div>
               </div>
             </h3>
           ) : (
@@ -51,9 +49,7 @@ const slider = () => {
               <br />
               <div className="wrapperSliderText">
                 {/* <div className="typing-demo">Montek'e hoşgeldiniz. Kalite ve güven herkesin hakkı</div> */}
-                <div className="typing-demo">
                   KALİTE VE GÜVEN HERKESİN HAKKI
-                </div>
               </div>
             </h3>
           )}

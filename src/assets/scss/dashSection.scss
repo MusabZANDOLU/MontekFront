@@ -206,7 +206,7 @@ nav {
     text-align: center;
   }
   .idcAll .idcCard{
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -374,7 +374,6 @@ nav {
   position: relative;
   cursor: pointer;
 }
-
 .log-bttn:hover {
   border: 1px solid #080808;
   background: #331d1b;
@@ -385,9 +384,9 @@ nav {
 .wrapperSliderText {
   // height: 100vh;
   /*This part is important for centering*/
-  display: grid;
-  place-items: center;
-  width: 90%;
+  // display: grid;
+  // place-items: center;
+  width: 100%;
 }
 
 .typing-demo {
@@ -400,14 +399,14 @@ nav {
   // font-size: 2em;
 }
 
-.typingDemoLogin {
-  width: 30ch;
-  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  // border-right: 1px solid;
-  font-size: 1.5em;
-}
+// .typingDemoLogin {
+//   width: 30ch;
+//   animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   // border-right: 1px solid;
+//   font-size: 1.5em;
+// }
 
 @keyframes typing {
   from {
@@ -447,7 +446,7 @@ nav {
 
 .idcImage {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 15px;
   &:hover{
     margin-top: -10px;
     transition: 1s;

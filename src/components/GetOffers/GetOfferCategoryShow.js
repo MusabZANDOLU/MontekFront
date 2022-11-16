@@ -17,7 +17,7 @@ const GetOfferCategoryShow = () => {
 
   return (
     <div className="categoryAllContent">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="categoryTitleShow">
 
       </div>
@@ -74,7 +74,7 @@ const GetOfferCategoryShow = () => {
 
 
       {/* <div>Bazı spesifik özellikleri ve ölçüleri yakın olacak şekilde işaretleriz.</div> */}
-      <div className='UserSettingAll'>
+      <div className='UserSettingAllShow'>
         <div className="flexShow">
           <div className="infoShowTitle">(2.ADIM) Ürün boyut, renk, cam vb özellikler seçilir. Yakın seçimler dahilinde firmalarımız sizlere fiyat aralıkları vermeye hazırlardır.</div>
           {/* <div className="infoShow1">Ürün boyut, renk, cam vb özellikler seçilir</div> */}
@@ -170,7 +170,7 @@ const GetOfferCategoryShow = () => {
                 </label>
               </div>
             </div>
-            <div className="radiogroup">
+            <div className="radiogroupVisible">
               <div className="wrapper">
                 <input className="state" type="radio" name="swatterPiece" id="i2" value="3 adet alüminyum çubuklu gövde" />
                 <label className="label">
@@ -207,9 +207,9 @@ const GetOfferCategoryShow = () => {
       <hr/>
       <div id='step7Folding'>
         <div className="infoShowTitle">(3.ADIM) Yapılan önizleme ardından "Teklifi Yayınla" butonu ile verilen bilgileriniz firmalarımıza iletilir.</div>
-        <div className='UserSettingAll'>
-          <div className='getoffer-text'>Teklifinizi gözden geçiriniz. <br /> (Örnektir!)</div>
-          <div className="radiogroupPrev">
+        <div className='UserSettingAllShow'>
+          <div className='getofferTextShow'>Teklifinizi gözden geçiriniz. <br /> (Örnektir!)</div>
+          <div className="radiogroupPrevShow">
 
             <div className="wrapper">
               <label className="label">
@@ -260,7 +260,7 @@ const GetOfferCategoryShow = () => {
             </div>
 
           </div>
-          <div className="buttons">
+          <div className="buttonsShow">
             <button className="getOfferButton"><i className="fa-solid fa-upload"></i> Teklif Yayınla</button>
             <hr />
             <button className="getOfferButton"><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
@@ -272,7 +272,7 @@ const GetOfferCategoryShow = () => {
       <div className="infoShowTitle">"Tekliflerim" sayfamızdan oluşturduğunuz tüm istekleri görebilir, "Gelen Teklifler" butonu ile firmalarımızın siz kullanıcılarımıza verdiği fiyat teklifi, son geçerlilik tarihi vb. bilgileri rahatlıkla görebilir ve dilediğinize karar verebilirsiniz.</div>
       <br/>
       <div className="flexShowRadios">
-        <div className="radiogroupMyOffer">
+        <div className="radiogroupMyOfferShow">
           <div>
             <div>
               <div className="myOfferAllCol">
@@ -364,7 +364,7 @@ const GetOfferCategoryShow = () => {
             </div>
           </div>
         </div>
-        <div className="radiogroupMyOffer">
+        <div className="radiogroupMyOfferShow">
           <div>
             <div>
               <div className="myOfferAllCol">
@@ -456,7 +456,7 @@ const GetOfferCategoryShow = () => {
             </div>
           </div>
         </div>
-        <div className="radiogroupMyOffer">
+        <div className="radiogroupMyOfferShow">
           <div>
             <div>
               <div className="myOfferAllCol">
