@@ -17,7 +17,7 @@ const GetOfferCategoryShow = () => {
 
   return (
     <div className="categoryAllContent">
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="categoryTitleShow">
 
       </div>
