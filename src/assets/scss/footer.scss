@@ -35,12 +35,14 @@ $gradient: #00f510;
 }
 
 @media (max-width: 768px) {
-  //--------------------------responsive
+  .footer {
+    margin-top: 35px;
+  }
   .footerText {
-    font-size: 10px;
+    font-size: 1rem;
     text-align: center;
     padding-bottom: 8%;
-    margin-top: -2%;
+    margin-top: -5%;
   }
   .cursorFooter {
     display: none;
@@ -62,6 +64,15 @@ $gradient: #00f510;
   }
   .icerik-resim-2 {
     display: none;
+  }
+  .titleFooter {
+    margin-top: 5%;
+  }
+  .flexFooterInfo .titleFooter .linkFooter {
+    font-size: 0.8rem;
+  }
+  .linkCoverFooter .socialContainer .social-icons {
+    font-size: 13px;
   }
 }
 

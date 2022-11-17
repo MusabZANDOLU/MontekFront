@@ -109,6 +109,12 @@ margin-left: -1%;
   }
 }
 
+@media (max-width: 1100px) {
+  .aFooterT{
+    width: 30% !important;
+  }
+}
+
 @media (max-width: 768px) {
   .aboutFlex {
     display: block;
@@ -131,6 +137,17 @@ margin-left: -1%;
   }
   .social-icons{
     text-align: center;
+  }
+  .aboutAllPage .aboutFlex .aboutFooterAllLeft{
+    width: 100%;
+    height: auto;
+  }
+  .aboutAllPage .aboutFlex .aboutFooterAllRight{
+    width: 100%;
+    height: auto;
+  }
+  .aFooterT{
+    width: 25% !important;
   }
 }
 

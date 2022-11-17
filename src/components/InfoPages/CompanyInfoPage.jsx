@@ -142,7 +142,7 @@ const CompanyInfoPage = () => {
             />
           </label>
         </div>
-        <button className="red buttonLogg">Bilgilerimi Güncelle</button>
+        <button className="red buttonLoggInfo">Bilgilerimi Güncelle</button>
       </form>
     </div>
   );

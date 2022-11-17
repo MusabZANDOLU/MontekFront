@@ -73,14 +73,24 @@ $color-shadow: #aeb1bd;
   .companies-table {
     width: 100%;
   }
+  .companies-text{
+    margin-top: 10%;
+    font-size: 3rem;
+  }
   .company-sttng {
     padding: 1rem 1rem;
     margin: 1%;
     height: 100%;
     width: 90%;
   }
+  .companies-all-table{
+    display: flex;
+    justify-content: center;
+  }
   .radiogroupCompanies {
-    width: 100%;
+    border-radius: 10px;
+    width: 90%;
+    margin-top: 5%;
   }
 }
 

@@ -193,12 +193,15 @@ $color-shadow: #aeb1bd;
   width: 4%;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
  .radiogroupMyOffer{
   width: 100% !important;
   margin-left: 3%;
   margin-right: 5%;
  }
+ .myOfferTopText {
+  margin-top: 10%;
+}
 }
 
 @media (max-width: 1150px) {

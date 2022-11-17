@@ -463,7 +463,6 @@ const GetOfferCategoryShow = () => {
                 <div className="myOfferLeftCol">
                   <div>
                     <label className="label">
-                      {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                       <div className="textGiveOfferCss">
                         Ürün:
                         <br />
@@ -475,7 +474,6 @@ const GetOfferCategoryShow = () => {
                   <br />
                   <div>
                     <label className="label">
-                      {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                       <div className="textGiveOfferCss">
                         Detaylar:
                         <br />
@@ -486,7 +484,6 @@ const GetOfferCategoryShow = () => {
                   </div>
                   <div>
                     <label className="label">
-                      {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                       <div className="textGiveOfferCss">
                         Yükseklik: 180 cm
                       </div>
@@ -494,7 +491,6 @@ const GetOfferCategoryShow = () => {
                   </div>
                   <div>
                     <label className="label">
-                      {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                       <div className="textGiveOfferCss">
                         L Balkon
                       </div>
@@ -502,7 +498,6 @@ const GetOfferCategoryShow = () => {
                   </div>
                   <div>
                     <label className="label">
-                      {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                       <div className="textGiveOfferCss">
                         Şeffaf Cam
                       </div>
@@ -512,7 +507,6 @@ const GetOfferCategoryShow = () => {
                 <div className="myOfferRightCol">
                   <div>
                     <label className="label">
-                      {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                       <div className="textGiveOfferCss">
                         Açıklamam:
                         <br />

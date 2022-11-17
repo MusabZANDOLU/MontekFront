@@ -242,3 +242,16 @@ $color-white: #fff;
 .makeFlex{
   display: flex;
 }
+
+@media (max-width: 768px) {
+  .giveOfferAllCard{
+    display: block;
+  }
+  .giveOfferCard{
+    width:100%;
+    margin-top: 8%;
+  }
+  .modalContainer{
+    margin-top: 35px;
+  }
+}

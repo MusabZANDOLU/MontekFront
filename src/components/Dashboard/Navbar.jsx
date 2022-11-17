@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/auth/AuthSlice";
 import AuthLocalStorage from "../localStorage";
+import { useState } from "react";
 
 import svgCompanies from "../../assets/svg/navbar/svgCompanies.svg";
 import svgProduct from "../../assets/svg/navbar/svgProduct.svg";
@@ -13,22 +14,24 @@ import svgMyOffer from "../../assets/svg/navbar/svgMyOffer.svg";
 import svgLogin from "../../assets/svg/navbar/svgLogin.svg";
 import svgLogout from "../../assets/svg/navbar/svgLogout.svg";
 import svgGiveOffer from "../../assets/svg/navbar/svgGiveOffer.svg";
-import { useState } from "react";
+import svgMenu from "../../assets/svg/navbar/svgMenu.svg";
+import svgClose from "../../assets/svg/navbar/svgClose.svg";
+import svgUser from "../../assets/svg/navbar/svgUser.svg";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  // const { isLogin } = useSelector(state => state.auth);
   const { isLogin, id, type } = AuthLocalStorage();
+  const [clicked, setClicked] = useState(false);
+  const [clickedRight, setClickedRight] = useState(false);
+  
   const logoutHandler = () => {
     dispatch(logout());
   };
 
-  const [clicked, setClicked] = useState(false);
-  const [clickedRight, setClickedRight] = useState(false);
-
   const toggleMenu = () => {
     setClicked(!clicked);
   };
+
   const toggleMenuRight = () => {
     setClickedRight(!clickedRight);
   };
@@ -37,13 +40,18 @@ const Navbar = () => {
     <div>
       <nav>
         <div className="nav-links" id="navLink">
-            <div id="navMobile" onClick={toggleMenu}>
-              <i
-                id="bar"
-                className={clicked ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
-              ></i>
-            </div>
-          <ul id="navbar" className={clicked ? '#navbar active':'#navbar'}>
+          <div id="navMobile" onClick={toggleMenu}>
+          <img
+              id="bar"
+              src={clicked ? svgClose : svgMenu}
+              alt=""
+            />
+            {/* <i
+              id="bar"
+              className={clicked ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
+            ></i> */}
+          </div>
+          <ul id="navbar" className={clicked ? "#navbar active" : "#navbar"}>
             <li>
               {/* <i className="fa-solid fa-house-user"></i> */}
               <img className="svgNavbar" src={svgHome} alt="" />
@@ -81,12 +89,22 @@ const Navbar = () => {
             </li>
           </ul>
           <div id="navMobileRight" onClick={toggleMenuRight}>
-              <i
+            {/* <i
                 id="bar"
                 className={clickedRight ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
-              ></i>
-            </div>
-          <ul id="navbarRight" className={clickedRight ? '#navbarRight activeRight':'#navbarRight'}>
+              ></i> */}
+            <img
+              id="barRight"
+              src={clickedRight ? svgClose : svgUser}
+              alt=""
+            />
+          </div>
+          <ul
+            id="navbarRight"
+            className={
+              clickedRight ? "#navbarRight activeRight" : "#navbarRight"
+            }
+          >
             {isLogin && type === "user" && (
               <li>
                 {/* <i className="fa-solid fa-book-bookmark"></i> */}

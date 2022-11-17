@@ -22,10 +22,16 @@ $color-shadow: #aeb1bd;
   color: rgb(61, 61, 61);
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 768px) {
   .categoryCardOne {
     display: block;
-    width: 30%;
+    // width: 30%;
+  }
+  #step7Folding .UserSettingAllShow .buttonsShow {
+    text-align: center;
+  }
+  .categoryAllContent .cards-list{
+    display: block;
   }
 }
 
@@ -95,16 +101,19 @@ $color-shadow: #aeb1bd;
   .card-list {
     flex-direction: column;
   }
-  .flexShowRadios{
-    display: block !important;
+  .categoryAllContent .flexShowRadios {
+    display: block;
   }
-  .radiogroupVisible{
+  .categoryAllContent .flexShowRadios .radiogroupMyOfferShow{
+    margin-top: 20px;
+  }
+  .radiogroupVisible {
     display: none;
   }
-  .infoShowTitle{
+  .infoShowTitle {
     margin-top: 20%;
   }
-  .UserSettingAllShow{
+  .UserSettingAllShow {
     display: block !important;
   }
 }
@@ -161,16 +170,16 @@ $color-shadow: #aeb1bd;
   font-size: 18px;
 }
 
-.infoShowTitle{
+.infoShowTitle {
   font-size: 20px;
   text-align: center;
 }
 
-.flexShow{
+.flexShow {
   display: block;
 }
 
-.flexShowRadios{
+.flexShowRadios {
   width: 100%;
   display: flex;
 }

@@ -42,18 +42,8 @@ nav {
 
 @media (max-width: 768px) {
   .wrapperSliderText {
-    font-size: 12px;
+    font-size: 20px;
   }
-  // .nav-links {-------------------------------
-  //   display: block;
-  //   justify-content: baseline;
-  //   position: absolute;
-  //   width: 100%;
-  //   top: 0;
-  //   background-color: rgb(29, 28, 28);
-  //   opacity: 90%;
-  //   z-index: 1;
-  // }
 }
 
 .nav-links {
@@ -169,12 +159,11 @@ nav {
 }
 
 .categori-col {
-  flex-basis: 31%;
+  width: 33%;
   background: #fff3f3;
   border-radius: 10px;
-  margin-bottom: 5%;
+  margin: 1%;
   padding: 20px 12px;
-  box-sizing: border-box;
   transition: 0.5s;
 }
 
@@ -189,7 +178,7 @@ nav {
 
 @media (max-width: 768px) {
   .stepRow {
-    flex-direction: column;
+    display: block;
   }
   .AllCardCount {
     display: block;
@@ -204,6 +193,23 @@ nav {
   .idcAll .idcCard {
     width: 100%;
   }
+  .categori-col{
+    width: 90%;
+    margin-top: 10px;
+  }
+  .icerik-baslik-1{
+    margin-top: 15px;
+  }
+  .icerik-baslik-2{
+    margin-top: 15px;
+  }
+  .idcAll .idcCard .idcLeftArea .idcImage {
+    width: 90%;
+  }
+  .idcAll .idcCard  .idcTitle {
+    margin-top: 25px;
+  }
+  
 }
 
 .urun-detay-buton {
@@ -492,34 +498,47 @@ nav {
     align-items: flex-start;
     justify-content: flex-start;
     position: fixed;
-    top: 90px;
+    top: 50px;
     left: -300px;
-    width: 300px;
+    width: 220px;
     height: 100vh;
     background-color: #3b4553;
-    transition: 0.7s;
+    transition: 1s;
+
   }
+
   #navbar.active {
     left: 0px;
+    border-radius: 0 20px 20px 0;
+    height: 70vh;
   }
+
   #navMobile {
     display: block;
   }
+
   #navbar li {
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-left: 20px;
   }
+
   #navMobile i {
     font-size: 24px;
     cursor: pointer;
   }
 }
 
-#bar{
-  padding-left: 20px;
-  padding-top: 20px;
+#bar {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 25px;
 }
 
-
+#barRight {
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 25px;
+}
 
 @media screen and (max-width: 768px) {
   #navbarRight {
@@ -528,24 +547,31 @@ nav {
     align-items: flex-start;
     justify-content: flex-start;
     position: fixed;
-    top: 90px;
+    top: 50px;
     right: -300px;
-    width: 300px;
+    width: 220px;
     height: 100vh;
     background-color: #3b4553;
     transition: 0.7s;
   }
   #navbarRight.activeRight {
     right: 0px;
+    height: 70vh;
+    border-radius: 20px 0 0 20px ;
   }
   #navMobileRight {
     display: block;
   }
   #navbarRight li {
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-right: 20px;
   }
   #navMobileRight i {
     font-size: 24px;
     cursor: pointer;
+    margin-right: 20px;
+  }
+  .nav-links ul li a {
+    font-size: 14px;
   }
 }

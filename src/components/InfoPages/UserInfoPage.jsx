@@ -125,7 +125,7 @@ const UserInfoPage = () => {
               placeholder="Email Adresiniz"
             />
           </label>
-          <button className="red buttonLogg">Bilgilerimi Güncelle</button>
+          <button className="red buttonLoggInfo">Bilgilerimi Güncelle</button>
         </div>
       </form>
     </div>
