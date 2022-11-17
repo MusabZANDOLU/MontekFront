@@ -24,9 +24,13 @@ const Navbar = () => {
   };
 
   const [clicked, setClicked] = useState(false);
+  const [clickedRight, setClickedRight] = useState(false);
 
   const toggleMenu = () => {
     setClicked(!clicked);
+  };
+  const toggleMenuRight = () => {
+    setClickedRight(!clickedRight);
   };
 
   return (
@@ -76,7 +80,13 @@ const Navbar = () => {
               <Link to="/aboutUs">Hakkımızda</Link>
             </li>
           </ul>
-          <ul>
+          <div id="navMobileRight" onClick={toggleMenuRight}>
+              <i
+                id="bar"
+                className={clickedRight ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
+              ></i>
+            </div>
+          <ul id="navbarRight" className={clickedRight ? '#navbarRight activeRight':'#navbarRight'}>
             {isLogin && type === "user" && (
               <li>
                 {/* <i className="fa-solid fa-book-bookmark"></i> */}

@@ -1,5 +1,5 @@
 $color-grey: rgb(207, 204, 204);
-$color-bg: #ebecf0;
+// $color-bg: #ebecf0;
 $color-shadow: #aeb1bd;
 
 .companies-all-content {
@@ -22,7 +22,7 @@ $color-shadow: #aeb1bd;
 .companyListSvg{
   text-align: right;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .companies-table {
