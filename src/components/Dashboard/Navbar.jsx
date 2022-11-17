@@ -13,8 +13,9 @@ import svgMyOffer from "../../assets/svg/navbar/svgMyOffer.svg";
 import svgLogin from "../../assets/svg/navbar/svgLogin.svg";
 import svgLogout from "../../assets/svg/navbar/svgLogout.svg";
 import svgGiveOffer from "../../assets/svg/navbar/svgGiveOffer.svg";
+import { useState } from "react";
 
-function Navbar() {
+const Navbar = () => {
   const dispatch = useDispatch();
   // const { isLogin } = useSelector(state => state.auth);
   const { isLogin, id, type } = AuthLocalStorage();
@@ -22,11 +23,23 @@ function Navbar() {
     dispatch(logout());
   };
 
+  const [clicked, setClicked] = useState(false);
+
+  const toggleMenu = () => {
+    setClicked(!clicked);
+  };
+
   return (
     <div>
       <nav>
         <div className="nav-links" id="navLink">
-          <ul>
+            <div id="navMobile" onClick={toggleMenu}>
+              <i
+                id="bar"
+                className={clicked ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
+              ></i>
+            </div>
+          <ul id="navbar" className={clicked ? '#navbar active':'#navbar'}>
             <li>
               {/* <i className="fa-solid fa-house-user"></i> */}
               <img className="svgNavbar" src={svgHome} alt="" />
@@ -119,5 +132,5 @@ function Navbar() {
       </nav>
     </div>
   );
-}
+};
 export default Navbar;

@@ -41,19 +41,19 @@ nav {
 }
 
 @media (max-width: 768px) {
-  .wrapperSliderText{
+  .wrapperSliderText {
     font-size: 12px;
   }
-  .nav-links {
-    display: block;
-    justify-content: baseline;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    background-color: rgb(29, 28, 28);
-    opacity: 90%;
-    z-index: 1;
-  }
+  // .nav-links {-------------------------------
+  //   display: block;
+  //   justify-content: baseline;
+  //   position: absolute;
+  //   width: 100%;
+  //   top: 0;
+  //   background-color: rgb(29, 28, 28);
+  //   opacity: 90%;
+  //   z-index: 1;
+  // }
 }
 
 .nav-links {
@@ -138,21 +138,17 @@ nav {
   cursor: pointer;
 }
 
-
-@media (max-width: 768px) {
-  .nav-links{
-    padding-top: 5%;
-    font-size: 23px;
-    display: block;
-    text-align: center;
-  }
-  .nav-links ul li {
-    display: block;
-  }
-}
-
-
-
+// @media (max-width: 768px) {------------------------
+//   .nav-links{
+//     padding-top: 5%;
+//     font-size: 23px;
+//     display: block;
+//     text-align: center;
+//   }
+//   .nav-links ul li {
+//     display: block;
+//   }
+// }
 
 /*-------------------- ADIMLAR --------------------*/
 
@@ -201,11 +197,11 @@ nav {
   .rotateNumber {
     font-size: 0.5rem;
   }
-  .idcAll{
+  .idcAll {
     display: block !important;
     text-align: center;
   }
-  .idcAll .idcCard{
+  .idcAll .idcCard {
     width: 100%;
   }
 }
@@ -420,7 +416,7 @@ nav {
   }
 }
 
-.svgNavbar{
+.svgNavbar {
   width: 20px;
   color: wheat;
 }
@@ -447,7 +443,7 @@ nav {
 .idcImage {
   width: 100%;
   border-radius: 15px;
-  &:hover{
+  &:hover {
     margin-top: -10px;
     transition: 1s;
   }
@@ -473,6 +469,41 @@ nav {
   color: rgb(57, 57, 57);
   margin-top: -10px;
   font-weight: bold;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
 }
 
+#navMobile {
+  display: none;
+}
+
+#navMobile i {
+  color: #e1eaf1;
+}
+@media screen and (max-width: 768px) {
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 90px;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #3b4553;
+    transition: 0.7s;
+  }
+  #navbar.active {
+    left: 0px;
+  }
+  #navMobile {
+    display: block;
+  }
+  #navbar li {
+    margin-bottom: 25px;
+  }
+  #navMobile i {
+    font-size: 24px;
+    cursor: po;
+  }
+}

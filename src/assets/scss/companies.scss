@@ -19,6 +19,12 @@ $color-shadow: #aeb1bd;
   flex-wrap: wrap;
 }
 
+.companyListSvg{
+  text-align: right;
+  display: flex;
+  justify-content: end;
+}
+
 .companies-table {
   padding: 1%;
   width: 48%;

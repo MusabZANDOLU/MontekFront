@@ -30,7 +30,7 @@ function footer() {
                   </Link>
                 </div>
                 <div className="linkCoverFooter">
-                  <Link className="linkFooter" to="contact">
+                  <Link className="linkFooter" to="/aboutUs">
                     Hakkımızda
                   </Link>
                 </div>
