@@ -25,7 +25,6 @@
 }
 
 @media (max-width: 768px) {
-  
   .UserSettingAll {
     align-items: center;
     display: block;
@@ -46,9 +45,9 @@
   }
   .getoffer-text {
     font-weight: bolder;
-    font-size: 15px !important;
-    width: 50% !important;
-    text-align: center !important;
+    font-size: 20px;
+    width: 150px;
+    text-align: center;
   }
   .getOfferButton {
     width: 50%;
@@ -60,16 +59,43 @@
       color: rgb(236, 236, 245);
       background-color: rgb(37, 37, 37);
     }
+    #step7Folding .UserSettingAll .buttons .getOfferLinkButton{
+      display: flex;
+      justify-content: center;
+    }
   }
-  // .getOfferLinkButton {
-  //   background: none;
-  //   border: 1px solid;
-  //   font: inherit;
-  //   line-height: 1;
-  //   margin: 0.5em;
-  //   padding: 1em 2em;
-  //   text-decoration: none;
-  // }
+  .getoffer-text {
+    margin-top: 15%;
+    margin-left: 2%;
+    width: 95%;
+  }
+   .UserSettingAll .buttons{
+    width: 100%;
+    // display: flex;
+    justify-items: center !important;
+  }
+  .getOfferButton{
+    width: 50%;
+  }
+  #step7Folding .UserSettingAll .radiogroupPrev{
+    width: 80%;
+    // display: flex;
+    justify-items: center;
+  }
+  #step1Folding .UserSettingAll .buttons link{
+    margin-top: 20%;
+  }
+
+  #step2Folding .UserSettingAll .radiogroup{
+    text-align: center;
+  }
+  #step6Folding .UserSettingAll .radiogroup-ex{
+    display: flex;
+    justify-content: center;
+  }
+  .getOffer-input{
+    width: 250px !important; height: 358px;
+  }
 }
 
 .radiogroup {
@@ -193,13 +219,6 @@
   opacity: 1;
 }
 
-.getoffer-text {
-  font-weight: bolder;
-  font-size: 20px;
-  width: 150px;
-  text-align: center;
-}
-
 // ---------------------------------------------------------------
 
 .buttons {
@@ -273,20 +292,14 @@ $colors: (
   padding-bottom: 5%;
 }
 
+
 .getOfferLinkButton {
-  background: none;
+  transition: 0.25s;
   border: 1px solid;
-  font: inherit;
+  border-radius: 5px;
   line-height: 1;
   margin: 0.5em;
   padding: 1em 2em;
-  text-decoration: none;
-}
-
-.getOfferLinkButton {
-  color: var(--color);
-  transition: 0.25s;
-
   &:hover,
   &:focus {
     border-color: var(--hover);
@@ -295,6 +308,6 @@ $colors: (
   }
 }
 
-.radioGroupFlex{
+.radioGroupFlex {
   display: flex;
 }

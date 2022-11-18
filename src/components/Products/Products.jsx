@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
 import "../../assets/scss/products.scss";
 
 function Products() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -326,7 +330,7 @@ function Products() {
             </div>
           </div>
         </div>
-      <Footer />
+        <Footer />
       </div>
     </div>
   );

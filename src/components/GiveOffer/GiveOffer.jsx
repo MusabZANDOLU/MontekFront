@@ -8,7 +8,7 @@ import { AuthLocalStorage } from "../localStorage";
 import "../../assets/scss/giveOffer.scss";
 import "react-calendar/dist/Calendar.css";
 import { BASE_URL } from "../../base";
-Modal.setAppElement('*');
+Modal.setAppElement("*");
 
 const customStyles = {
   content: {
@@ -26,7 +26,7 @@ const GiveOffer = () => {
   const [comment, setComment] = useState();
   const [price, setPrice] = useState();
   const [currentOffer, setCurrentOffer] = useState({});
-  const { accessToken} = AuthLocalStorage();
+  const { accessToken } = AuthLocalStorage();
   const [lastDate, setLastDate] = useState(new Date());
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -34,6 +34,7 @@ const GiveOffer = () => {
   myDate = moment().format("L");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getOffer();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

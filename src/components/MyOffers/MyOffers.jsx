@@ -17,6 +17,7 @@ const MyOffers = () => {
   const { accessToken } = AuthLocalStorage();
   useEffect(() => {
     getMyOffer();
+    window.scrollTo(0, 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -26,7 +27,7 @@ const MyOffers = () => {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(res => {
-        window.location.reload(false)
+        window.location.reload(false);
       });
     // setMyOffer(response.data.data);
   };

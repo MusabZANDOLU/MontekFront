@@ -15,6 +15,7 @@ const GiveOfferMinePage = () => {
   myDate = moment().format("DD MM YYYY");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getGiveOfferById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

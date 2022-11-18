@@ -7,8 +7,8 @@ import alertify from 'alertifyjs'
 const GetOfferCategoryShow = () => {
 
   useEffect(() => {
+    window.scrollTo(0, 0)   
     infoShowPage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const infoShowPage = async () => {

@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { AuthLocalStorage } from "../localStorage";
-import { BASE_URL } from "../../base.js";
+// import { BASE_URL } from "../../base.js";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Carousel from "./Carousel";
 import InfoDataCount from "./InfoDataCount";
-import axios from "axios";
 import "react-multi-carousel/lib/styles.css";
 import "../../assets/scss/dashSection.scss";
 import "../../assets/scss/search.scss";
 
 const slider = () => {
   const { isLogin, name, surName, type } = AuthLocalStorage();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [count, setCount] = useState([]);
-  console.log(count);
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    getDbCount();
+    window.scrollTo(0, 0);
   }, []);
 
-  const getDbCount = async () => {
-    const response = await axios.get(`${BASE_URL}/count`);
-    setCount(response.data);
-  };
   return (
     <div className="allDash">
       <Navbar />
@@ -35,7 +28,7 @@ const slider = () => {
               <br />
               <div className="wrapperSliderText">
                 {/* <div className="typing-demo">Montek'e hoşgeldiniz. Kalite ve güven herkesin hakkı</div> */}
-                  Sn. {name} {surName}
+                Sn. {name} {surName}
               </div>
             </h3>
           ) : (
@@ -49,7 +42,7 @@ const slider = () => {
               <br />
               <div className="wrapperSliderText">
                 {/* <div className="typing-demo">Montek'e hoşgeldiniz. Kalite ve güven herkesin hakkı</div> */}
-                  KALİTE VE GÜVEN HERKESİN HAKKI
+                KALİTE VE GÜVEN HERKESİN HAKKI
               </div>
             </h3>
           )}

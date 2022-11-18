@@ -33,6 +33,10 @@ $color-shadow: #aeb1bd;
   .categoryAllContent .cards-list{
     display: block;
   }
+  .categoryTitle {
+    margin-top: 20%;
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -115,6 +119,9 @@ $color-shadow: #aeb1bd;
   }
   .UserSettingAllShow {
     display: block !important;
+  }
+  .myOfferBtnDelete{
+    margin-right: 20px;
   }
 }
 

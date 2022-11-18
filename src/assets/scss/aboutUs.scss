@@ -24,6 +24,10 @@ $timing: 265ms;
   display: flex;
 }
 
+.aboutFlex {
+  display: flex;
+}
+
 .aboutRightContent {
   width: 70%;
 }
@@ -118,16 +122,19 @@ margin-left: -1%;
 @media (max-width: 768px) {
   .aboutFlex {
     display: block;
+    // width: 100%;
   }
   .infoIcons{
-    width: 100%;
+    width: 99%;
   }
   .logoCover{
-    width: 100%;
+    width: 99%;
   }
-  .aboutTextTitle{
+  .aboutRightContent .infoIcons .aboutTextTitle{
     width: 100%;
     text-align: center;
+    font-size: 23px;
+    padding-bottom: 20px;
   }
   .aboutRightContent {
     width: 100%;
@@ -148,6 +155,9 @@ margin-left: -1%;
   }
   .aFooterT{
     width: 25% !important;
+  }
+  .aboutRightContent .infoIcons .aboutText{
+    width: 95%;
   }
 }
 

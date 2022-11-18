@@ -47,10 +47,6 @@ nav {
 }
 
 .nav-links {
-  /*Navbar sabit kalması için*/
-  // flex: 1;
-  // align-items: center;
-  // text-align: left;
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -128,17 +124,20 @@ nav {
   cursor: pointer;
 }
 
-// @media (max-width: 768px) {------------------------
-//   .nav-links{
-//     padding-top: 5%;
-//     font-size: 23px;
-//     display: block;
-//     text-align: center;
-//   }
-//   .nav-links ul li {
-//     display: block;
-//   }
-// }
+
+.searchText{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 60%;
+  height:30%;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
 
 /*-------------------- ADIMLAR --------------------*/
 
@@ -196,12 +195,29 @@ nav {
   .categori-col{
     width: 90%;
     margin-top: 10px;
+    height: 130px;
   }
-  .icerik-baslik-1{
-    margin-top: 15px;
+  .allDash .sliderClass .icerikAll{
+    width: 98%;
+    padding: 1px;
   }
-  .icerik-baslik-2{
+  .icerikAll .iceriks .icerik-baslik-1{
     margin-top: 15px;
+    text-align: center;
+  }
+  .icerikAll .iceriks .icerik-1{
+    margin-top: 15px;
+    text-align: justify;
+    width: 95%;
+  }
+  .icerikAll .iceriks .icerik-baslik-2{
+    margin-top: 15px;
+    text-align: center;
+  }
+  .icerikAll .iceriks .icerik-2{
+    margin-top: 15px;
+    text-align: justify;
+    width: 95%;
   }
   .idcAll .idcCard .idcLeftArea .idcImage {
     width: 90%;
@@ -209,7 +225,12 @@ nav {
   .idcAll .idcCard  .idcTitle {
     margin-top: 25px;
   }
-  
+  .searchText{
+    width: 90%;
+  }
+  .nav-links{
+    height: 50px;
+  }
 }
 
 .urun-detay-buton {
@@ -345,7 +366,7 @@ nav {
 }
 
 .icerik-baslik-2 {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: bolder;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #3b4553;
@@ -526,17 +547,28 @@ nav {
     font-size: 24px;
     cursor: pointer;
   }
+  .react-multi-carousel-dot {
+    margin: 2%;
+  }
+  .more-prodct{
+    text-align: center;
+    font-size: 13px;
+  }
+  .dash-prdct{
+  font-size: 13px;
+  color: #0f1222;
+  }
 }
 
 #bar {
   margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 12px;
   width: 25px;
 }
 
 #barRight {
   margin-right: 20px;
-  margin-top: 20px;
+  margin-top: 12px;
   width: 25px;
 }
 
