@@ -24,6 +24,7 @@ import RegisterCompany from "./LoginRegister/RegisterCompany";
 import CompanyInfoPage from "./InfoPages/CompanyInfoPage";
 import UserInfoPage from "./InfoPages/UserInfoPage";
 import GiveOfferOther from "./GiveOffer/GiveOfferMine";
+import GiveOfferDetail from "./GiveOffer/GiveOfferDetail";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/register/user" element={<RegisterUser />} />
         <Route path="/register/company" element={<RegisterCompany />} />
         <Route path="/giveOfferOther" element={<GiveOfferOther />}></Route>
+        <Route path="/giveOffer/detail/:id" element={<GiveOfferDetail />}></Route>
         <Route path="/getOffer/categoryShow" element={<GetOfferCategoryShow />} ></Route>
         <Route path="*" element={<ErrorPage />} />
 

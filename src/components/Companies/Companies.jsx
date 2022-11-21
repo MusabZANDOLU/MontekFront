@@ -13,6 +13,7 @@ function Companies() {
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getCompanies();
   }, []);
 
