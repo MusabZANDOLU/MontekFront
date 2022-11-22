@@ -9,6 +9,7 @@ $color-shadow: #aeb1bd;
 }
 
 .categoryTitle {
+  margin-top: 5%;
   font-size: 40px;
   text-align: center;
   font-weight: bold;
@@ -25,13 +26,14 @@ $color-shadow: #aeb1bd;
 @media (max-width: 768px) {
   .categoryCardOne {
     display: block;
-    // width: 30%;
+    width: 30%;
   }
   #step7Folding .UserSettingAllShow .buttonsShow {
     text-align: center;
   }
   .categoryAllContent .cards-list{
     display: block;
+    width: 100%;
   }
   .categoryTitle {
     margin-top: 20%;
@@ -39,6 +41,9 @@ $color-shadow: #aeb1bd;
   }
 }
 
+.categoryCardOne{
+  width: 33%;
+}
 @media (max-width: 1200px) {
   .categoryCardOne {
     display: block;
@@ -178,6 +183,7 @@ $color-shadow: #aeb1bd;
 }
 
 .infoShowTitle {
+  margin-top: 5%;
   font-size: 20px;
   text-align: center;
 }

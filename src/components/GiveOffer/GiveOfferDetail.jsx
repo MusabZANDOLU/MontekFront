@@ -4,35 +4,54 @@ import { BASE_URL } from "../../base.js";
 import axios from "axios";
 import AuthLocalStorage from "../localStorage";
 import moment from "moment";
-// import Navbar from "../Dashboard/Navbar";
+import { useNavigate } from "react-router";
 
 const GiveOfferDetail = () => {
-  const [name, setName] = useState();
-  const [surName, setSurname] = useState();
+  const [offerUserid, setOfferUserid] = useState();
+  const [nameCustomer, setNameCustomer] = useState();
+  const [surNameCustomer, setSurnameCustomer] = useState();
+  const [companyComment, setCompanyComment] = useState();
+  const [price, setPrice] = useState();
+  const [comment, setComment] = useState();
+  const [todoDate, setTodoDate] = useState();
   const [productName, setProductName] = useState();
   const [width, setWidth] = useState();
   const [height, setHeight] = useState();
   const [window, setWindow] = useState();
   const [place, setPlace] = useState();
   const [date, setDate] = useState();
-  const [comment, setComment] = useState();
-  const { accessToken } = AuthLocalStorage();
+  const { accessToken, id, name, surName } = AuthLocalStorage();
   const params = useParams();
-
-  let myDate = date;
-  myDate = moment().format("LL");
+  const [counter, setCounter] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getOfferDetail();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  let myDate = date;
+  myDate = moment().format("LL");
+
+  const increase = () => {
+    setCounter(count => count + 1);
+  };
+
+  const decrease = () => {
+    setCounter(count => count - 1);
+  };
+
+  const reset = () => {
+    setCounter(0);
+  };
+
   async function getOfferDetail() {
     const response = await axios.get(`${BASE_URL}/offers/${params.id}`, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
-    setName(response.data.userName);
-    setSurname(response.data.userSurName);
+    setOfferUserid(response.data.userId);
+    setNameCustomer(response.data.userName);
+    setSurnameCustomer(response.data.userSurName);
     setProductName(response.data.productName);
     setWidth(response.data.productWidth);
     setHeight(response.data.productHeight);
@@ -42,21 +61,34 @@ const GiveOfferDetail = () => {
     setComment(response.data.userComment);
   }
 
-  const [counter, setCounter] = useState(0);
-
-  //increase counter
-  const increase = () => {
-    setCounter(count => count + 1);
-  };
-
-  //decrease counter
-  const decrease = () => {
-    setCounter(count => count - 1);
-  };
-
-  //reset counter
-  const reset = () => {
-    setCounter(0);
+  const saveGiveOffer = async e => {
+    e.preventDefault();
+    try {
+      await axios
+        .post(
+          `${BASE_URL}/giveOffers`,
+          {
+            offersId: params.id,
+            firmId: id,
+            offerUserId: offerUserid,
+            // offerUserId: offerUserid,
+            // offerUserId: offerUserid,
+            firmName: name,
+            firmSurNam: surName,
+            comment: companyComment,
+            price: price,
+            isThereOffer: true,
+            lastDate: todoDate,
+          },
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        )
+        .then(() => {
+          navigate("/giveOfferOther");
+          alert("teklif verdiniz.");
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -71,7 +103,7 @@ const GiveOfferDetail = () => {
             <div className="detailCostumerName">
               <div className="detailCostumerNameTitle">Müşteri: </div>
               <div>
-                {name} {surName}
+                {nameCustomer} {surNameCustomer}
               </div>
             </div>
             <div className="detailProductName">
@@ -106,6 +138,7 @@ const GiveOfferDetail = () => {
             <div>
               <div>
                 <textarea
+                  onChange={e => setCompanyComment(e.target.value)}
                   className="offerGiveDetailTextArea"
                   placeholder="Teklif için yazılacak açıklama..."
                   cols="30"
@@ -114,6 +147,7 @@ const GiveOfferDetail = () => {
               </div>
               <div>
                 <input
+                  onChange={e => setPrice(e.target.value)}
                   className="offerGiveDetailText"
                   placeholder="Teklif için yazılacak fiyat ya da fiyat aralığı. (Fiyatlandırmada kur belirtiniz!)"
                 ></input>
@@ -136,7 +170,12 @@ const GiveOfferDetail = () => {
                     {counter > -1 ? counter : "0 olamaz"} gün
                   </div>
                 </div>
-                <input type="date" required className="dateDetail"></input>
+                <input
+                  onChange={e => setTodoDate(e.target.value)}
+                  type="date"
+                  required
+                  className="dateDetail"
+                ></input>
               </div>
             </div>
             <div className="detailDownButton">
@@ -145,7 +184,9 @@ const GiveOfferDetail = () => {
                   İptal
                 </Link>
               </button>
-              <button className="btnGiveDetailPost">Teklifi Gönder</button>
+              <button className="btnGiveDetailPost" onClick={saveGiveOffer}>
+                Teklifi Gönder
+              </button>
             </div>
           </div>
         </div>

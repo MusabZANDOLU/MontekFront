@@ -123,7 +123,7 @@ const Navbar = () => {
               <li>
                 {/* <i className="fa-solid fa-book-bookmark"></i> */}
                 <img className="svgNavbar" src={svgMyOffer} alt="" />
-                <Link to="/giveOfferOther">Tekliflerim</Link>
+                <Link to="/giveOfferMine">Tekliflerim</Link>
               </li>
             )}
             {isLogin && type === "user" && (

@@ -37,10 +37,9 @@ const GetOfferShopping = () => {
   const [inputCheck2, setInputCheck2] = useState();
   const [inputCheck3, setInputCheck3] = useState();
   const [textArea, setTextArea] = useState();
-
   const { accessToken, id, name, surName, il } = AuthLocalStorage()
-
   const navigate = useNavigate();
+
   const saveOffer = async (e) => {
     e.preventDefault();
     try {
@@ -453,8 +452,8 @@ const GetOfferShopping = () => {
                           <button onClick={info6} className="getOfferButton"><i className="fa-solid fa-circle-question"></i> Bilgi Al</button>
                           <hr />
                           <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
-                                                            <hr />
-                                                            <Link className="getOfferLinkButton" to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link>
+                          <hr />
+                          <Link className="getOfferLinkButton" to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link>
                         </div>
                       </div>
                     </div> : null}

@@ -29,6 +29,11 @@ $color-white: #fff;
   flex-wrap: wrap;
 }
 
+.giveOfferTopText {
+  text-align: center;
+  font-size: 25px;
+}
+
 .giveOfferCard {
   color: #6f7691;
   box-shadow: -5px -5px 20px rgb(211, 210, 210), 5px 5px 20px $color-shadow;

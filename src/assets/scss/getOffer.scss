@@ -46,7 +46,7 @@
   .getoffer-text {
     font-weight: bolder;
     font-size: 20px;
-    width: 150px;
+    width: 100px;
     text-align: center;
   }
   .getOfferButton {
@@ -59,7 +59,7 @@
       color: rgb(236, 236, 245);
       background-color: rgb(37, 37, 37);
     }
-    #step7Folding .UserSettingAll .buttons .getOfferLinkButton{
+    #step7Folding .UserSettingAll .buttons .getOfferLinkButton {
       display: flex;
       justify-content: center;
     }
@@ -67,34 +67,35 @@
   .getoffer-text {
     margin-top: 15%;
     margin-left: 2%;
-    width: 95%;
+    width: 55%;
   }
-   .UserSettingAll .buttons{
+  .UserSettingAll .buttons {
     width: 100%;
     // display: flex;
     justify-items: center !important;
   }
-  .getOfferButton{
+  .getOfferButton {
     width: 50%;
   }
-  #step7Folding .UserSettingAll .radiogroupPrev{
+  #step7Folding .UserSettingAll .radiogroupPrev {
     width: 80%;
     // display: flex;
     justify-items: center;
   }
-  #step1Folding .UserSettingAll .buttons link{
+  #step1Folding .UserSettingAll .buttons link {
     margin-top: 20%;
   }
 
-  #step2Folding .UserSettingAll .radiogroup{
+  #step2Folding .UserSettingAll .radiogroup {
     text-align: center;
   }
-  #step6Folding .UserSettingAll .radiogroup-ex{
+  #step6Folding .UserSettingAll .radiogroup-ex {
     display: flex;
     justify-content: center;
   }
-  .getOffer-input{
-    width: 250px !important; height: 358px;
+  .getOffer-input {
+    width: 250px !important;
+    height: 358px;
   }
 }
 
@@ -291,7 +292,6 @@ $colors: (
 .linkShop {
   padding-bottom: 5%;
 }
-
 
 .getOfferLinkButton {
   transition: 0.25s;

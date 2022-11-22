@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import { BASE_URL } from "../../base.js";
 import Navbar from "../Dashboard/Navbar";
 import axios from "axios";
 import AuthLocalStorage from "../localStorage";
-import { useNavigate } from "react-router";
-import { BASE_URL } from "../../base.js";
-import "../../assets/scss/login_Register_Info.scss";
 import alertify from "alertifyjs";
+import "../../assets/scss/login_Register_Info.scss";
 
 function UpdateSuccesfull() {
   alertify.alert(
@@ -26,6 +26,7 @@ const UserInfoPage = () => {
 
   useEffect(() => {
     getUsersById();
+    console.log(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -30,23 +30,22 @@ const GiveOfferMinePage = () => {
       });
   };
 
-  // const deletedGiveOffer = async e => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios
-  //       .delete(
-  //         `${BASE_URL}/giveOffers/${currentOffer.id}`,
-  //         { headers: { Authorization: `Bearer ${accessToken}` } }
-  //       )
-  //       .then(res => {
-  //         // updateSuccessful();
-  //       });
-  //     console.log(e);
-  //   } catch (error) {
-  //     console.log(error);
-  //     // updateUnsuccessful();
-  //   }
-  // };
+  const deletedGiveOffer = async e => {
+    e.preventDefault();
+    try {
+      await axios
+        .delete(`${BASE_URL}/giveOffers/${currentOffer.id}`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        })
+        .then(res => {
+          window.location.reload(false);
+        });
+      console.log(e);
+    } catch (error) {
+      console.log(error);
+      // updateUnsuccessful();
+    }
+  };
 
   const showOfferModal = offer => {
     setCurrentOffer(offer);
@@ -57,6 +56,15 @@ const GiveOfferMinePage = () => {
       <Navbar />
       <div className="giveFlexAll">
         <div className="leftContainerGive">
+        {offers && offers.length === 0 ? (
+        <div className="giveOfferTopText">
+          Henüz teklifiniz bulunmamaktadır.
+          <br />
+          Sizden dönüş bekleyen müşterilerimize teklif ver sekmemizden kolayca teklif verebilirsiniz.
+        </div>
+      ) : (
+        <div className="giveOfferTopText">Tüm teklifleriniz</div>
+      )}
           <div className="giveOfferAll">
             <div className="giveOfferAllCard">
               {offers.map(offer => (
@@ -68,16 +76,16 @@ const GiveOfferMinePage = () => {
                   }}
                 >
                   <div className="giveOfferCardIn">
-                    Müşteri: {currentOffer.userName} {offer.firmSurName}
+                    Müşteri: {offer.firmName} {offer.firmSurName}
                   </div>
                   <hr />
                   <div className="giveOfferCardIn">{offer.comment}</div>
                   <div className="giveOfferCardIn">{offer.price}</div>
-                  <div className="giveOfferCardIn">T.V.T {offer.createdAt}</div>
-                  <div className="giveOfferCardIn">T.G.T: {myDate}</div>
+                  <div className="giveOfferCardIn">{offer.createdAt}</div>
+                  <div className="giveOfferCardIn">{myDate}</div>
                   <div
                     className="giveOfferDeleteIcon"
-                    // onClick={deletedGiveOffer}
+                    onClick={deletedGiveOffer}
                   >
                     <i className="fa-solid fa-trash"></i>
                   </div>

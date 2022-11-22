@@ -235,3 +235,15 @@ text-align: center;
     color: #368b1d;
   }
 }
+
+.sweet-loading{
+  width: 100px;
+  height: 101px;
+  border-radius: 100%;
+  border-width: 16px;
+  border-style: solid;
+  border-color: rgb(0, 0, 0) rgb(0, 0, 0) transparent;
+  border-image: initial;
+  display: inline-block;
+  animation: 0.75s linear 0s infinite normal both running react-spinners-ClipLoader-clip;
+}
