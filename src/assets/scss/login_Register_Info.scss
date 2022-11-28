@@ -86,9 +86,7 @@ $color-white: #fff;
 
 .homeCenter {
   display: flex;
-justify-content: center;
-
-
+  justify-content: center;
 }
 
 .labelLoggPass {
@@ -105,9 +103,9 @@ justify-content: center;
   width: 100%;
 }
 
-.iconSize{
-font-size: 20px;
-padding-top: 80%;
+.iconSize {
+  font-size: 20px;
+  padding-top: 80%;
 }
 
 .inputLogg {
@@ -199,11 +197,11 @@ padding-top: 80%;
   }
 }
 
-.svgLogReg{
-width: 30px;
+.svgLogReg {
+  width: 30px;
 }
 
-.svgCover{
+.svgCover {
   margin-top: 8%;
   padding-top: 7px;
   padding-bottom: 7px;
@@ -307,6 +305,7 @@ width: 30px;
   font-weight: bolder;
   text-align: left;
   width: 200px;
+  margin-top: 10px;
 }
 
 .textAndInput {
@@ -426,17 +425,17 @@ width: 30px;
 }
 
 .clssIcnOnLog {
-  font-size: 15px;
+  font-size: 16px;
   color: #177a1f;
   transition: 1s;
   cursor: pointer;
   position: absolute;
-  right: 15px;
-  top: 30%;
+  right: 10px;
+  top: 33%;
 }
 
 .clssIcnOffLog {
-  font-size: 15px;
+  font-size: 16px;
   color: #ae1100;
   transition: 1s;
   cursor: pointer;

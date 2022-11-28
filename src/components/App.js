@@ -25,7 +25,6 @@ import CompanyInfoPage from "./InfoPages/CompanyInfoPage";
 import UserInfoPage from "./InfoPages/UserInfoPage";
 import GiveOfferMine from "./GiveOffer/GiveOfferMine";
 import GiveOfferDetail from "./GiveOffer/GiveOfferDetail";
-import Deneme from "./deneme.jsx";
 
 const App = () => {
   return (
@@ -39,24 +38,23 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register/user" element={<RegisterUser />} />
         <Route path="/register/company" element={<RegisterCompany />} />
-        <Route path="/giveOfferMine" element={<GiveOfferMine />}></Route>
-        <Route path="/giveOffer/detail/:id" element={<GiveOfferDetail />}></Route>
-        <Route path="/getOffer/categoryShow" element={<GetOfferCategoryShow />} ></Route>
-        <Route path="/deneme" element={<Deneme />} ></Route>
+        <Route path="/getOffer/categoryShow" element={<GetOfferCategoryShow />} />
         <Route path="*" element={<ErrorPage />} />
 
         {/* ----------------------------------- PRIVATE ROUTE ----------------------------------- */}
         <Route element={<PrivateRoute />}>
-          <Route path="getOffer/category" element={<GetOfferCategory />} ></Route>
-          <Route path="myOffers" element={<MyOffers />}></Route>
+          <Route path="getOffer/category" element={<GetOfferCategory />} />
+          <Route path="myOffers" element={<MyOffers />} />
           <Route path="/giveOffer" element={<GiveOffer />} />
+          <Route path="/giveOffer/mine" element={<GiveOfferMine />} />
+          <Route path="/giveOffer/detail/:id" element={<GiveOfferDetail />} />
           <Route path="/getOffer/foldingWindow" element={<GetOfferFoldingWindow />} />
           <Route path="/getOffer/pvc" element={<GetOfferPvc />} />
           <Route path="/getOffer/showerBox" element={<GetOfferShowerBox />} />
           <Route path="/getOffer/shopping" element={<GetOfferShopping />} />
           <Route path="/getOffer/swatter" element={<GetOfferSwatter />} />
           <Route path="/getOffer/aluminumHandrail" element={<GetOfferAluminumHandrail />} />
-          <Route path="/mineOffer" element={<MyOfferModal />} />
+          <Route path="/offer/mine" element={<MyOfferModal />} />
           <Route path="/user/informations/:id" element={<UserInfoPage />} />
           <Route path="/companies/informations/:id" element={<CompanyInfoPage />} />
         </Route>

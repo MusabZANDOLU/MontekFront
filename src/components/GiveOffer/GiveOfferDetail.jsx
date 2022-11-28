@@ -20,9 +20,9 @@ const GiveOfferDetail = () => {
   const [window, setWindow] = useState();
   const [place, setPlace] = useState();
   const [date, setDate] = useState();
+  const [counter, setCounter] = useState(0);
   const { accessToken, id, name, surName } = AuthLocalStorage();
   const params = useParams();
-  const [counter, setCounter] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -71,8 +71,6 @@ const GiveOfferDetail = () => {
             offersId: params.id,
             firmId: id,
             offerUserId: offerUserid,
-            // offerUserId: offerUserid,
-            // offerUserId: offerUserid,
             firmName: name,
             firmSurNam: surName,
             comment: companyComment,
@@ -83,7 +81,7 @@ const GiveOfferDetail = () => {
           { headers: { Authorization: `Bearer ${accessToken}` } }
         )
         .then(() => {
-          navigate("/giveOfferOther");
+          navigate('/giveOffer');
           alert("teklif verdiniz.");
         });
     } catch (error) {
@@ -94,9 +92,6 @@ const GiveOfferDetail = () => {
   return (
     <>
       <div className="allDetailPage">
-        {/* <Link to="/giveOffer">
-          <img className="svgNavbar" src={svgHome} alt="" />
-        </Link> */}
         <div className="detailPageCover">
           <div className="detailPageLeft">
             <div className="detailName">Yapılacak İş</div>

@@ -26,14 +26,16 @@ $color-shadow: #aeb1bd;
 @media (max-width: 768px) {
   .categoryCardOne {
     display: block;
-    width: 30%;
+    // width: 30%;
   }
   #step7Folding .UserSettingAllShow .buttonsShow {
     text-align: center;
   }
-  .categoryAllContent .cards-list{
-    display: block;
+  .categoryAllContent .cards-list {
+    display: flex;
     width: 100%;
+    flex-direction: column;
+    margin-left: 50px;
   }
   .categoryTitle {
     margin-top: 20%;
@@ -41,7 +43,7 @@ $color-shadow: #aeb1bd;
   }
 }
 
-.categoryCardOne{
+.categoryCardOne {
   width: 33%;
 }
 @media (max-width: 1200px) {
@@ -113,7 +115,7 @@ $color-shadow: #aeb1bd;
   .categoryAllContent .flexShowRadios {
     display: block;
   }
-  .categoryAllContent .flexShowRadios .radiogroupMyOfferShow{
+  .categoryAllContent .flexShowRadios .radiogroupMyOfferShow {
     margin-top: 20px;
   }
   .radiogroupVisible {
@@ -125,7 +127,7 @@ $color-shadow: #aeb1bd;
   .UserSettingAllShow {
     display: block !important;
   }
-  .myOfferBtnDelete{
+  .myOfferBtnDelete {
     margin-right: 20px;
   }
 }

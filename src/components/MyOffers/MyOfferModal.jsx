@@ -3,12 +3,15 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Dashboard/Navbar";
 import AuthLocalStorage from "../localStorage";
 import { BASE_URL } from "../../base";
+// import { useParams } from "react-router-dom";
 
 const MyOfferModal = () => {
   const [mineGiveOffers, setMineGiveOffer] = useState([]);
   const { accessToken, id } = AuthLocalStorage();
+  // const params = useParams();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getGiveOfferWidthId();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -22,7 +25,6 @@ const MyOfferModal = () => {
         setMineGiveOffer(res.data);
       });
   };
-
   return (
     <div className="myOfferBody">
       <Navbar />

@@ -46,10 +46,6 @@ const Navbar = () => {
               src={clicked ? svgClose : svgMenu}
               alt=""
             />
-            {/* <i
-              id="bar"
-              className={clicked ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
-            ></i> */}
           </div>
           <ul id="navbar" className={clicked ? "#navbar active" : "#navbar"}>
             <li>
@@ -123,7 +119,7 @@ const Navbar = () => {
               <li>
                 {/* <i className="fa-solid fa-book-bookmark"></i> */}
                 <img className="svgNavbar" src={svgMyOffer} alt="" />
-                <Link to="/giveOfferMine">Tekliflerim</Link>
+                <Link to="/giveOffer/mine">Tekliflerim</Link>
               </li>
             )}
             {isLogin && type === "user" && (

@@ -39,7 +39,7 @@ $color-shadow: #aeb1bd;
   font-size: 13px;
   font-weight: bolder;
   border-radius: 10px;
-  width: 29%;
+  width: 30%;
 
   &:hover {
     box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;
@@ -73,6 +73,7 @@ $color-shadow: #aeb1bd;
 .myOfferDetailBtn {
   color: #ecf0f3;
   width: 200px;
+  margin-top: 5px;
 }
 
 .myOfferDeleteBtn {
@@ -194,18 +195,18 @@ $color-shadow: #aeb1bd;
 }
 
 @media (max-width: 768px) {
- .radiogroupMyOffer{
-  width: 100% !important;
-  margin-left: 3%;
-  margin-right: 5%;
- }
- .myOfferTopText {
-  margin-top: 10%;
-}
+  .radiogroupMyOffer {
+    width: 100% !important;
+    margin-left: 3%;
+    margin-right: 5%;
+  }
+  .myOfferTopText {
+    margin-top: 10%;
+  }
 }
 
 @media (max-width: 1150px) {
- .radiogroupMyOffer{
-  width: 45%;
- }
+  .radiogroupMyOffer {
+    width: 45%;
+  }
 }

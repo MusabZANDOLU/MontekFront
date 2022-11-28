@@ -34,17 +34,22 @@
   position: relative;
 }
 
+.headerComp {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(../images/dashboard/background-city.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .wrapperSliderText {
-    font-size: 20px;
-  }
-}
 
 .nav-links {
   display: flex;
@@ -175,6 +180,26 @@ nav {
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
 
+@media screen and ( max-width: 1170px) {
+  .nav-links #navbar li{
+    padding: 4px;
+    height: 40px;
+    padding-top: 5%;
+  }
+  .svgNavbar{
+    display: none;
+  }
+
+  .nav-links #navbarRight li{
+    padding: 4px;
+    height: 40px;
+    padding-top: 5%;
+  }
+  .svgNavbar{
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .stepRow {
     display: block;
@@ -221,6 +246,9 @@ nav {
   }
   .idcAll .idcCard .idcLeftArea .idcImage {
     width: 90%;
+    &:hover {
+      margin-top: 0px;
+    }
   }
   .idcAll .idcCard  .idcTitle {
     margin-top: 25px;
@@ -230,6 +258,15 @@ nav {
   }
   .nav-links{
     height: 50px;
+  }
+  .header{
+    min-height: 55vh;
+  }
+  .headerComp{
+    min-height: 100vh;
+  }
+  .header .wrapperSliderText {
+    font-size: 20px;
   }
 }
 
@@ -405,10 +442,7 @@ nav {
 }
 
 .wrapperSliderText {
-  // height: 100vh;
-  /*This part is important for centering*/
-  // display: grid;
-  // place-items: center;
+font-size: 3rem;
   width: 100%;
 }
 

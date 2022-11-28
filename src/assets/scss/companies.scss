@@ -49,7 +49,8 @@ $color-shadow: #aeb1bd;
   padding: 0.5%;
   font-size: 13px;
   font-weight: bolder;
-  width: 45%;
+  width: 47%;
+  border-radius: 10px;
 
   &:hover {
     box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;

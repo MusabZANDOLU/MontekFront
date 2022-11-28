@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { AuthLocalStorage } from "../localStorage";
-// import { BASE_URL } from "../../base.js";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Carousel from "./Carousel";
 import InfoDataCount from "./InfoDataCount";
 import "react-multi-carousel/lib/styles.css";
 import "../../assets/scss/dashSection.scss";
-import "../../assets/scss/search.scss";
 
 const slider = () => {
   const { isLogin, name, surName, type } = AuthLocalStorage();
@@ -20,14 +18,15 @@ const slider = () => {
   return (
     <div className="allDash">
       <Navbar />
-      <section className="header">
+      <section className={type === "company" ? "headerComp" : "header"}>
         <div>
           {isLogin === true ? (
             <h3 className="searchText">
               Montek'e hoş geldiniz.
               <br />
+              <br />
+              <br />
               <div className="wrapperSliderText">
-                {/* <div className="typing-demo">Montek'e hoşgeldiniz. Kalite ve güven herkesin hakkı</div> */}
                 Sn. {name} {surName}
               </div>
             </h3>
@@ -36,21 +35,16 @@ const slider = () => {
               Montek'e hoş geldiniz.
               <br />
               İstediğiniz ürün için kolayca teklif hazırlayıp fiyatları
-              karşılaştırabilrsiniz.
+              karşılaştırabilirsiniz.
               <br />
+              Daha fazlası için sitemizi dolaşın.
               <br />
               <br />
               <div className="wrapperSliderText">
-                {/* <div className="typing-demo">Montek'e hoşgeldiniz. Kalite ve güven herkesin hakkı</div> */}
                 KALİTE VE GÜVEN HERKESİN HAKKI
               </div>
             </h3>
           )}
-          {/* <h3 className='searchText'>Teklif almak istediğiniz ürünü giriniz.</h3>
-          <div className="containerSearch">
-            <input className='searchInput' type="text" placeholder=" Ara..." />
-            <div className="search1"></div>
-          </div> */}
         </div>
       </section>
       {!isLogin || type === "user" ? (

@@ -71,7 +71,6 @@ const MyOffers = () => {
                   <div className="myOfferLeftCol">
                     <div>
                       <label className="label">
-                        {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                         <div className="textGiveOfferCss">
                           Ürün:
                           <br />
@@ -83,7 +82,6 @@ const MyOffers = () => {
                     <br />
                     <div>
                       <label className="label">
-                        {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                         <div className="textGiveOfferCss">
                           Detaylar:
                           <br />
@@ -94,7 +92,6 @@ const MyOffers = () => {
                     </div>
                     <div>
                       <label className="label">
-                        {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                         <div className="textGiveOfferCss">
                           {getOffers.productHeight}
                         </div>
@@ -102,7 +99,6 @@ const MyOffers = () => {
                     </div>
                     <div>
                       <label className="label">
-                        {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                         <div className="textGiveOfferCss">
                           {getOffers.productPlace}
                         </div>
@@ -110,7 +106,6 @@ const MyOffers = () => {
                     </div>
                     <div>
                       <label className="label">
-                        {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                         <div className="textGiveOfferCss">
                           {getOffers.productWindow}
                         </div>
@@ -120,7 +115,6 @@ const MyOffers = () => {
                   <div className="myOfferRightCol">
                     <div>
                       <label className="label">
-                        {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                         <div className="textGiveOfferCss">
                           Açıklamam:
                           <br />
@@ -132,7 +126,6 @@ const MyOffers = () => {
                     <br />
                     <div>
                       <label className="label">
-                        {/* <i className="fa-solid fa-circle-check tiks"></i> */}
                         <div className="textGiveOfferCss">
                           Teklif Tarihim:
                           <br />
@@ -145,7 +138,7 @@ const MyOffers = () => {
                 </div>
                 <div className="downButtons">
                   <div className="myOfferDetailBtn">
-                    <Link to="/mineOffer">
+                    <Link to={`/offer/mine`}>
                       <button className="myOfferBtn">Gelen tekliflerim.</button>
                     </Link>
                   </div>
