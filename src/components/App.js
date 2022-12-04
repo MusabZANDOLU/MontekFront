@@ -25,6 +25,7 @@ import CompanyInfoPage from "./InfoPages/CompanyInfoPage";
 import UserInfoPage from "./InfoPages/UserInfoPage";
 import GiveOfferMine from "./GiveOffer/GiveOfferMine";
 import GiveOfferDetail from "./GiveOffer/GiveOfferDetail";
+import City from "../components/citiesPage.jsx";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/register/user" element={<RegisterUser />} />
         <Route path="/register/company" element={<RegisterCompany />} />
         <Route path="/getOffer/categoryShow" element={<GetOfferCategoryShow />} />
+        <Route path="/city" element={<City />} />
         <Route path="*" element={<ErrorPage />} />
 
         {/* ----------------------------------- PRIVATE ROUTE ----------------------------------- */}

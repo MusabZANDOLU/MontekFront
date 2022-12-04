@@ -1,15 +1,14 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import { BASE_URL } from '../../base';
+import { useNavigate } from 'react-router';
 import Navbar from '../Dashboard/Navbar';
 import alertify from 'alertifyjs';
-import { useNavigate } from 'react-router';
 import axios from 'axios';
+import AuthLocalStorage from '../localStorage';
 import '../../assets/scss/getOffer.scss';
 import 'alertifyjs/build/css/alertify.min.css';
-import AuthLocalStorage from '../localStorage';
-import { BASE_URL } from '../../base';
 
-// import { useSelector } from 'react-redux';
 
 function info1() {
     alertify.alert('Seçilecek Ürünler Hakkında', 'Plise sineklik akordiyon yapıda ve katlanabilir olarak tasarlanmıştır. Sabit sineklik direkt monte eildiği yerde sabit olarak kalır, menteşeli sineklik açılıp kapanabilen sinekliktir. Sarhoş sineklik serbest yapıda olur sağa ya da sola katlanabilir.');
@@ -38,6 +37,7 @@ function info6() {
 
 const GetOfferSwatter = () => {
 
+    const { accessToken, id, name, surName } = AuthLocalStorage()
     const [divs, setDivs] = useState(1);
     const [inputCheck, setInputCheck] = useState();
     const [inputCheck1, setInputCheck1] = useState();
@@ -45,9 +45,19 @@ const GetOfferSwatter = () => {
     const [inputCheck3, setInputCheck3] = useState();
     const [inputCheck4, setInputCheck4] = useState();
     const [textArea, setTextArea] = useState();
+    const [cities, setCities] = useState([]);
+    const [selectedCity, setSelectedCity] = useState();
+    const [selectedCityCounties, setSelectedCityCounties] = useState([]);
     const navigate = useNavigate();
 
-    const { accessToken, id, name, surName, il } = AuthLocalStorage()
+    useEffect(() => {
+        getCitiesInfo();
+    }, []);
+
+    const getCitiesInfo = async () => {
+        const response = await axios.get(`${BASE_URL}/getOffer/getCities`);
+        setCities(response.data);
+    };
 
     const saveOffer = async (e) => {
         e.preventDefault();
@@ -62,7 +72,8 @@ const GetOfferSwatter = () => {
                 userId: id,
                 userName: name,
                 userSurName: surName,
-                userCity: il
+                city: selectedCity,
+                town: selectedCityCounties,
             }, { headers: { Authorization: `Bearer ${accessToken}` } })
             navigate("/myOffers")
         } catch (error) {
@@ -138,7 +149,7 @@ const GetOfferSwatter = () => {
                             <div id='step2Swatter' className='onlyMakeBlock'>
                                 <div className='UserSettingAll'>
                                     <div className='getoffer-text'>(2.Adım)<br /><hr />Pencere / Kapı en ölçüsünü seçiniz.</div>
-                                    
+
                                     <div className="radiogroup">
                                         <div className="wrapper">
                                             <input className="state" type="radio" name="sizeWidth" id="a1" value="40- cm" onChange={e => setInputCheck1(e.target.value)} />
@@ -522,79 +533,144 @@ const GetOfferSwatter = () => {
                                                         <textarea className="getOffer-input" onChange={e => setTextArea(e.target.value)} type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
                                                     </div>
                                                     <div className="buttons">
-
-                                                        <button className="getOfferButton" onClick={() => { setDivs(7) }}><i className="fa-solid fa-eye"></i> Teklifimi Göster</button>
+                                                        <button className="getOfferButton" onClick={() => { textArea ? setDivs(7) : alert('Lütfen açıklama yaparak firmalarımızı biraz bilgilendiriniz!') }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                                                         <hr />
                                                         <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                                                     </div>
                                                 </div>
                                             </div> : divs === 7 ?
 
-                                                <div id='step7Swatter'>
-                                                    <div className='UserSettingAll'>
-                                                        <div className='getoffer-text'>Teklifinizi gözden geçiriniz.</div>
-                                                        <div className="radiogroupPrev">
-
-                                                            <div className="wrapper">
-                                                                <label className="label">
-                                                                    <div className='textPrev'>Seçilen Ürün:</div>
-                                                                    <i className="fa-solid fa-check tik"></i>
-                                                                    <div className='textOfferCssOut'>{inputCheck}</div>
-                                                                </label>
+                                                <div id='step8Folding' className="citiesPageAll">
+                                                    <div className="selectCover">
+                                                        <div className='comboboxCities'>
+                                                            <div className='cityCover'>
+                                                                <div className="citiesPageTitleUp">Montaj Yaptırmak İstediğiniz İl</div>
+                                                                <select
+                                                                    className="selectClass"
+                                                                    onChange={e => setSelectedCity(e.target.value)}
+                                                                >
+                                                                    {cities.map(allcities => (
+                                                                        <option
+                                                                            key={allcities.id}
+                                                                            value={allcities.name}
+                                                                        >
+                                                                            {allcities.name.toLocaleUpperCase()}
+                                                                        </option>
+                                                                    ))}
+                                                                </select>
                                                             </div>
-                                                            <hr />
-                                                            <div className="wrapper">
-                                                                <label className="label">
-                                                                    <div className='textPrev'>Sineklik Genişliği:</div>
-                                                                    <i className="fa-solid fa-check tik"></i>
-                                                                    <div className='textOfferCssOut'>{inputCheck1}</div>
-                                                                </label>
+                                                            <div className='cityCover'>
+                                                                <div className="citiesPageTitleDown">
+                                                                    Montaj Yaptırmak İstediğiniz İlçe
+                                                                </div>
+                                                                <select
+                                                                    className="selectClass"
+                                                                    disabled={!selectedCity}
+                                                                    onChange={e => setSelectedCityCounties(e.target.value)}
+                                                                >
+                                                                    {selectedCity && cities.find((c) => c.name === selectedCity).counties.map((country) =>
+                                                                        <option
+                                                                            key={country}
+                                                                            value={country}
+                                                                        >
+                                                                            {country.toLocaleUpperCase()}
+                                                                        </option>
+                                                                    )}
+                                                                </select>
                                                             </div>
-                                                            <hr />
-                                                            <div className="wrapper">
-                                                                <label className="label">
-                                                                    <div className='textPrev'>Sineklik Yüksekliği:</div>
-                                                                    <i className="fa-solid fa-check tik"></i>
-                                                                    <div className='textOfferCssOut'>{inputCheck2}</div>
-                                                                </label>
-                                                            </div>
-                                                            <hr />
-                                                            <div className="wrapper">
-                                                                <label className="label">
-                                                                    <div className='textPrev'>Ürün Adedi:</div>
-                                                                    <i className="fa-solid fa-check tik"></i>
-                                                                    <div className='textOfferCssOut'>{inputCheck3}</div>
-                                                                </label>
-                                                            </div>
-                                                            <hr />
-                                                            <div className="wrapper">
-                                                                <label className="label">
-                                                                    <div className='textPrev'>Ürün Kasa Rengi:</div>
-                                                                    <i className="fa-solid fa-check tik"></i>
-                                                                    <div className='textOfferCssOut'>{inputCheck4}</div>
-                                                                </label>
-                                                            </div>
-                                                            <hr />
-                                                            <div className="wrapper">
-                                                                <label className="label">
-                                                                    <div className='textPrev'>Açıklama:</div>
-                                                                    <i className="fa-solid fa-check tik"></i>
-                                                                    <div className='textOfferCssOut'>{textArea}</div>
-                                                                </label>
-                                                            </div>
-
                                                         </div>
-                                                        <div className="buttons">
-                                                            <button onClick={(e) => saveOffer(e)} className="getOfferButton"><i className="fa-solid fa-upload"></i> Teklif Yayınla</button>
-                                                            <hr />
-                                                            <button onClick={info6} className="getOfferButton"><i className="fa-solid fa-circle-question"></i> Bilgi Al</button>
-                                                            <hr />
-                                                            <button className="getOfferButton" onClick={() => { setDivs(6) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
-                                                            <hr />
-                                                            <Link className="getOfferLinkButton" to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link>
+                                                        <div className='citiesButtons'>
+                                                            <div className="buttons">
+                                                                <button className="getOfferButton" onClick={() => { setDivs(8) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                                                                <hr />
+                                                                <button className="getOfferButton" onClick={() => { setDivs(6) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div> : null}
+                                                </div> : divs === 8 ?
+
+
+                                                    <div id='step7Swatter'>
+                                                        <div className='UserSettingAll'>
+                                                            <div className='getoffer-text'>Teklifinizi gözden geçiriniz.</div>
+                                                            <div className="radiogroupPrev">
+
+                                                                <div className="wrapper">
+                                                                    <label className="label">
+                                                                        <div className='textPrev'>Seçilen Ürün:</div>
+                                                                        <i className="fa-solid fa-check tik"></i>
+                                                                        <div className='textOfferCssOut'>{inputCheck}</div>
+                                                                    </label>
+                                                                </div>
+                                                                <hr />
+                                                                <div className="wrapper">
+                                                                    <label className="label">
+                                                                        <div className='textPrev'>Sineklik Genişliği:</div>
+                                                                        <i className="fa-solid fa-check tik"></i>
+                                                                        <div className='textOfferCssOut'>{inputCheck1}</div>
+                                                                    </label>
+                                                                </div>
+                                                                <hr />
+                                                                <div className="wrapper">
+                                                                    <label className="label">
+                                                                        <div className='textPrev'>Sineklik Yüksekliği:</div>
+                                                                        <i className="fa-solid fa-check tik"></i>
+                                                                        <div className='textOfferCssOut'>{inputCheck2}</div>
+                                                                    </label>
+                                                                </div>
+                                                                <hr />
+                                                                <div className="wrapper">
+                                                                    <label className="label">
+                                                                        <div className='textPrev'>Ürün Adedi:</div>
+                                                                        <i className="fa-solid fa-check tik"></i>
+                                                                        <div className='textOfferCssOut'>{inputCheck3}</div>
+                                                                    </label>
+                                                                </div>
+                                                                <hr />
+                                                                <div className="wrapper">
+                                                                    <label className="label">
+                                                                        <div className='textPrev'>Ürün Kasa Rengi:</div>
+                                                                        <i className="fa-solid fa-check tik"></i>
+                                                                        <div className='textOfferCssOut'>{inputCheck4}</div>
+                                                                    </label>
+                                                                </div>
+                                                                <hr />
+                                                                <div className="wrapper">
+                                                                    <label className="label">
+                                                                        <div className='textPrev'>İliniz:</div>
+                                                                        <i className="fa-solid fa-check tik"></i>
+                                                                        <div className='textOfferCssOut'>{selectedCity}</div>
+                                                                    </label>
+                                                                </div>
+                                                                <hr />
+                                                                <div className="wrapper">
+                                                                    <label className="label">
+                                                                        <div className='textPrev'>İlçeniz:</div>
+                                                                        <i className="fa-solid fa-check tik"></i>
+                                                                        <div className='textOfferCssOut'>{selectedCityCounties}</div>
+                                                                    </label>
+                                                                </div>
+                                                                <hr />
+                                                                <div className="wrapper">
+                                                                    <label className="label">
+                                                                        <div className='textPrev'>Açıklama:</div>
+                                                                        <i className="fa-solid fa-check tik"></i>
+                                                                        <div className='textOfferCssOut'>{textArea}</div>
+                                                                    </label>
+                                                                </div>
+
+                                                            </div>
+                                                            <div className="buttons">
+                                                                <button onClick={(e) => saveOffer(e)} className="getOfferButton"><i className="fa-solid fa-upload"></i> Teklif Yayınla</button>
+                                                                <hr />
+                                                                <button onClick={info6} className="getOfferButton"><i className="fa-solid fa-circle-question"></i> Bilgi Al</button>
+                                                                <hr />
+                                                                <button className="getOfferButton" onClick={() => { setDivs(7) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
+                                                                <hr />
+                                                                <Link className="getOfferLinkButton" to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link>
+                                                            </div>
+                                                        </div>
+                                                    </div> : null}
 
                 </div>
             </div>

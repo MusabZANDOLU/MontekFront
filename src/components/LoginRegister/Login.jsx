@@ -42,6 +42,7 @@ const Login = () => {
                 type="email"
                 onChange={e => setEmail(e.target.value)}
                 placeholder="Email Adresiniz"
+                autoFocus
               />
             </label>
             <div>
@@ -78,9 +79,7 @@ const Login = () => {
           </Link>
 
           <Link className="regLink" to="/register/company">
-            <button className="buttonLoggRegister regBtn">
-              Firma Kayıt
-            </button>
+            <button className="buttonLoggRegister regBtn">Firma Kayıt</button>
           </Link>
         </div>
 

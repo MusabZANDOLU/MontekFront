@@ -1,13 +1,13 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import { BASE_URL } from '../../base';
+import { useNavigate } from 'react-router';
 import Navbar from '../Dashboard/Navbar';
 import alertify from 'alertifyjs';
-import '../../assets/scss/getOffer.scss';
-import { useNavigate } from 'react-router';
 import axios from 'axios';
-import 'alertifyjs/build/css/alertify.min.css';
 import AuthLocalStorage from '../localStorage';
-import { BASE_URL } from '../../base';
+import '../../assets/scss/getOffer.scss';
+import 'alertifyjs/build/css/alertify.min.css';
 
 function info1() {
   alertify.alert('Seçilecek Ürünler Hakkında', 'Hangi tarz duş kabini istediğinizi seçiniz. Altında plastik havuz olanlar tekneli, olmayanlar teknesiz olarak adlandırılır. Duvardan duvara ve oval seçeneklerinde de tekneli ürünler mevcuttur. hangisini ne şekilde istediğinizi açıklama olarak yazabilirsiniz.');
@@ -27,15 +27,26 @@ function info4() {
 
 const GetOfferShowerBox = () => {
 
+  const { accessToken, id, name, surName } = AuthLocalStorage();
   const [divs, setDivs] = useState(1);
   const [inputCheck, setInputCheck] = useState();
   const [inputCheck1, setInputCheck1] = useState();
   const [inputCheck2, setInputCheck2] = useState();
   const [textArea, setTextArea] = useState();
-
-  const { accessToken, id, name, surName, il } = AuthLocalStorage();
-
+  const [cities, setCities] = useState([]);
+  const [selectedCity, setSelectedCity] = useState();
+  const [selectedCityCounties, setSelectedCityCounties] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getCitiesInfo();
+  }, []);
+
+  const getCitiesInfo = async () => {
+    const response = await axios.get(`${BASE_URL}/getOffer/getCities`);
+    setCities(response.data);
+  };
+
   const saveOffer = async (e) => {
     e.preventDefault();
     try {
@@ -47,7 +58,8 @@ const GetOfferShowerBox = () => {
         userId: id,
         userName: name,
         userSurName: surName,
-        userCity: il
+        city: selectedCity,
+        town: selectedCityCounties,
       }, { headers: { Authorization: `Bearer ${accessToken}` } })
       navigate("/")
     } catch (error) {
@@ -285,61 +297,126 @@ const GetOfferShowerBox = () => {
                       <textarea className="getOffer-input" type="text" onChange={e => setTextArea(e.target.value)} placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
                     </div>
                     <div className="buttons">
-                      <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-eye"></i> Teklifimi Göster</button>
+                      <button className="getOfferButton" onClick={() => { inputCheck ? setDivs(5) : alert("Sonraki adım için lütfen önce seçim yapınız.") }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                       <hr />
                       <button className="getOfferButton" onClick={() => { setDivs(3) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                     </div>
                   </div>
                 </div> : divs === 5 ?
 
-                  <div id='step5Shower'>
-                    <div className='UserSettingAll'>
-                      <div className='getoffer-text'>Teklifinizi gözden geçiriniz.</div>
-                      <div className="radiogroupPrev">
-
-                        <div className="wrapper">
-                          <label className="label">
-                            <div className='textPrev'>Seçilen Ürün:</div>
-                            <i className="fa-solid fa-check tik "></i>
-                            <div className='textOfferCssOut'>{inputCheck}</div>
-                          </label>
+                  <div id='step8Folding' className="citiesPageAll">
+                    <div className="selectCover">
+                      <div className='comboboxCities'>
+                        <div className='cityCover'>
+                          <div className="citiesPageTitleUp">Montaj Yaptırmak İstediğiniz İl</div>
+                          <select
+                            className="selectClass"
+                            onChange={e => setSelectedCity(e.target.value)}
+                          >
+                            {cities.map(allcities => (
+                              <option
+                                key={allcities.id}
+                                value={allcities.name}
+                              >
+                                {allcities.name.toLocaleUpperCase()}
+                              </option>
+                            ))}
+                          </select>
                         </div>
-                        <hr />
-                        <div className="wrapper">
-                          <label className="label">
-                            <div className='textPrev'>Cam Çeşidi:</div>
-                            <i className="fa-solid fa-check tik"></i>
-                            <div className='textOfferCssOut'>{inputCheck1}</div>
-                          </label>
-                        </div>
-                        <hr />
-                        <div className="wrapper">
-                          <label className="label">
-                            <div className='textPrev'>Duş Kabini Ölçüsü:</div>
-                            <i className="fa-solid fa-check tik"></i>
-                            <div className='textOfferCssOut'>{inputCheck2}</div>
-                          </label>
-                        </div>
-                        <hr />
-                        <div className="wrapper">
-                          <label className="label">
-                            <div className='textPrev'>Açıklamanız:</div>
-                            <i className="fa-solid fa-check tik"></i>
-                            <div className='textOfferCssOut'>{textArea}</div>
-                          </label>
+                        <div className='cityCover'>
+                          <div className="citiesPageTitleDown">
+                            Montaj Yaptırmak İstediğiniz İlçe
+                          </div>
+                          <select
+                            className="selectClass"
+                            disabled={!selectedCity}
+                            onChange={e => setSelectedCityCounties(e.target.value)}
+                          >
+                            {selectedCity && cities.find((c) => c.name === selectedCity).counties.map((country) =>
+                              <option
+                                key={country}
+                                value={country}
+                              >
+                                {country.toLocaleUpperCase()}
+                              </option>
+                            )}
+                          </select>
                         </div>
                       </div>
-                      <div className="buttons">
-                        <button onClick={(e) => saveOffer(e)} className="getOfferButton"><i className="fa-solid fa-upload"></i> Teklif Yayınla</button>
-                        <hr />
-                        <button onClick={info4} className="getOfferButton"><i className="fa-solid fa-circle-question"></i> Bilgi Al</button>
-                        <hr />
-                        <button className="getOfferButton" onClick={() => { setDivs(4) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
-                        <hr />
-                        <Link className="getOfferLinkButton" to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link>
+                      <div className='citiesButtons'>
+                        <div className="buttons">
+                          <button className="getOfferButton" onClick={() => { setDivs(6) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                          <hr />
+                          <button className="getOfferButton" onClick={() => { setDivs(4) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
+                        </div>
                       </div>
                     </div>
-                  </div> : null}
+                  </div> : divs === 6 ?
+
+                    <div id='step5Shower'>
+                      <div className='UserSettingAll'>
+                        <div className='getoffer-text'>Teklifinizi gözden geçiriniz.</div>
+                        <div className="radiogroupPrev">
+
+                          <div className="wrapper">
+                            <label className="label">
+                              <div className='textPrev'>Seçilen Ürün:</div>
+                              <i className="fa-solid fa-check tik "></i>
+                              <div className='textOfferCssOut'>{inputCheck}</div>
+                            </label>
+                          </div>
+                          <hr />
+                          <div className="wrapper">
+                            <label className="label">
+                              <div className='textPrev'>Cam Çeşidi:</div>
+                              <i className="fa-solid fa-check tik"></i>
+                              <div className='textOfferCssOut'>{inputCheck1}</div>
+                            </label>
+                          </div>
+                          <hr />
+                          <div className="wrapper">
+                            <label className="label">
+                              <div className='textPrev'>Duş Kabini Ölçüsü:</div>
+                              <i className="fa-solid fa-check tik"></i>
+                              <div className='textOfferCssOut'>{inputCheck2}</div>
+                            </label>
+                          </div>
+                          <hr />
+                          <div className="wrapper">
+                            <label className="label">
+                              <div className='textPrev'>İliniz:</div>
+                              <i className="fa-solid fa-check tik"></i>
+                              <div className='textOfferCssOut'>{selectedCity}</div>
+                            </label>
+                          </div>
+                          <hr />
+                          <div className="wrapper">
+                            <label className="label">
+                              <div className='textPrev'>İlçeniz:</div>
+                              <i className="fa-solid fa-check tik"></i>
+                              <div className='textOfferCssOut'>{selectedCityCounties}</div>
+                            </label>
+                          </div>
+                          <hr />
+                          <div className="wrapper">
+                            <label className="label">
+                              <div className='textPrev'>Açıklamanız:</div>
+                              <i className="fa-solid fa-check tik"></i>
+                              <div className='textOfferCssOut'>{textArea}</div>
+                            </label>
+                          </div>
+                        </div>
+                        <div className="buttons">
+                          <button onClick={(e) => saveOffer(e)} className="getOfferButton"><i className="fa-solid fa-upload"></i> Teklif Yayınla</button>
+                          <hr />
+                          <button onClick={info4} className="getOfferButton"><i className="fa-solid fa-circle-question"></i> Bilgi Al</button>
+                          <hr />
+                          <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
+                          <hr />
+                          <Link className="getOfferLinkButton" to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link>
+                        </div>
+                      </div>
+                    </div> : null}
 
       </div>
     </div>

@@ -3,14 +3,17 @@ import { BASE_URL } from "../../base.js";
 import Navbar from "../Dashboard/Navbar";
 import axios from "axios";
 import "../../assets/scss/companies.scss";
+import AuthLocalStorage from "../localStorage";
 
 import svgWebLink from "../../assets/svg/company/svgWebLink.svg";
 import svgFaceBook from "../../assets/svg/company/svgFacebook.svg";
 import svgLinkedIn from "../../assets/svg/company/svgLinkedIn.svg";
 import svgInstagram from "../../assets/svg/company/svgInstagram.svg";
+import { Link } from "react-router-dom";
 
 function Companies() {
   const [companies, setCompanies] = useState([]);
+  const { isLogin, id } = AuthLocalStorage();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,7 +33,14 @@ function Companies() {
         <hr />
         <div className="companies-all-table">
           {companies.map(companies => (
-            <div className="radiogroupCompanies" key={companies._id}>
+            <div
+              className={
+                isLogin && companies.userId === id
+                  ? "radiogroupCompaniesOther"
+                  : "radiogroupCompanies"
+              }
+              key={companies._id}
+            >
               <div className="cmpny-text">
                 <div className="border">
                   <div className="company-name">Firma Adı</div>
@@ -60,6 +70,11 @@ function Companies() {
                 </div>
                 <hr />
                 <div className="comp-url">
+                  <Link className="companyInfoLink" to={`/companies/informations/${id}`}>
+                    {isLogin && companies.userId === id
+                      ? "Bilgilerimi Güncelle"
+                      : null}
+                  </Link>
                   <a href={companies.firmUrl}>
                     <img className="spaceToIcon" src={svgWebLink} alt="" />
                   </a>

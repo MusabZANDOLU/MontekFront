@@ -19,7 +19,7 @@ $color-shadow: #aeb1bd;
   flex-wrap: wrap;
 }
 
-.companyListSvg{
+.companyListSvg {
   text-align: right;
   display: flex;
   justify-content: flex-end;
@@ -51,11 +51,22 @@ $color-shadow: #aeb1bd;
   font-weight: bolder;
   width: 47%;
   border-radius: 10px;
-
   &:hover {
     box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;
-    background-color: rgb(228, 227, 227);
   }
+}
+
+.radiogroupCompaniesOther {
+  color: #8f1010;
+  background-color: rgb(228, 227, 227);
+  box-shadow: -5px -5px 20px $color-grey, 5px 5px 20px $color-shadow;
+  cursor: auto;
+  margin: 1%;
+  padding: 0.5%;
+  font-size: 13px;
+  font-weight: bolder;
+  width: 47%;
+  border-radius: 10px;
 }
 
 @media (max-width: 1000px) {
@@ -74,7 +85,7 @@ $color-shadow: #aeb1bd;
   .companies-table {
     width: 100%;
   }
-  .companies-text{
+  .companies-text {
     margin-top: 10%;
     font-size: 3rem;
   }
@@ -84,7 +95,7 @@ $color-shadow: #aeb1bd;
     height: 100%;
     width: 90%;
   }
-  .companies-all-table{
+  .companies-all-table {
     display: flex;
     justify-content: center;
   }
@@ -149,4 +160,14 @@ $color-shadow: #aeb1bd;
 .spaceToIcon {
   padding-left: 2%;
   width: 25px;
+}
+
+.companyInfoLink {
+  font-size: 15px;
+  text-decoration: none;
+  color: #000cff;
+  &:hover {
+    color: forestgreen;
+    text-decoration: revert;
+  }
 }

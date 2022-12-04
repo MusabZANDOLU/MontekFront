@@ -49,46 +49,36 @@ const Navbar = () => {
           </div>
           <ul id="navbar" className={clicked ? "#navbar active" : "#navbar"}>
             <li>
-              {/* <i className="fa-solid fa-house-user"></i> */}
               <img className="svgNavbar" src={svgHome} alt="" />
               <Link to="/">Ana Sayfa</Link>
             </li>
             <li>
-              {/* <i className="fa-solid fa-building"></i> */}
               <img className="svgNavbar" src={svgCompanies} alt="" />
               <Link to="/companies">Firmalar</Link>
             </li>
             <li>
-              {/* <i className="fa-solid fa-window-restore"></i> */}
               <img className="svgNavbar" src={svgProduct} alt="" />
               <Link to="/products">Ürünler</Link>
             </li>
 
             {isLogin && type === "user" ? (
               <li>
-                {/* <i className="fa-solid fa-pen-to-square"></i> */}
                 <img className="svgNavbar" src={svgGetOffer} alt="" />
                 <Link to="/getOffer/category">Teklif Al</Link>
               </li>
             ) : (
               <li>
-                {/* <i className="fa-solid fa-pen-to-square"></i> */}
                 <img className="svgNavbar" src={svgGetOffer} alt="" />
                 <Link to="/getOffer/categoryShow">Teklif Al</Link>
               </li>
             )}
 
             <li>
-              {/* <i className="fa-solid fa-circle-info"></i> */}
               <img className="svgNavbar" src={svgAboutUs} alt="" />
               <Link to="/aboutUs">Hakkımızda</Link>
             </li>
           </ul>
           <div id="navMobileRight" onClick={toggleMenuRight}>
-            {/* <i
-                id="bar"
-                className={clickedRight ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
-              ></i> */}
             <img
               id="barRight"
               src={clickedRight ? svgClose : svgUser}
@@ -103,28 +93,24 @@ const Navbar = () => {
           >
             {isLogin && type === "user" && (
               <li>
-                {/* <i className="fa-solid fa-book-bookmark"></i> */}
                 <img className="svgNavbar" src={svgMyOffer} alt="" />
                 <Link to="/myOffers">Tekliflerim</Link>
               </li>
             )}
             {isLogin && type === "company" && (
               <li>
-                {/* <i className="fa-solid fa-paperclip"></i> */}
                 <img className="svgNavbar" src={svgGiveOffer} alt="" />
                 <Link to="/giveOffer">Teklif Ver</Link>
               </li>
             )}
             {isLogin && type === "company" && (
               <li>
-                {/* <i className="fa-solid fa-book-bookmark"></i> */}
                 <img className="svgNavbar" src={svgMyOffer} alt="" />
                 <Link to="/giveOffer/mine">Tekliflerim</Link>
               </li>
             )}
             {isLogin && type === "user" && (
               <li>
-                {/* <i className="fa-solid fa-gear"></i> */}
                 <img className="svgNavbar" src={svgInformation} alt="" />
                 <Link to={`/user/informations/${id}`}>Kullanıcı Ayarlarım</Link>
               </li>
@@ -132,7 +118,6 @@ const Navbar = () => {
 
             {isLogin && type === "company" && (
               <li>
-                {/* <i className="fa-solid fa-gear"></i> */}
                 <img className="svgNavbar" src={svgInformation} alt="" />
                 <Link to={`/companies/informations/${id}`}>
                   Firma Ayarlarım

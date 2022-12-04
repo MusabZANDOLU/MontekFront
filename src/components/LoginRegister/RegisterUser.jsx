@@ -78,6 +78,7 @@ function RegisterUser() {
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder="Adınız"
+              autoFocus
             />
           </label>
           <label className="labelLogg">

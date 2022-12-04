@@ -64,10 +64,10 @@
       justify-content: center;
     }
   }
-  .getoffer-text {
-    margin-top: 15%;
-    margin-left: 2%;
-    width: 55%;
+  .getOfferBody .get-tt .UserSettingAll .getoffer-text {
+    // margin-top: 15%;
+    // margin-left: 2%;
+    width: 5% !important;
   }
   .UserSettingAll .buttons {
     width: 100%;
@@ -310,4 +310,93 @@ $colors: (
 
 .radioGroupFlex {
   display: flex;
+}
+
+// --------------------------------------------------
+.citiesPageAll {
+  background-color: #ecf0f3;
+  height: 100vh;
+}
+
+.citiesPageTitleUp {
+  // margin-top: 6%;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.citiesPageTitleDown {
+  // margin-top: 2%;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.selectClass {
+  height: 50px;
+  border: 0.5px solid;
+  background-color: transparent;
+  color: rgb(38, 114, 80);
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  &:hover {
+    background-color: #585756;
+    color: white;
+    transition: 1s;
+  }
+}
+
+.selectClass option {
+  background-color: #fff;
+  color: #394a56;
+}
+
+.selectCover {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+}
+.comboboxCities {
+  margin-top: 8%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.citiesButtons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.dropdown-container {
+  // width: 60%;
+  height: 40px;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  // border-radius: 10px;
+  // margin-top: 10px;
+  &:hover {
+    background-color: #585756;
+    transition: 1s;
+  }
+}
+
+.cityCover {
+  display: flex;
+  flex-direction: column;
+}
+
+.rmsc .dropdown-container {
+  position: relative;
+  outline: 0;
+  height: 50px;
+  background-color: transparent;
+}
+
+.rmsc .dropdown-headng {
+  border: 0.5px solid;
 }

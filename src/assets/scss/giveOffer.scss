@@ -47,6 +47,7 @@ $color-white: #fff;
 .checkImg {
   width: 20px;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .checkAllDetail {
@@ -365,6 +366,9 @@ $color-white: #fff;
   }
   .finishText {
     font-size: medium !important;
+  }
+  .checkImg {
+    margin-right: 10px;
   }
 }
 

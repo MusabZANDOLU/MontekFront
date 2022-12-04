@@ -117,9 +117,18 @@ const MyOffers = () => {
                       <label className="label">
                         <div className="textGiveOfferCss">
                           Açıklamam:
-                          <br />
                           <hr />
                           {getOffers.userComment}
+                        </div>
+                      </label>
+                    </div>
+                    <div>
+                      <label className="label">
+                        <div className="textGiveOfferCss">
+                          <br />
+                          İl-İlçe:
+                          <hr />
+                          {getOffers.town} / {getOffers.city}
                         </div>
                       </label>
                     </div>

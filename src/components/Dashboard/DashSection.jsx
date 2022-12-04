@@ -14,7 +14,7 @@ const slider = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  
   return (
     <div className="allDash">
       <Navbar />
@@ -27,7 +27,7 @@ const slider = () => {
               <br />
               <br />
               <div className="wrapperSliderText">
-                Sn. {name} {surName}
+                Sn. {name.toLocaleUpperCase()} {surName.toLocaleUpperCase()}
               </div>
             </h3>
           ) : (

@@ -5,6 +5,8 @@ import axios from "axios";
 import AuthLocalStorage from "../localStorage";
 import moment from "moment";
 import { useNavigate } from "react-router";
+import svgCheckFill from "../../assets/svg/myOffer/svgCheck.svg";
+import svgCheckNull from "../../assets/svg/myOffer/svgChechNull.svg";
 
 const GiveOfferDetail = () => {
   const [offerUserid, setOfferUserid] = useState();
@@ -20,10 +22,14 @@ const GiveOfferDetail = () => {
   const [window, setWindow] = useState();
   const [place, setPlace] = useState();
   const [date, setDate] = useState();
+  const [endDay, setEndDay] = useState();
+  const [city, setCity] = useState();
+  const [town, setTown] = useState();
   const [counter, setCounter] = useState(0);
   const { accessToken, id, name, surName } = AuthLocalStorage();
   const params = useParams();
   const navigate = useNavigate();
+  const [cardShow, setCardShow] = useState(false);
 
   useEffect(() => {
     getOfferDetail();
@@ -44,6 +50,10 @@ const GiveOfferDetail = () => {
   const reset = () => {
     setCounter(0);
   };
+  
+  const toggleDownOrUp = () => {
+    setCardShow(!cardShow);
+  };
 
   async function getOfferDetail() {
     const response = await axios.get(`${BASE_URL}/offers/${params.id}`, {
@@ -57,6 +67,8 @@ const GiveOfferDetail = () => {
     setHeight(response.data.productHeight);
     setWindow(response.data.productWindow);
     setPlace(response.data.productPlace);
+    setCity(response.data.city);
+    setTown(response.data.town);
     setDate(response.data.createdAt);
     setComment(response.data.userComment);
   }
@@ -75,13 +87,14 @@ const GiveOfferDetail = () => {
             firmSurNam: surName,
             comment: companyComment,
             price: price,
+            endingDay: endDay,
             isThereOffer: true,
             lastDate: todoDate,
           },
           { headers: { Authorization: `Bearer ${accessToken}` } }
         )
         .then(() => {
-          navigate('/giveOffer');
+          navigate("/giveOffer");
           alert("teklif verdiniz.");
         });
     } catch (error) {
@@ -116,6 +129,7 @@ const GiveOfferDetail = () => {
                 </div>
                 <div className="detailContentRight">
                   <div>{place}</div>
+                  <div>{town ? town : null} {city ? '/' + city.toLocaleUpperCase() :  'Belirtilmemiş'}</div>
                   <div>{myDate}</div>
                 </div>
               </div>
@@ -164,6 +178,13 @@ const GiveOfferDetail = () => {
                   <div className="countNumber">
                     {counter > -1 ? counter : "0 olamaz"} gün
                   </div>
+                  <img
+                    className="checkImg"
+                    onClick={e => setEndDay(counter)}
+                    onClickCapture={toggleDownOrUp}
+                    src={cardShow !== true ? svgCheckNull : svgCheckFill}
+                    alt=""
+                  />
                 </div>
                 <input
                   onChange={e => setTodoDate(e.target.value)}

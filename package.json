@@ -16,6 +16,7 @@
     "react-dom": "^18.1.0",
     "react-modal": "^3.16.1",
     "react-multi-carousel": "^2.8.0",
+    "react-multi-select-component": "^4.3.4",
     "react-password-checklist": "^1.4.2",
     "react-redux": "^8.0.2",
     "react-router": "^6.3.0",
