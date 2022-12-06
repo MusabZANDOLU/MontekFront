@@ -57,6 +57,7 @@ $color-shadow: #aeb1bd;
 }
 
 .radiogroupCompaniesOther {
+  width: 47%;
   color: #8f1010;
   background-color: rgb(228, 227, 227);
   box-shadow: -5px -5px 20px $color-grey, 5px 5px 20px $color-shadow;
@@ -65,7 +66,6 @@ $color-shadow: #aeb1bd;
   padding: 0.5%;
   font-size: 13px;
   font-weight: bolder;
-  width: 47%;
   border-radius: 10px;
 }
 
@@ -103,6 +103,9 @@ $color-shadow: #aeb1bd;
     border-radius: 10px;
     width: 90%;
     margin-top: 5%;
+  }
+  .radiogroupCompaniesOther{
+    width: 90%;
   }
 }
 

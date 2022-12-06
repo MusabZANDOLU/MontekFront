@@ -29,7 +29,6 @@ const MyOffers = () => {
       .then(res => {
         window.location.reload(false);
       });
-    // setMyOffer(response.data.data);
   };
 
   const getMyOffer = async () => {
@@ -40,11 +39,7 @@ const MyOffers = () => {
       .then(res => {
         setMyOffer(res.data);
       });
-    // console.log(response)
-    // setMyOffer(response.data.data);
   };
-
-  // className={`true ? "dark" : "light"` ------------ÖNEMLİ
 
   return (
     <div className="myOfferBody">
@@ -59,8 +54,6 @@ const MyOffers = () => {
       ) : (
         <div className="myOfferTopText">Tüm teklifleriniz</div>
       )}
-      {/* <button className="gridListBtn"><i className="fa-solid fa-table-cells-large gridList"></i></button>
-     <button className="gridListBtn"><i className="fa-solid fa-list gridList"></i></button> */}
 
       <div className="myOfferAll">
         {myOffers.map(getOffers => (
@@ -128,7 +121,10 @@ const MyOffers = () => {
                           <br />
                           İl-İlçe:
                           <hr />
-                          {getOffers.town} / {getOffers.city}
+                          {getOffers.town ? getOffers.town : null}{" "}
+                          {getOffers.city
+                            ? "/" + getOffers.city.toLocaleUpperCase()
+                            : "Belirtilmemiş"}
                         </div>
                       </label>
                     </div>

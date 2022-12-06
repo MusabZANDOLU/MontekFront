@@ -294,7 +294,7 @@ const GetOfferShowerBox = () => {
                     <div className='getoffer-text'>(4.Adım)<br /><hr />Aklınıza gelen diğer detayları yazablirsiniz.</div>
                     <div className="radiogroup-ex">
 
-                      <textarea className="getOffer-input" type="text" onChange={e => setTextArea(e.target.value)} placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
+                      <textarea value={textArea ? textArea : null} className="getOffer-input" type="text" onChange={e => setTextArea(e.target.value)} placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
                     </div>
                     <div className="buttons">
                       <button className="getOfferButton" onClick={() => { inputCheck ? setDivs(5) : alert("Sonraki adım için lütfen önce seçim yapınız.") }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>

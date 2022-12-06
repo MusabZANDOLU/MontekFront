@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
+import AuthLocalStorage from "../localStorage";
 import "../../assets/scss/products.scss";
 
 function Products() {
+  const { isLogin, type } = AuthLocalStorage();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -46,14 +49,21 @@ function Products() {
               <hr />
               <div className="prod-url">
                 Ürünle ilgili teklif almak için{" "}
-                <Link to="/getOffer/pvc">
+                <Link
+                  to={
+                    isLogin && type === "user"
+                      ? "/getOffer/pvc"
+                      : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                  }
+                >
                   <i className="fa-solid fa-link"></i>
                 </Link>{" "}
                 tıklayınız
               </div>
             </div>
           </div>
-
           <div className="products-all-table">
             <div className="product-sttng">
               <img
@@ -88,14 +98,21 @@ function Products() {
               <hr />
               <div className="prod-url">
                 Ürünle ilgili teklif almak için{" "}
-                <Link to="/getOffer/foldingWindow">
+                <Link
+                  to={
+                    isLogin && type === "user"
+                      ? "/getOffer/foldingWindow"
+                      : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                  }
+                >
                   <i className="fa-solid fa-link"></i>
                 </Link>{" "}
                 tıklayınız
               </div>
             </div>
           </div>
-
           <div className="products-all-table">
             <div className="product-sttng">
               <img
@@ -128,14 +145,21 @@ function Products() {
               <hr />
               <div className="prod-url">
                 Ürünle ilgili teklif almak için{" "}
-                <Link to="/getOffer/pvc">
+                <Link
+                  to={
+                    isLogin && type === "user"
+                      ? "/getOffer/pvc"
+                      : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                  }
+                >
                   <i className="fa-solid fa-link"></i>
                 </Link>{" "}
                 tıklayınız
               </div>
             </div>
           </div>
-
           <div className="products-all-table">
             <div className="product-sttng">
               <img
@@ -170,14 +194,21 @@ function Products() {
               <hr />
               <div className="prod-url">
                 Ürünle ilgili teklif almak için{" "}
-                <Link to="/getOffer/pvc">
+                <Link
+                  to={
+                    isLogin && type === "user"
+                      ? "/getOffer/pvc"
+                      : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                  }
+                >
                   <i className="fa-solid fa-link"></i>
                 </Link>{" "}
                 tıklayınız
               </div>
             </div>
           </div>
-
           <div className="products-all-table">
             <div className="product-sttng">
               <img
@@ -208,14 +239,21 @@ function Products() {
               <hr />
               <div className="prod-url">
                 Ürünle ilgili teklif almak için{" "}
-                <Link to="/getOffer/shopping">
+                <Link
+                  to={
+                    isLogin && type === "user"
+                      ? "/getOffer/shopping"
+                      : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                  }
+                >
                   <i className="fa-solid fa-link"></i>
                 </Link>{" "}
                 tıklayınız
               </div>
             </div>
           </div>
-
           <div className="products-all-table">
             <div className="product-sttng">
               <img
@@ -246,14 +284,21 @@ function Products() {
               <hr />
               <div className="prod-url">
                 Ürünle ilgili teklif almak için{" "}
-                <Link to="/getOffer/showerBox">
+                <Link
+                  to={
+                    isLogin && type === "user"
+                      ? "/getOffer/showerBox"
+                      : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                  }
+                >
                   <i className="fa-solid fa-link"></i>
                 </Link>{" "}
                 tıklayınız
               </div>
             </div>
           </div>
-
           <div className="products-all-table">
             <div className="product-sttng">
               <img
@@ -284,14 +329,21 @@ function Products() {
               <hr />
               <div className="prod-url">
                 Ürünle ilgili teklif almak için{" "}
-                <Link to="/getOffer/shopping">
+                <Link
+                  to={
+                    isLogin && type === "user"
+                      ? "/getOffer/shopping"
+                      : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                  }
+                >
                   <i className="fa-solid fa-link"></i>
                 </Link>{" "}
                 tıklayınız
               </div>
             </div>
           </div>
-
           <div className="products-all-table">
             <div className="product-sttng">
               <img
@@ -322,7 +374,15 @@ function Products() {
               <hr />
               <div className="comp-url">
                 Ürünle ilgili teklif almak için{" "}
-                <Link to="/getOffer/swatter">
+                <Link
+                  to={
+                    isLogin && type === "user"
+                      ? "/getOffer/swatter"
+                      : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                  }
+                >
                   <i className="fa-solid fa-link"></i>
                 </Link>{" "}
                 tıklayınız

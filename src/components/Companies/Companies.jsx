@@ -4,7 +4,6 @@ import Navbar from "../Dashboard/Navbar";
 import axios from "axios";
 import "../../assets/scss/companies.scss";
 import AuthLocalStorage from "../localStorage";
-
 import svgWebLink from "../../assets/svg/company/svgWebLink.svg";
 import svgFaceBook from "../../assets/svg/company/svgFacebook.svg";
 import svgLinkedIn from "../../assets/svg/company/svgLinkedIn.svg";

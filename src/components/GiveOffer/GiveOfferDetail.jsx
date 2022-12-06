@@ -50,7 +50,7 @@ const GiveOfferDetail = () => {
   const reset = () => {
     setCounter(0);
   };
-  
+
   const toggleDownOrUp = () => {
     setCardShow(!cardShow);
   };
@@ -129,7 +129,10 @@ const GiveOfferDetail = () => {
                 </div>
                 <div className="detailContentRight">
                   <div>{place}</div>
-                  <div>{town ? town : null} {city ? '/' + city.toLocaleUpperCase() :  'Belirtilmemiş'}</div>
+                  <div>
+                    {town ? town : null}{" "}
+                    {city ? "/" + city.toLocaleUpperCase() : "Belirtilmemiş"}
+                  </div>
                   <div>{myDate}</div>
                 </div>
               </div>

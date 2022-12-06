@@ -50,9 +50,7 @@ $timing: 265ms;
 }
 
 .infoIcons {
-  // margin-top: 16%;
-  // margin-right: 8%;
-  height: auto;
+  height: 240px;
   padding-bottom: 2%;
   background-color: #aeafb1;
   transition: all 0.2s ease-in-out;
@@ -119,10 +117,13 @@ margin-left: -1%;
 @media (max-width: 768px) {
   .aboutFlex {
     display: block;
-    // width: 100%;
+  }
+  #aboutFlexDownId{
+    display: none;
   }
   .infoIcons{
     width: 99%;
+    height: 35vh;
   }
   .logoCover{
     width: 99%;

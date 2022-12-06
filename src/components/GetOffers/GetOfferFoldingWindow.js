@@ -134,7 +134,7 @@ const GetOfferFoldingWindow = () => {
                 <hr />
                 <button onClick={info1} className="getOfferButton"><i className="fa-solid fa-circle-question"></i> Bilgi Al</button>
                 <hr />
-                <div className="getOfferLinkButton"><Link to='/getOffer/category'><i className="fa-solid fa-house"></i> Kategorilere Dön</Link></div>
+                <div className="getOfferLinkButton"><Link className="getOfferLinkButtonLimk" to='/getOffer/category'><i className="fa-solid fa-house"></i> Kategorilere Dön</Link></div>
               </div>
             </div>
           </div> : divs === 2 ?
@@ -478,7 +478,7 @@ const GetOfferFoldingWindow = () => {
                         <div className='getoffer-text'>(6.Adım)<br /><hr />Aklınıza gelen diğer detayları yazablirsiniz.</div>
                         <div className="radiogroup-ex">
 
-                          <textarea onChange={e => setTextArea(e.target.value)} className="getOffer-input" type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
+                          <textarea value={textArea ? textArea : null} onChange={e => setTextArea(e.target.value)} className="getOffer-input" type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
                         </div>
                         <div className="buttons">
                           <button className="getOfferButton" onClick={() => { textArea ? setDivs(7) : alert('Lütfen açıklama yaparak firmalarımızı biraz bilgilendiriniz!') }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
@@ -564,6 +564,7 @@ const GetOfferFoldingWindow = () => {
                                   <i className="fa-solid fa-check tik"></i>
                                   <div className='textOfferCssOut'>{inputCheck2}</div>
                                 </label>
+                                  {/* <button onClick={() => { setDivs(3) }}>git</button> */}
                               </div>
                               <hr />
                               <div className="wrapper">
@@ -614,7 +615,7 @@ const GetOfferFoldingWindow = () => {
                               <hr />
                               <button className="getOfferButton" onClick={() => { setDivs(7) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
                               <hr />
-                              <div className="getOfferLinkButton"><Link to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link></div>
+                              <div className="getOfferLinkButton"><Link className="getOfferLinkButtonLimk" to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link></div>
                             </div>
                           </div>
                         </div> : null}

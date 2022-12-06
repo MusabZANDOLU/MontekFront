@@ -3,15 +3,17 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/AuthSlice";
+import AuthLocalStorage from "../localStorage";
 import "../../assets/scss/login_Register_Info.scss";
-
+import { logout } from "../../redux/auth/AuthSlice";
 const Login = () => {
+  const { isLogin, name, surName } = AuthLocalStorage();
+  const [passwordShowIcon, setPasswordShowIcon] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [password, setPassword] = useState();
+  const [eMail, setEmail] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [eMail, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [passwordShown, setPasswordShown] = useState(false);
-  const [passwordShowIcon, setPasswordShowIcon] = useState(false);
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -21,10 +23,14 @@ const Login = () => {
   const loginPost = async e => {
     e.preventDefault();
     dispatch(login({ eMail, password }));
-
+    
     setTimeout(() => {
       navigate("/");
     }, 1000);
+  };
+
+  const logoutHandler = () => {
+    dispatch(logout());
   };
 
   return (
@@ -65,9 +71,7 @@ const Login = () => {
               </label>
             </div>
             <div className="logBtnCenter">
-              <button className="red buttonLogg">
-                <i className="icon ion-md-lock"></i> Giriş
-              </button>
+              <button className="red buttonLogg">Giriş</button>
             </div>
           </div>
         </form>
@@ -77,16 +81,25 @@ const Login = () => {
               Kullanıcı Kayıt
             </button>
           </Link>
-
           <Link className="regLink" to="/register/company">
             <button className="buttonLoggRegister regBtn">Firma Kayıt</button>
           </Link>
         </div>
-
         <div className="bottonTextLog">
           <a className="bottonTextLog" href="/">
-            Kayıt olmadan devam et
+            {isLogin
+              ? "Sn. " +
+                name.toLocaleUpperCase() +
+                " " +
+                surName.toLocaleUpperCase() +
+                " sisteme girişiniz mevcut. Buradan Ana sayfaya gidebilirsiniz."
+              : "Kayıt Olmadan Devam Et"}
           </a>
+          <br />
+          <br />
+          <Link className="logoutLoginPage" to="/login" onClick={logoutHandler}>
+            {isLogin ? "Çıkış Yap" : null}
+          </Link>
         </div>
       </div>
     </div>

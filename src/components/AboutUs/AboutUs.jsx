@@ -78,7 +78,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="aboutFlex">
+        <div id="aboutFlexDownId" className="aboutFlex">
           <div className="aboutFooterAllLeft aboutFlex">
             <div className="aboutFooterText">
               Bu site 2022 yılında Musab ZANDOLU tarafından kodlanmıştır.

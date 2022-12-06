@@ -163,12 +163,17 @@ $color-white: #fff;
     width: 80%;
   }
   .logBtnCenter {
+    margin-top: 15px;
     display: flex;
     justify-content: center;
   }
   .labelLoggPass .inputLogg {
     width: 100%;
     text-align: center;
+  }
+  .bottonTextLog{
+    text-align: center;
+    width: 95%;
   }
   .loginAll .formLogin .coverLogin .buttonLogg {
     width: 50%;
@@ -388,12 +393,26 @@ $color-white: #fff;
   margin-top: 5%;
   font-size: 15px;
   font-weight: bolder;
-  color: #ff0000;
+  color: #297c1f;
   text-align: center;
   font-style: italic;
   &:hover {
-    color: #365c22;
+    color: #092f81;
     text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+  }
+}
+
+.logoutLoginPage {
+  margin-top: 5%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff0000;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    color: #070000;
     transition: 0.5s;
     font-weight: bold;
   }

@@ -403,7 +403,7 @@ const GetOfferShopping = () => {
                       <div className='getoffer-text'>(5.Adım)<br /><hr />Aklınıza gelen diğer detayları yazabilirsiniz.</div>
                       <div className="radiogroup-ex">
 
-                        <textarea className="getOffer-input" onChange={e => setTextArea(e.target.value)} type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
+                        <textarea value={textArea ? textArea : null} className="getOffer-input" onChange={e => setTextArea(e.target.value)} type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
                       </div>
                       <div className="buttons">
                         <button className="getOfferButton" onClick={() => { inputCheck ? setDivs(6) : alert("Sonraki adım için lütfen önce seçim yapınız.") }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
@@ -454,9 +454,9 @@ const GetOfferShopping = () => {
                         </div>
                         <div className='citiesButtons'>
                           <div className="buttons">
-                            <button className="getOfferButton" onClick={() => { setDivs(8) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                            <button className="getOfferButton" onClick={() => { setDivs(7) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                             <hr />
-                            <button className="getOfferButton" onClick={() => { setDivs(6) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
+                            <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                           </div>
                         </div>
                       </div>
@@ -464,7 +464,7 @@ const GetOfferShopping = () => {
 
                       <div id='step6Shop'>
                         <div className='UserSettingAll'>
-                          <div className='getoffer-text'>Teklifinizi gözden geçiriniz. Değiştirmek istediğiniz detaylar için geri gidip seçim yapabilirsiniz.</div>
+                          <div id='getOfferTextId' className='getoffer-text'>Teklifinizi gözden geçiriniz. Değiştirmek istediğiniz detaylar için geri gidip seçim yapabilirsiniz.</div>
                           <div className="radiogroupPrev">
 
                             <div className="wrapper">
@@ -529,7 +529,7 @@ const GetOfferShopping = () => {
                             <hr />
                             <button onClick={info6} className="getOfferButton"><i className="fa-solid fa-circle-question"></i> Bilgi Al</button>
                             <hr />
-                            <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
+                            <button className="getOfferButton" onClick={() => { setDivs(6) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Sayfa</button>
                             <hr />
                             <Link className="getOfferLinkButton" to='/getOffer/category'><i className="fa-solid fa-circle-xmark"></i> İptal / Ana Menü</Link>
                           </div>

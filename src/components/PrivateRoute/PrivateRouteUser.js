@@ -2,9 +2,9 @@ import { Navigate, Outlet } from "react-router";
 import { AuthLocalStorage } from '../localStorage';
 
 const PrivateWrapper = ({ auth }) => {
-  const { isLogin } = AuthLocalStorage();
+  const { isLogin, type } = AuthLocalStorage();
   
-  return isLogin ? <Outlet /> : <Navigate to="/login" />;
+  return isLogin && type === 'user' ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default PrivateWrapper;
