@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 
 function carousel() {
   const responsive = {
+    desktopLarge: {
+      breakpoint: { max: 3000, min: 1500 },
+      items: 6,
+      slidesToSlide: 1,
+    },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 1500, min: 1024 },
       items: 5,
       slidesToSlide: 1,
     },

@@ -9,24 +9,23 @@ import AuthLocalStorage from '../localStorage';
 import '../../assets/scss/getOffer.scss';
 import 'alertifyjs/build/css/alertify.min.css';
 
-function info1() {
+const info1 = () => {
   alertify.alert('Seçilecek Ürünler Hakkında', 'Hangi tarz duş kabini istediğinizi seçiniz. Altında plastik havuz olanlar tekneli, olmayanlar teknesiz olarak adlandırılır. Duvardan duvara ve oval seçeneklerinde de tekneli ürünler mevcuttur. hangisini ne şekilde istediğinizi açıklama olarak yazabilirsiniz.');
 }
 
-function info2() {
+const info2 = () => {
   alertify.alert('Duş kabini cam seçimi hakkında', 'Duş kabininiz için istediğiniz cam seçimini seçiniz.Temperli camlar dayanıklı olması adına fırınlanmış camlardır. Mika sert plastik olarak üretilir. Uygun maliyetlidir.')
 }
 
-function info3() {
+const info3 = () => {
   alertify.alert('En boy ölçüsü hakkında', 'Montaj yaptırmak istediğiniz yer için uygun olan en boy ölçüsünü metre yardımıyla alarak seçiminizi yapabilirsiniz. Direk sizde olan ölçü burada yok ise yakın olanı seçip açıklama kısmında firmalar için bu bilgiyi ekleyerek daha doğru fiyat teklifleri alabilirsiniz.')
 }
 
-function info4() {
+const info4 = () => {
   alertify.alert('Teklif Kontrol', 'Teklifinizi aşağıdaki kutudan kontrol ediniz. Eğer istemediğiniz ya da yanlış olan seçim varsa o adıma geri gidip düzenleyebilirsiniz.');
 }
 
 const GetOfferShowerBox = () => {
-
   const { accessToken, id, name, surName } = AuthLocalStorage();
   const [divs, setDivs] = useState(1);
   const [inputCheck, setInputCheck] = useState();
@@ -294,7 +293,7 @@ const GetOfferShowerBox = () => {
                     <div className='getoffer-text'>(4.Adım)<br /><hr />Aklınıza gelen diğer detayları yazablirsiniz.</div>
                     <div className="radiogroup-ex">
 
-                      <textarea value={textArea ? textArea : null} className="getOffer-input" type="text" onChange={e => setTextArea(e.target.value)} placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
+                      <textarea value={textArea ? textArea : ''} className="getOffer-input" type="text" onChange={e => setTextArea(e.target.value)} placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
                     </div>
                     <div className="buttons">
                       <button className="getOfferButton" onClick={() => { inputCheck ? setDivs(5) : alert("Sonraki adım için lütfen önce seçim yapınız.") }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>

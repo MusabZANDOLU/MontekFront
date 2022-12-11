@@ -10,27 +10,27 @@ import '../../assets/scss/getOffer.scss';
 import 'alertifyjs/build/css/alertify.min.css';
 
 
-function info1() {
+const info1 = () => {
     alertify.alert('Seçilecek Ürünler Hakkında', 'Plise sineklik akordiyon yapıda ve katlanabilir olarak tasarlanmıştır. Sabit sineklik direkt monte eildiği yerde sabit olarak kalır, menteşeli sineklik açılıp kapanabilen sinekliktir. Sarhoş sineklik serbest yapıda olur sağa ya da sola katlanabilir.');
 }
 
-function info2() {
+const info2 = () => {
     alertify.alert('Sineklik en ölçüsü seçimi', 'Sineklik en ölçüsü için metre yardımıyla açılan pencerenin ya da kapının dış tırnağından alınır. Sağ dış tırnaktan sol dış tırnağa kadar ölçünüzü alarak girebilirsiniz.');
 }
 
-function info3() {
+const info3 = () => {
     alertify.alert('Sineklik boy ölçüsü seçimi', 'Sineklik boy ölçüsü için metre yardımıyla açılan pencerenin ya da kapının dış tırnağından alınır. Üst dış tırnaktan alt dış tırnağa kadar ölçünüzü alarak girebilirsiniz.');
 }
 
-function info4() {
+const info4 = () => {
     alertify.alert('Ürün adedi hakkında', 'Teklif almak istediğiniz üründen kaç adet istediğinizi seçebilirsiniz. Aşağıda bulunmayan miktarları açıklama kısmında belirtebilirsiniz.');
 }
 
-function info5() {
+const info5 = () => {
     alertify.alert('Sineklik kasa rengi hakkında', 'Sinekliğinizi pencere ya da kapı renginize göre seçebilirsiniz. Alüminyum malzemeden olan sineklikler için renkler pencereler ile aynıdır.');
 }
 
-function info6() {
+const info6 = () => {
     alertify.alert('Teklif Kontrol', 'Teklifinizi aşağıdaki kutudan kontrol ediniz. Eğer istemediğiniz ya da yanlış olan seçim varsa o adıma geri gidip düzenleyebilirsiniz.');
 }
 
@@ -530,7 +530,7 @@ const GetOfferSwatter = () => {
                                                     <div className='getoffer-text'>(6.Adım)<br /><hr />Aklınıza gelen diğer detayları yazabilirsiniz.</div>
                                                     <div className="radiogroup-ex">
 
-                                                        <textarea value={textArea ? textArea : null} className="getOffer-input" onChange={e => setTextArea(e.target.value)} type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
+                                                        <textarea value={textArea ? textArea : ''} className="getOffer-input" onChange={e => setTextArea(e.target.value)} type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
                                                     </div>
                                                     <div className="buttons">
                                                         <button className="getOfferButton" onClick={() => { textArea ? setDivs(7) : alert('Lütfen açıklama yaparak firmalarımızı biraz bilgilendiriniz!') }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>

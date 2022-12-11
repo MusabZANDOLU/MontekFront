@@ -9,6 +9,7 @@ import svgCheckFill from "../../assets/svg/myOffer/svgCheck.svg";
 import svgCheckNull from "../../assets/svg/myOffer/svgChechNull.svg";
 
 const GiveOfferDetail = () => {
+  const { accessToken, id, name, surName } = AuthLocalStorage();
   const [offerUserid, setOfferUserid] = useState();
   const [nameCustomer, setNameCustomer] = useState();
   const [surNameCustomer, setSurnameCustomer] = useState();
@@ -25,11 +26,10 @@ const GiveOfferDetail = () => {
   const [endDay, setEndDay] = useState();
   const [city, setCity] = useState();
   const [town, setTown] = useState();
-  const [counter, setCounter] = useState(0);
-  const { accessToken, id, name, surName } = AuthLocalStorage();
+  const [counter, setCounter] = useState(1);
+  const [cardShow, setCardShow] = useState(false);
   const params = useParams();
   const navigate = useNavigate();
-  const [cardShow, setCardShow] = useState(false);
 
   useEffect(() => {
     getOfferDetail();
@@ -38,6 +38,10 @@ const GiveOfferDetail = () => {
 
   let myDate = date;
   myDate = moment().format("LL");
+
+  const toggleDownOrUp = () => {
+    setCardShow(!cardShow);
+  };
 
   const increase = () => {
     setCounter(count => count + 1);
@@ -48,11 +52,7 @@ const GiveOfferDetail = () => {
   };
 
   const reset = () => {
-    setCounter(0);
-  };
-
-  const toggleDownOrUp = () => {
-    setCardShow(!cardShow);
+    setCounter(1);
   };
 
   async function getOfferDetail() {
@@ -83,7 +83,7 @@ const GiveOfferDetail = () => {
             offersId: params.id,
             firmId: id,
             offerUserId: offerUserid,
-            firmName: name,
+            firmName: name + " " + surName,
             firmSurNam: surName,
             comment: companyComment,
             price: price,
@@ -153,7 +153,6 @@ const GiveOfferDetail = () => {
                   onChange={e => setCompanyComment(e.target.value)}
                   className="offerGiveDetailTextArea"
                   placeholder="Teklif için yazılacak açıklama..."
-                  cols="30"
                   rows="10"
                 ></textarea>
               </div>
@@ -179,7 +178,7 @@ const GiveOfferDetail = () => {
                     </button>
                   </div>
                   <div className="countNumber">
-                    {counter > -1 ? counter : "0 olamaz"} gün
+                    {counter > 0 ? counter + ' gün' : "0'dan yüksek sayı seçmelisiniz."}
                   </div>
                   <img
                     className="checkImg"
@@ -189,12 +188,14 @@ const GiveOfferDetail = () => {
                     alt=""
                   />
                 </div>
+                <div className="lastDateWidth">Teklif geçerlilik tarihi: 
                 <input
                   onChange={e => setTodoDate(e.target.value)}
                   type="date"
                   required
                   className="dateDetail"
                 ></input>
+                </div>
               </div>
             </div>
             <div className="detailDownButton">

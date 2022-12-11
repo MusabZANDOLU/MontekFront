@@ -51,7 +51,7 @@ const App = () => {
           <Route path="/getOffer/shopping" element={<GetOfferShopping />} />
           <Route path="/getOffer/swatter" element={<GetOfferSwatter />} />
           <Route path="/getOffer/aluminumHandrail" element={<GetOfferAluminumHandrail />} />
-          <Route path="/offer/mine" element={<MyOfferModal />} />
+          <Route path="/offer/mine/:id" element={<MyOfferModal />} />
           <Route path="/user/informations/:id" element={<UserInfoPage />} />
         </Route>
 

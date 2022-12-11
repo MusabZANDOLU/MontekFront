@@ -127,9 +127,9 @@ const Navbar = () => {
 
             <li>
               {isLogin ? (
-                <Link to="/login" onClick={logoutHandler}>
+                <a href="/login" onClick={logoutHandler}>
                   <img className="svgNavbar" src={svgLogout} alt="" /> Çıkış Yap
-                </Link>
+                </a>
               ) : (
                 <Link to="/login">
                   <img className="svgNavbar" src={svgLogin} alt="" /> Giriş Yap

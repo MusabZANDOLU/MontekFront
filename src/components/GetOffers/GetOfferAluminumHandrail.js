@@ -9,31 +9,31 @@ import AuthLocalStorage from '../localStorage';
 import '../../assets/scss/getOffer.scss';
 import 'alertifyjs/build/css/alertify.min.css';
 
-function info1() {
+const info1 = () => {
     alertify.alert('Seçilecek Ürünler Hakkında', 'Ölçülerinizi balkonun eni ve yüksekliği olacak şekilde alınız. Verilen teklifler yalnızca yaklaşık sonuçları verebilir. Kesin bilgi içermemektedir!');
 }
 
-function info2() {
+const info2 = () => {
     alertify.alert('Balkon En Ölçüsü Hakkında', 'Balkonunuzun bir ucundan diğerine olacak şekilde metre yardımıyla ölçünüz. L ya da U şeklindeki balkonlar için tek balkon gibi düşünüp ölçünüzü alabilirsiniz.');
 }
 
-function info3() {
+const info3 = () => {
     alertify.alert('Balkon Yükseklik Ölçüsü Hakkında', 'Balkonunuzun zeminde mermerden tavana ölçüsünü alarak yazabilirsiniz. Daha doğru sonuçlar için balkonun enine baş orta ve sondan yükseklik ölçğsü alabilirsiniz.');
 }
 
-function info4() {
+const info4 = () => {
     alertify.alert('Balkon Türü Hakkında', 'Balkonunuzun şekil olarak yanları duvar ise gömme, tek tarafı duvar ise L, iki tarafıda dışa doğru ise U şeklinde olabilir.');
 }
 
-function info5() {
+const info5 = () => {
     alertify.alert('Ürün Cam Rengi Hakkında', 'Şeffaf: renksiz, Füme: Koyu Renkte: Reflekte: Aynalı yapıda, Buzlu: Buzlu, Bronze: Koyu Altın Sarısı...');
 }
 
-function info6() {
+const info6 = () => {
     alertify.alert('Teklif Kontrol', 'Teklifinizi aşağıdaki kutudan kontrol ediniz. Eğer istemediğiniz ya da yanlış olan seçim varsa o adıma geri gidip düzenleyebilirsiniz.');
 }
-const GetOfferAluminumHandrail = () => {
 
+const GetOfferAluminumHandrail = () => {
     const { accessToken, id, name, surName } = AuthLocalStorage()
     const [divs, setDivs] = useState(1);
     const [inputCheck, setInputCheck] = useState();
@@ -427,11 +427,11 @@ const GetOfferAluminumHandrail = () => {
                                                     <div className='getoffer-text'>(6.Adım)<br /><hr />Aklınıza gelen diğer detayları yazabilirsiniz.</div>
                                                     <div className="radiogroup-ex">
 
-                                                        <textarea value={textArea ? textArea : null} className="getOffer-input" onChange={e => setTextArea(e.target.value)} type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
+                                                        <textarea value={textArea ? textArea : ''} className="getOffer-input" onChange={e => setTextArea(e.target.value)} type="text" placeholder='Aklınıza gelenleri yazabilirsiniz. Örneğin; balkon ortasında sütun var, yanları ağaç/demir/beton, mermer yok vb.)' />
                                                     </div>
                                                     <div className="buttons">
 
-                                                    <button className="getOfferButton" onClick={() => { inputCheck ? setDivs(7) : alert("Sonraki adım için lütfen önce seçim yapınız.") }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
+                                                        <button className="getOfferButton" onClick={() => { inputCheck ? setDivs(7) : alert("Sonraki adım için lütfen önce seçim yapınız.") }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                                                         <hr />
                                                         <button className="getOfferButton" onClick={() => { setDivs(5) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
                                                     </div>

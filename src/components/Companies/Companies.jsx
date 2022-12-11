@@ -10,7 +10,7 @@ import svgLinkedIn from "../../assets/svg/company/svgLinkedIn.svg";
 import svgInstagram from "../../assets/svg/company/svgInstagram.svg";
 import { Link } from "react-router-dom";
 
-function Companies() {
+const Companies = () => { 
   const [companies, setCompanies] = useState([]);
   const { isLogin, id } = AuthLocalStorage();
 

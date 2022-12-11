@@ -91,7 +91,6 @@ const GiveOfferMinePage = () => {
           )}
           <hr />
           <div className="giveOfferMineAll">
-            {/* <div className={offers.length %2 === 0 ? 'giveOfferMineAll':'giveOfferMineAlll'}> */}
             {offers.map(offer => (
               <div
                 className="detailMineCard"

@@ -79,6 +79,9 @@ $color-shadow: #aeb1bd;
   .radiogroupCompanies {
     width: 30%;
   }
+  .radiogroupCompaniesOther {
+    width: 30%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -104,7 +107,7 @@ $color-shadow: #aeb1bd;
     width: 90%;
     margin-top: 5%;
   }
-  .radiogroupCompaniesOther{
+  .radiogroupCompaniesOther {
     width: 90%;
   }
 }

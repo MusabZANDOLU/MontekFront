@@ -143,7 +143,7 @@ const MyOffers = () => {
                 </div>
                 <div className="downButtons">
                   <div className="myOfferDetailBtn">
-                    <Link to={`/offer/mine`}>
+                    <Link to={`/offer/mine/${getOffers._id}`}>
                       <button className="myOfferBtn">Gelen tekliflerim.</button>
                     </Link>
                   </div>

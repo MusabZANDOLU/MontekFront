@@ -8,9 +8,18 @@ $color-shadow: #aeb1bd;
 }
 
 .myOfferTopText {
-  text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.myOfferTopTextNull {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
 }
 
 .myOfferAllModal {
@@ -67,7 +76,13 @@ $color-shadow: #aeb1bd;
 .myOfferBtnContent {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.myOffrProductName {
+  color: rgb(4, 4, 81);
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .myOfferDetailBtn {
@@ -84,22 +99,67 @@ $color-shadow: #aeb1bd;
 }
 
 .myOfferBtn {
-  box-shadow: -5px 1px 20px $color-grey, 5px 1px 20px $color-shadow;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  margin: 1%;
-  padding: 1%;
-  border: #333;
+  border: none;
+  border-radius: 5px;
+  width: 60%;
+  height: 25px;
   font-size: 13px;
   font-weight: bolder;
-  color: rgb(56, 16, 16);
-  border-radius: 15px;
-  text-decoration: dashed;
-  width: 70%;
-
+  background-color: #aeb1bd;
   &:hover {
-    box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;
+    background-color: rgba(96, 96, 96, 0.979);
+    color: rgb(220, 218, 218);
+  }
+}
+
+.myOfferBtnLeft {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 13px;
+  border: none;
+  width: 30%;
+  height: 25px;
+  font-weight: bolder;
+  background-color: #aeb1bd;
+  border-right: 0.5px solid #ecf0f3;
+  &:hover {
     background-color: rgba(204, 201, 201, 0.979);
+    margin-left: -20px;
+  }
+}
+.myOfferBtnMid {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  width: 20%;
+  height: 25px;
+  font-size: 13px;
+  font-weight: bolder;
+  background-color: #aeb1bd;
+  &:hover {
+    background-color: rgba(204, 201, 201, 0.979);
+    width: 40%;
+  }
+}
+.myOfferBtnRight {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  width: 30%;
+  height: 25px;
+  font-size: 13px;
+  font-weight: bolder;
+  background-color: #aeb1bd;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: 0.5px solid #ecf0f3;
+  &:hover {
+    background-color: rgba(204, 201, 201, 0.979);
+    margin-right: -20px;
   }
 }
 
@@ -177,9 +237,6 @@ $color-shadow: #aeb1bd;
 .textGiveOfferCss {
   font-size: 13px;
   cursor: context-menu;
-  // white-space: nowrap;
-  //   overflow: hidden;
-  //   text-overflow: ellipsis; /* Yazının kesildiği yerden üç nokta vermesini sağlıyoruz*/
 }
 
 .gridList {
@@ -203,10 +260,48 @@ $color-shadow: #aeb1bd;
   .myOfferTopText {
     margin-top: 10%;
   }
+  .myOfferTopTextNull {
+    margin-top: 10%;
+  }
+  .giveFlexAll .leftContainerGive .giveOfferMineAll{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .giveFlexAll .leftContainerGive .giveOfferMineAll .detailMineCard{
+    width: 90%;
+  }
 }
 
 @media (max-width: 1150px) {
   .radiogroupMyOffer {
     width: 45%;
   }
+}
+
+.topCardArea {
+  // display: block;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.topCardContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topCardInfo {
+  text-align: center;
+  margin-left: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.topCardInfoB {
+  text-align: center;
+  margin-left: 10px;
+  color: #6f7691;
+  font-weight: bold;
 }

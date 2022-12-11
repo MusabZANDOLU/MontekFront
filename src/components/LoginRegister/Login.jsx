@@ -6,6 +6,7 @@ import { login } from "../../redux/auth/AuthSlice";
 import AuthLocalStorage from "../localStorage";
 import "../../assets/scss/login_Register_Info.scss";
 import { logout } from "../../redux/auth/AuthSlice";
+
 const Login = () => {
   const { isLogin, name, surName } = AuthLocalStorage();
   const [passwordShowIcon, setPasswordShowIcon] = useState(false);
@@ -25,7 +26,7 @@ const Login = () => {
     dispatch(login({ eMail, password }));
     
     setTimeout(() => {
-      navigate("/");
+      navigate("/")
     }, 1000);
   };
 

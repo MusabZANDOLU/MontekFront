@@ -7,7 +7,7 @@ import AuthLocalStorage from "../localStorage";
 import alertify from "alertifyjs";
 import "../../assets/scss/login_Register_Info.scss";
 
-function UpdateSuccesfull() {
+const UpdateSuccesfull = () => {
   alertify.alert(
     "Kullanıcı Bilgilendirme",
     "Kullanıcı blgileriniz başarıyla güncellenmiştir."
@@ -26,11 +26,10 @@ const UserInfoPage = () => {
 
   useEffect(() => {
     getUsersById();
-    console.log(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  async function getUsersById() {
+  
+  const getUsersById = async e => {
     const response = await axios.get(`${BASE_URL}/users/${id}`, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
@@ -132,4 +131,5 @@ const UserInfoPage = () => {
     </div>
   );
 };
+
 export default UserInfoPage;

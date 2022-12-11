@@ -6,16 +6,16 @@ import axios from "axios";
 import alertify from "alertifyjs";
 import "../../assets/scss/login_Register_Info.scss";
 
-function updateSuccessful() {
+const updateSuccessful = () => {
   alertify.alert(
     "Bilgi Güncelleme",
     "Firma bilgilerinizi başarıyla güncellediniz."
   );
-}
+};
 
-function updateUnsuccessful() {
+const updateUnsuccessful = () => {
   alertify.alert("Bilgi Güncelleme", "Firma bilgileri güncellenemedi");
-}
+};
 
 const CompanyInfoPage = () => {
   const [firmName, setFirmName] = useState();
@@ -32,7 +32,7 @@ const CompanyInfoPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function getCompanyById() {
+  const getCompanyById = async e => {
     const res = await axios.get(`${BASE_URL}/companies/${id}`, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
@@ -43,12 +43,13 @@ const CompanyInfoPage = () => {
     setFirmMail(res.data.firmMail);
     setFirmUrl(res.data.firmUrl);
     setFirmServices(res.data.firmServices);
-  }
+  };
 
   const updateCompany = async e => {
     e.preventDefault();
     try {
-      await axios.patch(
+      await axios
+        .patch(
           `${BASE_URL}/companies/${id}`,
           {
             firmName,
