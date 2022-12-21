@@ -10,9 +10,9 @@ import svgCheckNull from "../../assets/svg/myOffer/svgChechNull.svg";
 import svgTrash from "../../assets/svg/myOffer/svgTrash.svg";
 
 const GiveOfferMinePage = () => {
+  const { accessToken, id } = AuthLocalStorage();
   const [offers, setOffers] = useState([]);
   const [currentOffer, setCurrentOffer] = useState({});
-  const { accessToken, id } = AuthLocalStorage();
   const [cardShow, setCardShow] = useState(false);
 
   let myDate = currentOffer.lastDate;
@@ -58,7 +58,6 @@ const GiveOfferMinePage = () => {
       console.log(e);
     } catch (error) {
       console.log(error);
-      // updateUnsuccessful();
     }
   };
 

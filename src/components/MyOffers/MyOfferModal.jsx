@@ -18,7 +18,7 @@ const MyOfferModal = () => {
 
   let myDate = myOffer.createdAt;
   myDate = moment().format("L");
-
+  console.log(companies);
   // let lastDate = currentOffer.lastDate;
   // lastDate = moment().format("L");
 
@@ -71,8 +71,8 @@ const MyOfferModal = () => {
     try {
       await axios.get(`${BASE_URL}/companies/${firmId}`).then(d => {
         setCompanies(d.data);
+        alertify.alert(d.data.firmName, "İletişim:" + d.data.firmPhone);
       });
-      alertify.alert("Firma Telefon Numarası", companies.firmPhone);
     } catch (error) {
       console.log(error);
     }
@@ -114,7 +114,7 @@ const MyOfferModal = () => {
             <div className="giveOfferCover">
               <div>
                 <div className="myOfferTitle">
-                  <div className="labelMyOfferLeft">Firma Adı:</div>
+                  <div className="labelMyOfferLeft">Firma Yetkilisi:</div>
                   <div className="labelMyOfferRight">
                     {getGiveOffer.firmName}
                   </div>
@@ -128,17 +128,11 @@ const MyOfferModal = () => {
                 </div>
                 <hr />
                 <div className="myOfferTitle">
-                  <div className="labelMyOfferLeft">Verilen Fiyat:</div>
+                  <div className="labelMyOfferLeft">
+                    Verilen Fiyat/Fiyat Aralığı:
+                  </div>
                   <div className="labelMyOfferRightPrice">
                     {getGiveOffer.price} TL
-                  </div>
-                </div>
-                <div className="myOfferTitle">
-                  <div className="labelMyOfferLeft">
-                    Son Teklif Geçerlilik Tarihi:
-                  </div>
-                  <div className="labelMyOfferRightPrice">
-                    {getGiveOffer.lastDate.slice(0,10)}
                   </div>
                 </div>
                 <div className="myOfferTitle">
@@ -149,12 +143,21 @@ const MyOfferModal = () => {
                     {getGiveOffer.endingDay} Gün
                   </div>
                 </div>
+                <div className="myOfferTitle">
+                  <div className="labelMyOfferLeft">
+                    Teklif Son Geçerlilik Tarihi:
+                  </div>
+                  <div className="labelMyOfferRightPrice">
+                    {getGiveOffer.lastDate.slice(0, 10)}
+                  </div>
+                </div>
                 <div className="myOfferBtnContent">
                   <button
-                  onClick={e => {
-                    e.preventDefault();
-                    alertt(getGiveOffer.firmId);
-                  }}
+                    onClick={e => {
+                      e.preventDefault();
+                      alertt(getGiveOffer.firmId);
+                      console.log(getGiveOffer.firmId);
+                    }}
                     className="myOfferBtnLeft"
                   >
                     Firma İletişim
@@ -162,13 +165,13 @@ const MyOfferModal = () => {
                   <button
                     onClick={e => {
                       e.preventDefault();
-                      deletedGiveOffer(getGiveOffer.firmId);
+                      deletedGiveOffer(getGiveOffer._id);
                     }}
-                    className="myOfferBtnMid"
+                    className="myOfferBtnRight"
                   >
                     Sil
                   </button>
-                  <button className="myOfferBtnRight">Anlaş</button>
+                  {/* <button className="myOfferBtnRight">Anlaş</button> */}
                 </div>
               </div>
             </div>

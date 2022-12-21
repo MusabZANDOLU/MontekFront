@@ -95,12 +95,13 @@ const Navbar = () => {
                 <Link to="/giveOffer">Teklif Ver</Link>
               </li>
             )}
-            {isLogin && type === "company" && (
-              <li>
-                <img className="svgNavbar" src={svgMyOffer} alt="" />
-                <Link to="/giveOffer/mine">Tekliflerim</Link>
-              </li>
-            )}
+            {isLogin &&
+              type === "company" &&
+              // <li>
+              //   <img className="svgNavbar" src={svgMyOffer} alt="" />
+              //   <Link to="/giveOffer/mine">Tekliflerim</Link>
+              // </li>
+              null}
             {isLogin && type === "user" && (
               <li>
                 <img className="svgNavbar" src={svgInformation} alt="" />
