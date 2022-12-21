@@ -9,7 +9,7 @@ import alertify from "alertifyjs";
 
 const MyOfferModal = () => {
   const { accessToken, id } = AuthLocalStorage();
-  const [currentOffer, setCurrentOffer] = useState({});
+  // const [currentOffer, setCurrentOffer] = useState({});
   const [companies, setCompanies] = useState([]);
   const [mineGiveOffers, setMineGiveOffer] = useState([]);
   const [myOffer, setMyOffer] = useState([]);
@@ -29,9 +29,9 @@ const MyOfferModal = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fillOffer = offer => {
-    setCurrentOffer(offer);
-  };
+  // const fillOffer = offer => {
+  //   setCurrentOffer(offer);
+  // };
 
   const getGiveOfferWidthId = async () => {
     await axios
@@ -53,47 +53,29 @@ const MyOfferModal = () => {
       });
   };
 
-  const deletedGiveOffer = async e => {
-    console.log(currentOffer._id);
-    // e.preventDefault();
-    // try {
-    //   await axios
-    //     .delete(`${BASE_URL}/giveOffers/${currentOffer.id}`, {
-    //       headers: { Authorization: `Bearer ${accessToken}` },
-    //     })
-    //     .then(res => {
-    //       window.location.reload(false);
-    //     });
-    //   console.log(e);
-    // } catch (error) {
-    //   console.log(error);
-    //   // updateUnsuccessful();
-    // }
+  const deletedGiveOffer = async id => {
+    try {
+      await axios
+        .delete(`${BASE_URL}/giveOffers/${id}`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        })
+        .then(res => {
+          window.location.reload(false);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const alertt = async firmId => {
-    const response = await axios.get(`${BASE_URL}/companies/${firmId}`);
-    setCompanies(response.data);
-
-    if (!alertify.myAlert) {
-      alertify.dialog("myAlert", function () {
-        return {
-          main: function (message) {
-            this.message = message;
-          },
-          setup: function () {
-            return {
-              buttons: [{ text: "Tamam", key: 27 /*Esc*/ }],
-              focus: { element: 0 },
-            };
-          },
-          prepare: function () {
-            this.setContent(this.message);
-          },
-        };
+    try {
+      await axios.get(`${BASE_URL}/companies/${firmId}`).then(d => {
+        setCompanies(d.data);
       });
+      alertify.alert("Firma Telefon Numarası", companies.firmPhone);
+    } catch (error) {
+      console.log(error);
     }
-    alertify.myAlert("adı :" + companies.firmName);
   };
 
   return (
@@ -123,9 +105,9 @@ const MyOfferModal = () => {
       <div className="myOfferAllModal">
         {mineGiveOffers.map(getGiveOffer => (
           <div
-            onClick={() => {
-              fillOffer(getGiveOffer);
-            }}
+            // onClick={() => {
+            //   fillOffer(getGiveOffer);
+            // }}
             className="radiogroupMyOffer"
             key={getGiveOffer._id}
           >
@@ -156,7 +138,7 @@ const MyOfferModal = () => {
                     Son Teklif Geçerlilik Tarihi:
                   </div>
                   <div className="labelMyOfferRightPrice">
-                    {getGiveOffer.lastDate}
+                    {getGiveOffer.lastDate.slice(0,10)}
                   </div>
                 </div>
                 <div className="myOfferTitle">
@@ -169,12 +151,21 @@ const MyOfferModal = () => {
                 </div>
                 <div className="myOfferBtnContent">
                   <button
-                    onClick={e => alertt(getGiveOffer.firmId)}
+                  onClick={e => {
+                    e.preventDefault();
+                    alertt(getGiveOffer.firmId);
+                  }}
                     className="myOfferBtnLeft"
                   >
                     Firma İletişim
                   </button>
-                  <button onClick={deletedGiveOffer} className="myOfferBtnMid">
+                  <button
+                    onClick={e => {
+                      e.preventDefault();
+                      deletedGiveOffer(getGiveOffer.firmId);
+                    }}
+                    className="myOfferBtnMid"
+                  >
                     Sil
                   </button>
                   <button className="myOfferBtnRight">Anlaş</button>

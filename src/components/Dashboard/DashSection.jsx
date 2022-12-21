@@ -27,7 +27,7 @@ const slider = () => {
               <br />
               <br />
               <div className="wrapperSliderText">
-                Sn. {name.toLocaleUpperCase()} {surName.toLocaleUpperCase()}
+                Sn. {name} {surName}
               </div>
             </h3>
           ) : (

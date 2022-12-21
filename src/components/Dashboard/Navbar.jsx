@@ -23,7 +23,7 @@ const Navbar = () => {
   const { isLogin, id, type } = AuthLocalStorage();
   const [clicked, setClicked] = useState(false);
   const [clickedRight, setClickedRight] = useState(false);
-  
+
   const logoutHandler = () => {
     dispatch(logout());
   };
@@ -41,11 +41,7 @@ const Navbar = () => {
       <nav>
         <div className="nav-links" id="navLink">
           <div id="navMobile" onClick={toggleMenu}>
-          <img
-              id="bar"
-              src={clicked ? svgClose : svgMenu}
-              alt=""
-            />
+            <img id="bar" src={clicked ? svgClose : svgMenu} alt="" />
           </div>
           <ul id="navbar" className={clicked ? "#navbar active" : "#navbar"}>
             <li>
@@ -66,7 +62,7 @@ const Navbar = () => {
                 <img className="svgNavbar" src={svgGetOffer} alt="" />
                 <Link to="/getOffer/category">Teklif Al</Link>
               </li>
-            ) : (
+            ) : isLogin && type === "company" ? null : (
               <li>
                 <img className="svgNavbar" src={svgGetOffer} alt="" />
                 <Link to="/getOffer/categoryShow">Teklif Al</Link>
@@ -79,11 +75,7 @@ const Navbar = () => {
             </li>
           </ul>
           <div id="navMobileRight" onClick={toggleMenuRight}>
-            <img
-              id="barRight"
-              src={clickedRight ? svgClose : svgUser}
-              alt=""
-            />
+            <img id="barRight" src={clickedRight ? svgClose : svgUser} alt="" />
           </div>
           <ul
             id="navbarRight"
