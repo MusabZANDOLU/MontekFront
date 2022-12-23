@@ -104,7 +104,7 @@ const ContractUser = () => {
                 <div className="commentContract">{contract.firmComment}</div>
               </div>
             </div>
-            <div>
+            <div className="btnDelCont">
               <button
                 onClick={e => deletedContract(contract._id)}
                 className="deleteContract top"

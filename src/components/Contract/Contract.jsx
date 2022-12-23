@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../../base";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthLocalStorage from "../localStorage";
 import Navbar from "../Dashboard/Navbar";
@@ -18,6 +18,7 @@ const Contract = () => {
   const params = useParams();
   const offerUrlId = params.id.substring(0, 24);
   const giveOfferUrlId = params.id.substring(24, 48);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getContract();
@@ -61,7 +62,9 @@ const Contract = () => {
         firmEndingDay: giveOffersForContract.endingDay,
         city: offersForContract.city,
         town: offersForContract.town,
-      }, { headers: { Authorization: `Bearer ${accessToken}` } }).then(alertSuccess)
+      }, { headers: { Authorization: `Bearer ${accessToken}` } }).then(alertSuccess).then(()=>{
+        navigate("/user/mine/contract")
+      })
     } catch (error) {
       console.log(error)
     }

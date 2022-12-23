@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../base.js";
 import AuthLocalStorage from "../localStorage";
 import moment from "moment";
 import axios from "axios";
 import svgCheckFill from "../../assets/svg/myOffer/svgCheck.svg";
 import svgCheckNull from "../../assets/svg/myOffer/svgChechNull.svg";
+import alertify from "alertifyjs";
 
+const alertSuccess = () => {
+  alertify.alert('Teklif Verme Hakkında', 'Teklifinizi müşterimize ilettik. Daha çok iş yapmanız dileğiyle, iyi çalışmalar.');
+}
 const GiveOfferDetail = () => {
   const { accessToken, id, name, surName } = AuthLocalStorage();
   const [offerUserid, setOfferUserid] = useState();
@@ -28,6 +32,7 @@ const GiveOfferDetail = () => {
   const [counter, setCounter] = useState(1);
   const [cardShow, setCardShow] = useState(false);
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getOfferDetail();
@@ -89,7 +94,9 @@ const GiveOfferDetail = () => {
           lastDate: todoDate,
         },
         { headers: { Authorization: `Bearer ${accessToken}` } }
-      );
+      ).then(alertSuccess).then(()=>{
+        navigate("/giveOffer")
+      });
     } catch (error) {
       console.log(error);
     }
