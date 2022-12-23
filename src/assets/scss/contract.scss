@@ -1,0 +1,223 @@
+$ruler: 15px;
+$color-red: #ae1100;
+$color-bg: #ebecf0;
+$color-shadow: #babecc;
+$color-white: #fff;
+
+.contractAll {
+  width: 100%;
+  height: 100vh;
+  background-color: #ecf0f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contractTitleText {
+  text-align: center;
+  margin-top: 5%;
+  font-size: 2rem;
+}
+
+.contractContainer {
+  height: 60vh;
+  width: 90%;
+  border: 0.5px solid;
+  border-radius: 10px;
+  display: flex;
+}
+
+.leftContractContainer {
+  width: 50%;
+  padding: 2%;
+}
+
+.rightContractContainer {
+  width: 50%;
+  padding: 2%;
+}
+
+.contractContainerTitle {
+  font-size: 20px;
+  color: blue;
+  font-weight: bold;
+  // text-align: center;
+}
+
+.flexContainerContract {
+  display: flex;
+}
+
+.footerFlex {
+  display: flex;
+  margin-top: 2%;
+}
+
+.footerIdClass {
+  color: blue;
+  font-weight: bolder;
+}
+
+.titles {
+  width: 20%;
+  font-size: 15px;
+  color: blueviolet;
+  margin-top: 10px;
+}
+
+.titlesComment {
+  margin-top: 10px;
+}
+
+.contractButtonsAll {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.contractBtn {
+  margin-top: 3%;
+  color: rgb(0, 117, 29);
+  width: 15%;
+  text-decoration: none;
+  height: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.contractBtn a {
+  color: rgb(79, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.allContractUser {
+  width: 100%;
+  height: 150vh;
+  background-color: #ecf0f3;
+}
+
+.contentContratUser {
+  margin-top: 6%;
+  display: block;
+}
+
+.upContactUser {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleContTitle {
+  font-size: 30px;
+}
+
+.infosContBtn {
+  width: 10%;
+  background-color: rgb(195, 195, 195);
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgb(135, 135, 135);
+    transition: 1s;
+    cursor: pointer;
+  }
+}
+
+.commentContract {
+  text-align: justify;
+  font-size: 13px;
+  width: 85%;
+}
+
+.svgCont {
+  width: 100px;
+}
+
+.flexContractUser {
+  display: flex;
+  box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+  background-color: rgb(228, 227, 227);
+  border-radius: 10px;
+  padding: 1%;
+  margin: 2%;
+}
+
+.flexDetailCont {
+  display: flex;
+}
+
+.blockContractUser {
+  display: block;
+}
+
+.userContTitles {
+  width: 15%;
+}
+
+.boldText{
+  font-weight: bold;
+}
+
+.contractIdClass {
+  color: blue;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.rightAllContent {
+  margin-left: 5%;
+}
+
+.allContractCompany {
+  width: 100%;
+  height: 100vh;
+  background-color: #ecf0f3;
+}
+
+.inputAndButonCont {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.svgSearch {
+  width: 40px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.inputSearchContractId {
+  width: 40%;
+  height: 50px;
+  border: none;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 50px;
+  background-color: rgb(228, 227, 227);
+  box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+}
+
+.nullSearctText {
+  margin-top: 5%;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.deleteContract {
+  width: 50px;
+  border: none;
+  background-color: #ae1100;
+  border-radius: 4px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  height: auto;
+  &:hover {
+    transition: 1s;
+    background-color: white;
+    color: #ae1100;
+  }
+}

@@ -1,9 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { BASE_URL } from "../../base";
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 import Navbar from "../Dashboard/Navbar";
 import AuthLocalStorage from "../localStorage";
-import { BASE_URL } from "../../base";
-import { useParams } from "react-router-dom";
 import moment from "moment";
 import alertify from "alertifyjs";
 
@@ -18,7 +18,7 @@ const MyOfferModal = () => {
 
   let myDate = myOffer.createdAt;
   myDate = moment().format("L");
-  console.log(companies);
+  console.log(companies.id);
   // let lastDate = currentOffer.lastDate;
   // lastDate = moment().format("L");
 
@@ -101,7 +101,6 @@ const MyOfferModal = () => {
         </div>
       )}
       <hr />
-
       <div className="myOfferAllModal">
         {mineGiveOffers.map(getGiveOffer => (
           <div
@@ -156,7 +155,6 @@ const MyOfferModal = () => {
                     onClick={e => {
                       e.preventDefault();
                       alertt(getGiveOffer.firmId);
-                      console.log(getGiveOffer.firmId);
                     }}
                     className="myOfferBtnLeft"
                   >
@@ -167,11 +165,14 @@ const MyOfferModal = () => {
                       e.preventDefault();
                       deletedGiveOffer(getGiveOffer._id);
                     }}
-                    className="myOfferBtnRight"
+                    className="myOfferBtnMid"
                   >
                     Sil
                   </button>
-                  {/* <button className="myOfferBtnRight">Anlaş</button> */}
+                  <Link
+                  to={`/contract/${getGiveOffer.offersId+getGiveOffer._id}`}
+                  className="myOfferBtnRight"
+                  >Anlaş</Link>
                 </div>
               </div>
             </div>

@@ -25,6 +25,9 @@ import GiveOffer from "./GiveOffer/GiveOffer";
 import CompanyInfoPage from "./InfoPages/CompanyInfoPage";
 import GiveOfferMine from "./GiveOffer/GiveOfferMine";
 import GiveOfferDetail from "./GiveOffer/GiveOfferDetail";
+import Contract from "./Contract/Contract";
+import ContractUser from "./Contract/ContractUser";
+import ContractCompany from "./Contract/ContractCompany";
 
 const App = () => {
   return (
@@ -39,6 +42,7 @@ const App = () => {
         <Route path="/register/user" element={<RegisterUser />} />
         <Route path="/register/company" element={<RegisterCompany />} />
         <Route path="/getOffer/categoryShow" element={<GetOfferCategoryShow />} />
+        <Route path="/contract/:id" element={<Contract />} />
         <Route path="*" element={<ErrorPage />} />
 
         {/* ----------------------------------- PRIVATE ROUTE USER----------------------------------- */}
@@ -53,6 +57,7 @@ const App = () => {
           <Route path="/getOffer/aluminumHandrail" element={<GetOfferAluminumHandrail />} />
           <Route path="/offer/mine/:id" element={<MyOfferModal />} />
           <Route path="/user/informations/:id" element={<UserInfoPage />} />
+          <Route path="/user/mine/contract" element={<ContractUser />} />
         </Route>
 
         {/* ----------------------------------- PRIVATE ROUTE COMPANY----------------------------------- */}
@@ -61,6 +66,7 @@ const App = () => {
           <Route path="/giveOffer" element={<GiveOffer />} />
           <Route path="/giveOffer/mine" element={<GiveOfferMine />} />
           <Route path="/giveOffer/detail/:id" element={<GiveOfferDetail />} />
+          <Route path="/company/mine/contract" element={<ContractCompany />} />
         </Route>
       </Routes>
     </Router>

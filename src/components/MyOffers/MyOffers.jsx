@@ -10,11 +10,11 @@ import svgTrash from "../../assets/svg/myOffer/svgTrash.svg";
 
 const MyOffers = () => {
   const [myOffers, setMyOffer] = useState([]);
+  const { accessToken } = AuthLocalStorage();
 
   let myDate = myOffers.createdAt;
   myDate = moment().format("LL");
 
-  const { accessToken } = AuthLocalStorage();
   useEffect(() => {
     getMyOffer();
     window.scrollTo(0, 0);

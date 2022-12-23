@@ -55,7 +55,6 @@ const GiveOfferMinePage = () => {
         .then(res => {
           window.location.reload(false);
         });
-      console.log(e);
     } catch (error) {
       console.log(error);
     }

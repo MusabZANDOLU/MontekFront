@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BASE_URL } from "../../base.js";
-import axios from "axios";
 import AuthLocalStorage from "../localStorage";
 import moment from "moment";
-import { useNavigate } from "react-router";
+import axios from "axios";
 import svgCheckFill from "../../assets/svg/myOffer/svgCheck.svg";
 import svgCheckNull from "../../assets/svg/myOffer/svgChechNull.svg";
 
@@ -29,7 +28,6 @@ const GiveOfferDetail = () => {
   const [counter, setCounter] = useState(1);
   const [cardShow, setCardShow] = useState(false);
   const params = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     getOfferDetail();
@@ -76,27 +74,22 @@ const GiveOfferDetail = () => {
   const saveGiveOffer = async e => {
     e.preventDefault();
     try {
-      await axios
-        .post(
-          `${BASE_URL}/giveOffers`,
-          {
-            offersId: params.id,
-            firmId: id,
-            offerUserId: offerUserid,
-            firmName: name + " " + surName,
-            firmSurNam: surName,
-            comment: companyComment,
-            price: price,
-            endingDay: endDay,
-            isThereOffer: true,
-            lastDate: todoDate,
-          },
-          { headers: { Authorization: `Bearer ${accessToken}` } }
-        )
-        .then(() => {
-          navigate("/giveOffer");
-          alert("teklif verdiniz.");
-        });
+      await axios.post(
+        `${BASE_URL}/giveOffers`,
+        {
+          offersId: params.id,
+          firmId: id,
+          offerUserId: offerUserid,
+          firmName: name + " " + surName,
+          firmSurNam: surName,
+          comment: companyComment,
+          price: price,
+          endingDay: endDay,
+          isThereOffer: true,
+          lastDate: todoDate,
+        },
+        { headers: { Authorization: `Bearer ${accessToken}` } }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -178,7 +171,9 @@ const GiveOfferDetail = () => {
                     </button>
                   </div>
                   <div className="countNumber">
-                    {counter > 0 ? counter + ' gün' : "0'dan yüksek sayı seçmelisiniz."}
+                    {counter > 0
+                      ? counter + " gün"
+                      : "0'dan yüksek sayı seçmelisiniz."}
                   </div>
                   <img
                     className="checkImg"
@@ -188,13 +183,14 @@ const GiveOfferDetail = () => {
                     alt=""
                   />
                 </div>
-                <div className="lastDateWidth">Teklif geçerlilik tarihi: 
-                <input
-                  onChange={e => setTodoDate(e.target.value)}
-                  type="date"
-                  required
-                  className="dateDetail"
-                ></input>
+                <div className="lastDateWidth">
+                  Teklif geçerlilik tarihi:
+                  <input
+                    onChange={e => setTodoDate(e.target.value)}
+                    type="date"
+                    required
+                    className="dateDetail"
+                  ></input>
                 </div>
               </div>
             </div>

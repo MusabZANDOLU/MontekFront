@@ -17,6 +17,7 @@ import svgGiveOffer from "../../assets/svg/navbar/svgGiveOffer.svg";
 import svgMenu from "../../assets/svg/navbar/svgMenu.svg";
 import svgClose from "../../assets/svg/navbar/svgClose.svg";
 import svgUser from "../../assets/svg/navbar/svgUser.svg";
+import svgContract from "../../assets/svg/navbar/svgContract.svg";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -89,12 +90,14 @@ const Navbar = () => {
                 <Link to="/myOffers">Tekliflerim</Link>
               </li>
             )}
+
             {isLogin && type === "company" && (
               <li>
                 <img className="svgNavbar" src={svgGiveOffer} alt="" />
                 <Link to="/giveOffer">Teklif Ver</Link>
               </li>
             )}
+
             {isLogin &&
               type === "company" &&
               // <li>
@@ -102,6 +105,19 @@ const Navbar = () => {
               //   <Link to="/giveOffer/mine">Tekliflerim</Link>
               // </li>
               null}
+
+            {isLogin && type === "user" ? (
+              <li>
+                <img className="svgNavbar" src={svgContract} alt="" />
+                <Link to={`/user/mine/contract`}>Anlaşmalarım</Link>
+              </li>
+            ) : isLogin && type === "company" ? (
+              <li>
+                <img className="svgNavbar" src={svgContract} alt="" />
+                <Link to={`/company/mine/contract`}>Anlaşmalarım</Link>
+              </li>
+            ) : null}
+
             {isLogin && type === "user" && (
               <li>
                 <img className="svgNavbar" src={svgInformation} alt="" />
