@@ -264,7 +264,7 @@ align-items: center;
     margin-right: 5%;
   }
   .myOfferTopText {
-    margin-top: 10%;
+    margin-top: 15%;
   }
   .myOfferTopTextNull {
     margin-top: 10%;
@@ -276,6 +276,12 @@ align-items: center;
   }
   .giveFlexAll .leftContainerGive .giveOfferMineAll .detailMineCard {
     width: 90%;
+  }
+  .myOfferTopText .topCardContent{
+    font-size: 14px;
+  }
+  .radiogroupMyOffer{
+    margin-top: 20px;
   }
 }
 

@@ -67,7 +67,7 @@ const ContractUser = () => {
               >
                 {contract._id}
               </div>
-              <img className="svgCont" src={svgContract} alt="" />
+              <div><img className="svgCont" src={svgContract} alt="" /></div>
             </div>
             <div className="rightAllContent">
               <div className="flexDetailCont">

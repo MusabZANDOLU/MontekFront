@@ -157,7 +157,7 @@ $color-white: #fff;
   width: 15%;
 }
 
-.boldText{
+.boldText {
   font-weight: bold;
 }
 
@@ -222,7 +222,103 @@ $color-white: #fff;
   }
 }
 
-.btnDelCont{
+.btnDelCont {
   text-align: right;
   right: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+  .contractTitleText{
+    margin-top: 15%;
+  }
+  .contractAll{
+    height: auto;
+  }
+  .leftContractContainer{
+    width: 80%;
+  }
+  .rightContractContainer{
+    padding-top: 20px;
+    width: 80%;
+  }
+  .contractContainerTitle{
+    text-align: center;
+  }
+  .contractContainer{
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .flexContainerContract{
+    flex-direction: column;
+    align-items: center;
+  }
+  .titles{
+    width: auto;
+  }
+  .footerFlex{
+    flex-direction: column;
+    align-items: center;
+  }
+  .contractButtonsAll{
+    padding: 20px;
+  }
+  .contractBtn{
+    width: 25%;
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  // ------------------------------------UserContract
+  
+  .titleContTitle{
+    font-size: 25px;
+  }
+  .infosContBtn{
+    width: 20%;
+  }
+  .blockContractUser{
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding-top: 20px;
+  }
+  .upContactUser{
+    margin-top: 15%;
+  }
+  .flexContractUser {
+    flex-direction: column;
+    align-items: center;
+  }
+  .flexDetailCont{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .userContTitles{
+    width: auto;
+  }
+  .boldText{
+    margin-top: 5px;
+  }
+  .deleteContract{
+    margin-top: 10px;
+  }
+
+  // ------------------------------------CompanyContract
+
+  .inputAndButonCont{
+    margin-top: 20%;
+  }
+  .inputAndButonCont{
+    flex-direction: column;
+    align-items: center;
+  }
+  .inputSearchContractId{
+    width: 95%;
+  }
+  .svgSearch{
+    margin-top: 10px;
+  }
 }
