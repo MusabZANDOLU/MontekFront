@@ -85,6 +85,9 @@ $color-shadow: #aeb1bd;
 }
 
 @media (max-width: 768px) {
+  .companies-all-content{
+    height: 100%;
+  }
   .companies-table {
     width: 100%;
   }

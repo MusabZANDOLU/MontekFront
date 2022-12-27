@@ -14,36 +14,50 @@ const slider = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div className="allDash">
       <Navbar />
       <section className={type === "company" ? "headerComp" : "header"}>
         <div>
           {isLogin === true ? (
-            <h3 className="searchText">
-              Montek'e hoş geldiniz.
-              <br />
-              <br />
-              <br />
-              <div className="wrapperSliderText">
-                Sn. {name} {surName}
-              </div>
-            </h3>
+            <div>
+              <h3 className="searchText">
+                Montek'e hoş geldiniz.
+                <br />
+                <br />
+                <br />
+                <div className="wrapperSliderText">
+                  Sn. {name} {surName}
+                </div>
+              </h3>
+              <svg className={isLogin && type === "user" ? "arrows" : null}>
+                <path className="a1" d="M0 0 L30 32 L60 0"></path>
+                <path className="a2" d="M0 20 L30 52 L60 20"></path>
+                <path className="a3" d="M0 40 L30 72 L60 40"></path>
+              </svg>
+            </div>
           ) : (
-            <h3 className="searchText">
-              Montek'e hoş geldiniz.
-              <br />
-              İstediğiniz ürün için kolayca teklif hazırlayıp fiyatları
-              karşılaştırabilirsiniz.
-              <br />
-              Daha fazlası için sitemizi dolaşın.
-              <br />
-              <br />
-              <div className="wrapperSliderText">
-                KALİTE VE GÜVEN HERKESİN HAKKI
-              </div>
-            </h3>
+            <div>
+              <h3 className="searchText">
+                Montek'e hoş geldiniz.
+                <br />
+                İstediğiniz ürün için kolayca teklif hazırlayıp fiyatları
+                karşılaştırabilirsiniz.
+                <br />
+                Daha fazlası için sitemizi dolaşın.
+                <br />
+                <br />
+                <div className="wrapperSliderText">
+                  KALİTE VE GÜVEN HERKESİN HAKKI
+                </div>
+              </h3>
+              <svg className="arrows">
+                <path className="a1" d="M0 0 L30 32 L60 0"></path>
+                <path className="a2" d="M0 20 L30 52 L60 20"></path>
+                <path className="a3" d="M0 40 L30 72 L60 40"></path>
+              </svg>
+            </div>
           )}
         </div>
       </section>

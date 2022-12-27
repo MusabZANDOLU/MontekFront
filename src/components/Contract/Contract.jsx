@@ -138,7 +138,7 @@ const Contract = () => {
             </div>
             <hr />
             <div className="flexContainerContract">
-              <div className="titles">Firma Teklif Detayları:</div>
+              <div className="titles">Detaylar:</div>
               <div>
                 <div className="titlesComment">
                   Fiyatlandırma: {giveOffersForContract.price}
@@ -165,7 +165,7 @@ const Contract = () => {
           <div className="footerIdClass">{giveOffersForContract.firmId}</div>
           <div> id'li firmanın </div>
           <div className="footerIdClass">{offersForContract.userId}</div>
-          <div>
+          <div className="withIdText">
             id'li şahsıma verdiği fiyatlandırma ve işçilik teklifini kabul
             ediyorum.
           </div>

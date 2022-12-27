@@ -295,6 +295,9 @@ $color-white: #fff;
 }
 
 @media (max-width: 768px) {
+  .giveOfferAll{
+    height: 100%;
+  }
   .giveOfferAllCard {
     display: flex;
     flex-direction: column;

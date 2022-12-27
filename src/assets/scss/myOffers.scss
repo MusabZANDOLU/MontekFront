@@ -258,6 +258,9 @@ align-items: center;
 }
 
 @media (max-width: 768px) {
+  .myOfferBody{
+    height: 100%;
+  }
   .radiogroupMyOffer {
     width: 100% !important;
     margin-left: 3%;
