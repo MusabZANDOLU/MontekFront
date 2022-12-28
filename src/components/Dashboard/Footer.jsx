@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AuthLocalStorage } from "../localStorage";
 import "../../assets/scss/footer.scss";
 
 function footer() {
+  const { isLogin } = AuthLocalStorage();
+
   return (
     <div>
       <div className="footer">
@@ -25,8 +28,11 @@ function footer() {
               <div className="titleFooter">
                 Bilgilendirme <hr className="widthHr" />
                 <div className="linkCoverFooter">
-                  <Link className="linkFooter" to="getOffer/categoryShow">
-                    Nasıl teklif alırım?
+                  <Link
+                    className="linkFooter"
+                    to={isLogin ? "getOffer/category" : "getOffer/categoryShow"}
+                  >
+                    {isLogin ? "Teklif Al" : "Nasıl teklif alırım?"}
                   </Link>
                 </div>
                 <div className="linkCoverFooter">
@@ -38,32 +44,50 @@ function footer() {
               <div className="titleFooter">
                 Ürünlerimiz <hr className="widthHr" />
                 <div className="linkCoverFooter">
-                  <Link className="linkFooter" to="getOffer/category">
+                  <Link
+                    className="linkFooter"
+                    to={isLogin ? "getOffer/foldingWindow" : "login"}
+                  >
                     Balkon Kapatma Ürünleri
                   </Link>
                 </div>
                 <div className="linkCoverFooter">
-                  <Link className="linkFooter" to="getOffer/category">
+                  <Link
+                    className="linkFooter"
+                    to={isLogin ? "getOffer/pvc" : "login"}
+                  >
                     PVC Cam & Kapı Ürünleri
                   </Link>
                 </div>
                 <div className="linkCoverFooter">
-                  <Link className="linkFooter" to="getOffer/category">
+                  <Link
+                    className="linkFooter"
+                    to={isLogin ? "getOffer/shopping" : "login"}
+                  >
                     Mağaza Cam & Kapı Ürünleri
                   </Link>
                 </div>
                 <div className="linkCoverFooter">
-                  <Link className="linkFooter" to="getOffer/category">
+                  <Link
+                    className="linkFooter"
+                    to={isLogin ? "getOffer/showerBox" : "login"}
+                  >
                     Duş Kabini Çeşitleri
                   </Link>
                 </div>
                 <div className="linkCoverFooter">
-                  <Link className="linkFooter" to="getOffer/category">
+                  <Link
+                    className="linkFooter"
+                    to={isLogin ? "getOffer/swatter" : "login"}
+                  >
                     Sineklik Çeşitleri
                   </Link>
                 </div>
                 <div className="linkCoverFooter">
-                  <Link className="linkFooter" to="getOffer/category">
+                  <Link
+                    className="linkFooter"
+                    to={isLogin ? "getOffer/aluminumHandrail" : "login"}
+                  >
                     Alüminyum Korkuluk Çeşitleri
                   </Link>
                 </div>

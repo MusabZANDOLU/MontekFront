@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Dashboard/Navbar";
 import axios from "axios";
-import moment from "moment";
+// import moment from "moment";
 import { AuthLocalStorage } from "../localStorage";
 import "../../assets/scss/giveOffer.scss";
 import "react-calendar/dist/Calendar.css";
@@ -12,8 +12,8 @@ const GiveOffer = () => {
   const [offers, setOffers] = useState([]);
   const { accessToken } = AuthLocalStorage();
 
-  let myDate = GiveOffer.createdAt;
-  myDate = moment().format("L");
+  // let myDate = offers.createdAt;
+  // myDate = moment().format("L");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,7 +56,8 @@ const GiveOffer = () => {
                   </div>
                   <hr />
                   <div className="giveOfferCardIn">{offer.productName}</div>
-                  <div className="giveOfferCardIn">{myDate}</div>
+                  {/* <div className="giveOfferCardIn">{myDate}</div> */}
+                  <div className="giveOfferCardIn">{offer.createdAt.slice(0,10)}</div>
                   <div className="giveOfferLinkCenter">
                     <Link className="giveOfferLink" to={`/giveOffer/detail/${offer._id}`}>
                       Teklif Ver

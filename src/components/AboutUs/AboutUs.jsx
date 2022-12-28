@@ -93,10 +93,10 @@ const AboutUs = () => {
               <div className="aFooterT">Telefon:</div>
               <div className="aFooterA">5500 000 0000</div>
             </div>
-            <div className="aboutFooterText">
+            {/* <div className="aboutFooterText">
               <div className="aFooterT">Fax:</div>
               <div className="aFooterA">5500 000 0000</div>
-            </div>
+            </div> */}
             <div className="aboutFooterText">
               <div className="aFooterT">Mail:</div>
               <div className="aFooterA"><a className="aFooterL" href="mailto:zandolu73@gmail.com">zandolu73@gmail.com</a></div>
