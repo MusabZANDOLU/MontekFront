@@ -9,10 +9,14 @@ import svgCheckNull from "../../assets/svg/myOffer/svgChechNull.svg";
 import alertify from "alertifyjs";
 
 const alertSuccess = () => {
-  alertify.alert('Teklif Verme Hakkında', 'Teklifinizi müşterimize ilettik. Daha çok iş yapmanız dileğiyle, iyi çalışmalar.');
-}
+  alertify.alert(
+    "Teklif Verme Hakkında",
+    "Teklifinizi müşterimize ilettik. Daha çok iş yapmanız dileğiyle, iyi çalışmalar."
+  );
+};
 const GiveOfferDetail = () => {
   const { accessToken, id, name, surName } = AuthLocalStorage();
+  const [offerId, setOfferId] = useState();
   const [offerUserid, setOfferUserid] = useState();
   const [nameCustomer, setNameCustomer] = useState();
   const [surNameCustomer, setSurnameCustomer] = useState();
@@ -63,6 +67,7 @@ const GiveOfferDetail = () => {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     setOfferUserid(response.data.userId);
+    setOfferId(response.data._id);
     setNameCustomer(response.data.userName);
     setSurnameCustomer(response.data.userSurName);
     setProductName(response.data.productName);
@@ -79,24 +84,27 @@ const GiveOfferDetail = () => {
   const saveGiveOffer = async e => {
     e.preventDefault();
     try {
-      await axios.post(
-        `${BASE_URL}/giveOffers`,
-        {
-          offersId: params.id,
-          firmId: id,
-          offerUserId: offerUserid,
-          firmName: name + " " + surName,
-          firmSurNam: surName,
-          comment: companyComment,
-          price: price,
-          endingDay: endDay,
-          isThereOffer: true,
-          lastDate: todoDate,
-        },
-        { headers: { Authorization: `Bearer ${accessToken}` } }
-      ).then(alertSuccess).then(()=>{
-        navigate("/giveOffer")
-      });
+      await axios
+        .post(
+          `${BASE_URL}/giveOffers/${id + offerId}`,
+          {
+            offersId: params.id,
+            firmId: id,
+            offerUserId: offerUserid,
+            firmName: name + " " + surName,
+            firmSurNam: surName,
+            comment: companyComment,
+            price: price,
+            endingDay: endDay,
+            isThereOffer: true,
+            lastDate: todoDate,
+          },
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        )
+        .then(alertSuccess)
+        .then(() => {
+          navigate("/giveOffer");
+        });
     } catch (error) {
       console.log(error);
     }
@@ -130,7 +138,7 @@ const GiveOfferDetail = () => {
                 <div className="detailContentRight">
                   <div>{place}</div>
                   <div>
-                    {town ? town : null}{" "}
+                    {town ? town.toLocaleUpperCase() : null}{" "}
                     {city ? "/" + city.toLocaleUpperCase() : "Belirtilmemiş"}
                   </div>
                   <div>{myDate}</div>

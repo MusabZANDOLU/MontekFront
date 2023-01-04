@@ -29,7 +29,7 @@ const InfoDataCount = () => {
           </div>
           <div className="idcRightArea">
             {/* <div className="idcCount">{count[0] > 0 ? count[0] : '120'}</div> */}
-            <div className="idcCount">120</div>
+            <div className="idcCount">35</div>
           </div>
         </div>
         <div className="idcCard">
@@ -43,7 +43,7 @@ const InfoDataCount = () => {
           </div>
           <div className="idcRightArea">
             {/* <div className="idcCount">{count[1] > 0 ? count[1] : '142'}</div> */}
-            <div className="idcCount">142</div>
+            <div className="idcCount">42</div>
           </div>
         </div>
         <div className="idcCard">
@@ -57,7 +57,7 @@ const InfoDataCount = () => {
           </div>
           <div className="idcRightArea">
             {/* <div className="idcCount">{count[2] > 0 ? count[2] : '1130'}</div> */}
-            <div className="idcCount">1130</div>
+            <div className="idcCount">130</div>
           </div>
         </div>
       </div>
