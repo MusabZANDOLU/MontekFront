@@ -12,7 +12,7 @@ import upRowSvg from "../../assets/svg/giveOffer/upRowSvg.svg";
 import downRowSvg from "../../assets/svg/giveOffer/downRowSvg.svg";
 import showOfferSvg from "../../assets/svg/giveOffer/svgShowOffer.svg";
 import hideOfferSvg from "../../assets/svg/giveOffer/svgHideOffer.svg";
-import searchSvg from "../../assets/svg/giveOffer/svgSearchOffer.svg";
+// import searchSvg from "../../assets/svg/giveOffer/svgSearchOffer.svg";
 
 const GiveOffer = () => {
   const { accessToken, id } = AuthLocalStorage();
@@ -32,6 +32,9 @@ const GiveOffer = () => {
     getCitiesInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+console.log(radioButtons)
+console.log(selectedCity)
 
   const toggleDownOrUp = () => {
     // alertify.set('notifier','Teklif Verilmiş Olanlar Gizlendi');
