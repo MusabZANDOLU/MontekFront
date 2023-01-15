@@ -143,7 +143,8 @@ $color-white: #fff;
     font-size: 13px;
   }
   .loginAll {
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 20px;
   }
   .segment .logTitle {
     font-size: 25px;
@@ -171,7 +172,7 @@ $color-white: #fff;
     width: 100%;
     text-align: center;
   }
-  .bottonTextLog{
+  .bottonTextLog {
     text-align: center;
     width: 95%;
   }
@@ -334,10 +335,7 @@ $color-white: #fff;
   width: 90%;
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
-  appearance: none;
-  -webkit-appearance: none;
   margin-left: 2%;
-
   &:focus {
     box-shadow: inset 1px 1px 2px $color-shadow,
       inset -1px -1px 2px $color-white;
@@ -372,6 +370,10 @@ $color-white: #fff;
   }
   .inputInfoUserComp {
     width: 100%;
+    
+  text-align: center;
+  color: #092f81;
+  font-weight: bold;
   }
 }
 .iconReg {

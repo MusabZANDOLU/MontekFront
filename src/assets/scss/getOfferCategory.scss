@@ -24,9 +24,9 @@ $color-shadow: #aeb1bd;
 }
 
 @media (max-width: 768px) {
-  .categoryCardOne {
+  .categoryAllContent .cards-list .categoryCardOne {
     display: block;
-    // width: 30%;
+    width: 100%;
   }
   #step7Folding .UserSettingAllShow .buttonsShow {
     text-align: center;
@@ -120,7 +120,7 @@ $color-shadow: #aeb1bd;
   .radiogroupVisible {
     display: none;
   }
-  .infoShowTitle {
+  .categoryAllContent .infoShowTitle {
     margin-top: 20%;
   }
   .UserSettingAllShow {

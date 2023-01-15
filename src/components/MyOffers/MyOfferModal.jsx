@@ -3,13 +3,12 @@ import { BASE_URL } from "../../base";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../Dashboard/Navbar";
-import AuthLocalStorage from "../localStorage";
 import moment from "moment";
 import alertify from "alertifyjs";
+import AuthLocalStorage from "../localStorage";
 
 const MyOfferModal = () => {
   const { accessToken, id } = AuthLocalStorage();
-  // const [currentOffer, setCurrentOffer] = useState({});
   const [companies, setCompanies] = useState([]);
   const [mineGiveOffers, setMineGiveOffer] = useState([]);
   const [myOffer, setMyOffer] = useState([]);
@@ -19,8 +18,6 @@ const MyOfferModal = () => {
   let myDate = myOffer.createdAt;
   myDate = moment().format("L");
   console.log(companies.id);
-  // let lastDate = currentOffer.lastDate;
-  // lastDate = moment().format("L");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,10 +25,6 @@ const MyOfferModal = () => {
     getMyOfferById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // const fillOffer = offer => {
-  //   setCurrentOffer(offer);
-  // };
 
   const getGiveOfferWidthId = async () => {
     await axios
@@ -103,13 +96,7 @@ const MyOfferModal = () => {
       <hr />
       <div className="myOfferAllModal">
         {mineGiveOffers.map(getGiveOffer => (
-          <div
-            // onClick={() => {
-            //   fillOffer(getGiveOffer);
-            // }}
-            className="radiogroupMyOffer"
-            key={getGiveOffer._id}
-          >
+          <div className="radiogroupMyOffer" key={getGiveOffer._id}>
             <div className="giveOfferCover">
               <div>
                 <div className="myOfferTitle">
@@ -170,9 +157,11 @@ const MyOfferModal = () => {
                     Sil
                   </button>
                   <Link
-                  to={`/contract/${getGiveOffer.offersId+getGiveOffer._id}`}
-                  className="myOfferBtnRight"
-                  >Anlaş</Link>
+                    to={`/contract/${getGiveOffer.offersId + getGiveOffer._id}`}
+                    className="myOfferBtnRight"
+                  >
+                    Anlaş
+                  </Link>
                 </div>
               </div>
             </div>

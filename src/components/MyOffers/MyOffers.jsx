@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../base";
 import Navbar from "../Dashboard/Navbar";
 import axios from "axios";
-import moment from "moment";
+// import moment from "moment";
 import AuthLocalStorage from "../localStorage";
-import "../../assets/scss/myOffers.scss";
-import { BASE_URL } from "../../base";
 import svgTrash from "../../assets/svg/myOffer/svgTrash.svg";
+import "../../assets/scss/myOffers.scss";
 
 const MyOffers = () => {
   const [myOffers, setMyOffer] = useState([]);
   const { accessToken } = AuthLocalStorage();
 
-  let myDate = myOffers.createdAt;
-  myDate = moment().format("LL");
+  // let myDate = myOffers.createdAt;
+  // myDate = moment().format("LL");
 
   useEffect(() => {
     getMyOffer();
@@ -135,7 +135,8 @@ const MyOffers = () => {
                           Teklif Tarihim:
                           <br />
                           <hr />
-                          {myDate}
+                          {/* {myDate} */}
+                          {getOffers.createdAt}
                         </div>
                       </label>
                     </div>
