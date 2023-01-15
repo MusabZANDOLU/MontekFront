@@ -447,6 +447,9 @@ const GetOfferAluminumHandrail = () => {
                                                                     className="selectClass"
                                                                     onChange={e => setSelectedCity(e.target.value)}
                                                                 >
+                                                                    <option defaultValue={true} value="0">
+                                                                        İl seçiniz
+                                                                    </option>
                                                                     {cities.map(allcities => (
                                                                         <option
                                                                             key={allcities.id}
@@ -466,6 +469,9 @@ const GetOfferAluminumHandrail = () => {
                                                                     disabled={!selectedCity}
                                                                     onChange={e => setSelectedCityCounties(e.target.value)}
                                                                 >
+                                                                    {selectedCity ? (<option defaultValue={true} value="0">
+                                                                        İlçe seçiniz
+                                                                    </option>) : null}
                                                                     {selectedCity && cities.find((c) => c.name === selectedCity).counties.map((country) =>
                                                                         <option
                                                                             key={country}

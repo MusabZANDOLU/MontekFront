@@ -497,6 +497,9 @@ const GetOfferFoldingWindow = () => {
                                 className="selectClass"
                                 onChange={e => setSelectedCity(e.target.value)}
                               >
+                                <option defaultValue={true} value="0">
+                                  İl seçiniz
+                                </option>
                                 {cities.map(allcities => (
                                   <option
                                     key={allcities.id}
@@ -516,6 +519,9 @@ const GetOfferFoldingWindow = () => {
                                 disabled={!selectedCity}
                                 onChange={e => setSelectedCityCounties(e.target.value)}
                               >
+                                {selectedCity ? (<option defaultValue={true} value="0">
+                                  İlçe seçiniz
+                                </option>) : null}
                                 {selectedCity && cities.find((c) => c.name === selectedCity).counties.map((country) =>
                                   <option
                                     key={country}
@@ -564,7 +570,7 @@ const GetOfferFoldingWindow = () => {
                                   <i className="fa-solid fa-check tik"></i>
                                   <div className='textOfferCssOut'>{inputCheck2}</div>
                                 </label>
-                                  {/* <button onClick={() => { setDivs(3) }}>git</button> */}
+                                {/* <button onClick={() => { setDivs(3) }}>git</button> */}
                               </div>
                               <hr />
                               <div className="wrapper">
