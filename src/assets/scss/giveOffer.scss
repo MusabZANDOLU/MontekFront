@@ -451,12 +451,10 @@ $color-white: #fff;
     text-align: center;
   }
   .giveOfferAll .filterDivShow .filterAreaRight {
-    // margin-top: 5%;
-    // width: 100%;
-    // text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
   .giveOfferAll .filterDivShow .filterAreaLeft .selectUserName {
     width: 100%;
@@ -829,7 +827,7 @@ $color-white: #fff;
 .selectUserName {
   margin-left: 6px;
   margin-right: 6px;
-  width: 31%;
+  width: 20%;
   height: auto;
   text-align: center;
   font-size: 13px;
@@ -904,10 +902,13 @@ $color-white: #fff;
   filter: blur(2px);
 }
 
-.filterAreaRight{
+.filterAreaRight {
   margin-top: 20px;
+  width: 75%;
+  text-align: right;
 }
 
-.filterAreaLeft{
+.filterAreaLeft {
   margin-top: 20px;
+  width: 25%;
 }

@@ -6,24 +6,24 @@ import axios from "axios";
 import Navbar from "../Dashboard/Navbar";
 import alertify from "alertifyjs";
 import svgCheck from "../../assets/svg/giveOffer/svgCheck.svg";
-import "../../assets/scss/giveOffer.scss";
-import "react-calendar/dist/Calendar.css";
 import upRowSvg from "../../assets/svg/giveOffer/upRowSvg.svg";
 import downRowSvg from "../../assets/svg/giveOffer/downRowSvg.svg";
 import showOfferSvg from "../../assets/svg/giveOffer/svgShowOffer.svg";
 import hideOfferSvg from "../../assets/svg/giveOffer/svgHideOffer.svg";
-// import searchSvg from "../../assets/svg/giveOffer/svgSearchOffer.svg";
+import "../../assets/scss/giveOffer.scss";
+import "react-calendar/dist/Calendar.css";
 
 const GiveOffer = () => {
   const { accessToken, id } = AuthLocalStorage();
-  const [cardShow, setCardShow] = useState(false);
   const [offers, setOffers] = useState([]);
-  // const [productArray, setProductArray] = useState([]);
+  const [offersByUserName, setOffersByUserName] = useState([]);
+  const [offersByCities, setOffersByCities] = useState([]);
   const [usersArray, setUsersArray] = useState([]);
+  const [cities, setCities] = useState([]);
   const [radioButtons, setRadioButtons] = useState("default");
   const [selectedCity, setSelectedCity] = useState();
-  const [cities, setCities] = useState([]);
   const [showFilter, setShowFilter] = useState(true);
+  const [cardShow, setCardShow] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,11 +33,7 @@ const GiveOffer = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-console.log(radioButtons)
-console.log(selectedCity)
-
   const toggleDownOrUp = () => {
-    // alertify.set('notifier','Teklif Verilmiş Olanlar Gizlendi');
     setCardShow(!cardShow);
     alertify.success(
       !cardShow ? "Verilen Teklifler Gizlendi" : "Tüm Teklifler Gösterilecek"
@@ -53,16 +49,6 @@ console.log(selectedCity)
     setCities(response.data);
   };
 
-  const getOffer = async () => {
-    await axios
-      .get(`${BASE_URL}/offers/allOffer`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      })
-      .then(res => {
-        setOffers(res.data);
-      });
-  };
-
   const getUser = async () => {
     await axios
       .get(`${BASE_URL}/users`, {
@@ -73,16 +59,46 @@ console.log(selectedCity)
       });
   };
 
-  // const getProductName = async () => {
-  //   await axios
-  //     .get(`${BASE_URL}/offers/productName`, {
-  //       headers: { Authorization: `Bearer ${accessToken}` },
-  //     })
-  //     .then(res => {
-  //       setProductArray(res.data);
-  //     });
-  // };
+  const getOffer = async () => {
+    await axios
+      .get(`${BASE_URL}/offers/allOffer`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      })
+      .then(res => {
+        setOffers(res.data);
+      });
+  };
 
+  const getOfferByUserName = async () => {
+    radioButtons === "allCustomers"
+      ? getOffer()
+      : await axios
+          .get(`${BASE_URL}/offers/userName/${radioButtons}`, {
+            headers: { Authorization: `Bearer ${accessToken}` },
+          })
+          .then(res => {
+            setOffersByUserName(res.data);
+          });
+    toggleShowOrHideDiv();
+  };
+  
+  const getOfferByCities = async () => {
+    await axios
+      .get(`${BASE_URL}/offers/cities/${selectedCity}`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      })
+      .then(res => {
+        setOffersByCities(res.data);
+      });
+    toggleShowOrHideDiv();
+  };
+  
+  const refreshAllFlter = async () => {
+    offersByUserName([])
+    offersByCities([])
+    
+  };
+  
   return (
     <div>
       <Navbar />
@@ -90,7 +106,6 @@ console.log(selectedCity)
         <div className="leftContainerGive">
           <div className="giveOfferAll">
             <div className="topAreaGiveOfferPage">
-              {/* <button onClick={getProductName}>getir</button> */}
               <div className="topInputCover">
                 <button
                   onClick={toggleShowOrHideDiv}
@@ -123,7 +138,7 @@ console.log(selectedCity)
                   className="selectUserName"
                   onChange={e => setRadioButtons(e.target.value)}
                 >
-                  <option defaultValue={true} value="0">
+                  <option defaultValue={true} value="allCustomers">
                     Tüm Müşteriler
                   </option>
                   {usersArray.map(user => (
@@ -156,6 +171,19 @@ console.log(selectedCity)
                   <option>Plastik Pencere & Kapı</option>
                   <option>Alüminyum Kapı & Pvc</option>
                 </select>
+                <button
+                  onClick={
+                    radioButtons !== "default" && radioButtons
+                      ? getOfferByUserName
+                      : selectedCity
+                      ? getOfferByCities
+                      : null
+                  }
+                  className="selectUserName"
+                >
+                  Getir
+                </button>
+                <button className="selectUserName" onClick={refreshAllFlter}>Filtreyi temizle</button>
               </div>
             </div>
             <div
@@ -166,59 +194,164 @@ console.log(selectedCity)
                   : "giveOfferAllCard hideGiveOfferAllCard"
               }
             >
-              {
-                // radioButtons === "default"
-                //   ?
-                offers
-                  .slice(0)
-                  .reverse()
-                  .map(offer => (
-                    <form
-                      key={offer._id}
-                      className={
-                        offer.firmIdList.find(e => e === id) && cardShow
-                          ? "none"
-                          : "giveOfferCard"
-                      }
-                    >
-                      <div className="giveOfferCardInUser">
-                        {offer.userName} {offer.userSurName}
-                      </div>
-                      <hr />
-                      <div className="giveOfferCardIn">{offer.productName}</div>
-                      <div className="giveOfferCardIn">
-                        {offer.createdAt.slice(0, 10)}
-                      </div>
-                      <div className="giveOfferCardIn">
-                        {offer.firmIdList.find(o => o === id)
-                          ? "Teklif Verildi"
-                          : "Teklif Verilmedi"}
-                      </div>
-                      <div className="giveOfferLinkCenter">
-                        <Link
-                          className={
-                            offer.firmIdList.find(o => o === id)
-                              ? "giveOfferLinkEnable"
-                              : "giveOfferLink"
-                          }
-                          to={`/giveOffer/detail/${offer._id}`}
-                        >
-                          Teklif Ver
-                        </Link>
-                        <img
-                          className={
-                            offer.firmIdList.find(o => o === id)
-                              ? "svgGiveOffer"
-                              : "svgGiveOfferEnable"
-                          }
-                          src={svgCheck}
-                          alt=""
-                        />
-                      </div>
-                    </form>
-                  ))
-                // : "yok yok"
-              }
+              {radioButtons === "default"
+                ? offers
+                    .slice(0)
+                    .reverse()
+                    .map(offer => (
+                      <form
+                        key={offer._id}
+                        className={
+                          offer.firmIdList.find(e => e === id) && cardShow
+                            ? "none"
+                            : "giveOfferCard"
+                        }
+                      >
+                        <div className="giveOfferCardInUser">
+                          {offer.userName} {offer.userSurName}
+                        </div>
+                        <hr />
+                        <div className="giveOfferCardIn">
+                          {offer.productName}
+                        </div>
+                        <div className="giveOfferCardIn">
+                          {offer.createdAt.slice(0, 10)}
+                        </div>
+                        <div className="giveOfferCardIn">
+                          {offer.firmIdList.find(o => o === id)
+                            ? "Teklif Verildi"
+                            : "Teklif Verilmedi"}
+                        </div>
+                        <div className="giveOfferLinkCenter">
+                          <Link
+                            className={
+                              offer.firmIdList.find(o => o === id)
+                                ? "giveOfferLinkEnable"
+                                : "giveOfferLink"
+                            }
+                            to={`/giveOffer/detail/${offer._id}`}
+                          >
+                            Teklif Ver
+                          </Link>
+                          <img
+                            className={
+                              offer.firmIdList.find(o => o === id)
+                                ? "svgGiveOffer"
+                                : "svgGiveOfferEnable"
+                            }
+                            src={svgCheck}
+                            alt=""
+                          />
+                        </div>
+                      </form>
+                    ))
+                : radioButtons && radioButtons !== "default"
+                ? offersByUserName
+                    .slice(0)
+                    .reverse()
+                    .map(offersByUserName => (
+                      <form
+                        key={offersByUserName._id}
+                        className={
+                          offersByUserName.firmIdList.find(e => e === id) &&
+                          cardShow
+                            ? "none"
+                            : "giveOfferCard"
+                        }
+                      >
+                        <div className="giveOfferCardInUser">
+                          {offersByUserName.userName}{" "}
+                          {offersByUserName.userSurName}
+                        </div>
+                        <hr />
+                        <div className="giveOfferCardIn">
+                          {offersByUserName.productName}
+                        </div>
+                        <div className="giveOfferCardIn">
+                          {offersByUserName.createdAt.slice(0, 10)}
+                        </div>
+                        <div className="giveOfferCardIn">
+                          {offersByUserName.firmIdList.find(o => o === id)
+                            ? "Teklif Verildi"
+                            : "Teklif Verilmedi"}
+                        </div>
+                        <div className="giveOfferLinkCenter">
+                          <Link
+                            className={
+                              offersByUserName.firmIdList.find(o => o === id)
+                                ? "giveOfferLinkEnable"
+                                : "giveOfferLink"
+                            }
+                            to={`/giveOffer/detail/${offersByUserName._id}`}
+                          >
+                            Teklif Ver
+                          </Link>
+                          <img
+                            className={
+                              offersByUserName.firmIdList.find(o => o === id)
+                                ? "svgGiveOffer"
+                                : "svgGiveOfferEnable"
+                            }
+                            src={svgCheck}
+                            alt=""
+                          />
+                        </div>
+                      </form>
+                    ))
+                : selectedCity
+                ? offersByCities
+                    .slice(0)
+                    .reverse()
+                    .map(offersByUserName => (
+                      <form
+                        key={offersByUserName._id}
+                        className={
+                          offersByUserName.firmIdList.find(e => e === id) &&
+                          cardShow
+                            ? "none"
+                            : "giveOfferCard"
+                        }
+                      >
+                        <div className="giveOfferCardInUser">
+                          {offersByUserName.userName}{" "}
+                          {offersByUserName.userSurName}
+                        </div>
+                        <hr />
+                        <div className="giveOfferCardIn">
+                          {offersByUserName.productName}
+                        </div>
+                        <div className="giveOfferCardIn">
+                          {offersByUserName.createdAt.slice(0, 10)}
+                        </div>
+                        <div className="giveOfferCardIn">
+                          {offersByUserName.firmIdList.find(o => o === id)
+                            ? "Teklif Verildi"
+                            : "Teklif Verilmedi"}
+                        </div>
+                        <div className="giveOfferLinkCenter">
+                          <Link
+                            className={
+                              offersByUserName.firmIdList.find(o => o === id)
+                                ? "giveOfferLinkEnable"
+                                : "giveOfferLink"
+                            }
+                            to={`/giveOffer/detail/${offersByUserName._id}`}
+                          >
+                            Teklif Ver
+                          </Link>
+                          <img
+                            className={
+                              offersByUserName.firmIdList.find(o => o === id)
+                                ? "svgGiveOffer"
+                                : "svgGiveOfferEnable"
+                            }
+                            src={svgCheck}
+                            alt=""
+                          />
+                        </div>
+                      </form>
+                    ))
+                : null}
             </div>
           </div>
         </div>
