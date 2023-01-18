@@ -178,12 +178,10 @@ $color-white: #fff;
 }
 
 .modalSendKismi {
-  // display: flex;
   width: 100%;
 }
 
 .modalSendKismiSag {
-  // width: 25%;
   display: flex;
 }
 
@@ -320,7 +318,6 @@ $color-white: #fff;
 
 .btnHideOffer {
   margin-left: 12px;
-  // width: 18%;
   height: auto;
   text-align: center;
   font-size: 14px;
@@ -363,7 +360,6 @@ $color-white: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    // opacity: 0.5;
   }
   .giveOfferCard {
     width: 90%;
@@ -459,7 +455,6 @@ $color-white: #fff;
   .giveOfferAll .filterDivShow .filterAreaLeft .selectUserName {
     width: 100%;
   }
-
   .giveOfferAll .filterDivShow .filterAreaRight .selectUserName {
     width: 60%;
   }
@@ -610,7 +605,6 @@ $color-white: #fff;
   font-size: 1rem;
   margin-top: 2%;
   padding: 2%;
-  // border: 0.1px solid;
   border-radius: 10px;
   box-shadow: inset 0px 0px 5px #fff, 2px 2px 5px #aeb1bd;
   background-color: #ecf0f3;
@@ -800,14 +794,11 @@ $color-white: #fff;
   border: none;
 }
 
-.topAreaGiveOfferPage {
-  display: flex;
-}
-
 // TODO: Arama kısmı classları
 .topInputCover {
-  width: 98%;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  width: 99%;
 }
 
 .searchOffer {
@@ -911,4 +902,13 @@ $color-white: #fff;
 .filterAreaLeft {
   margin-top: 20px;
   width: 25%;
+}
+
+.noneClass {
+  opacity: 0.1;
+}
+
+.topInfoText{
+  margin-left: 1%;
+  font-size: 20px;
 }

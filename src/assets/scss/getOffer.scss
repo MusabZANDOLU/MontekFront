@@ -67,7 +67,6 @@
   }
   .UserSettingAll .buttons {
     width: 100%;
-    // display: flex;
     justify-items: center !important;
   }
   .getOfferButton {
@@ -161,7 +160,6 @@
   background: #ecf0f3;
   box-shadow: 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
   margin: 2%;
-  // width: 50%;
 }
 
 .radiogroupWidth {
@@ -183,8 +181,6 @@
 
 .wrapper {
   margin: 8px 0;
-  // display: flex;
-  // justify-content: space-between;
 }
 
 .state {
@@ -267,7 +263,6 @@
 }
 
 .state:focus ~ .label .textOfferCss {
-  //seçili inputun text olayı
   transform: translate3d(8px, 0, 0);
   color: black;
   font-weight: bold;
@@ -336,9 +331,6 @@ $colors: (
   height: 350px;
   font-size: 15px;
   resize: none;
-  // border-style: none;
-  // border-color: Transparent;
-  // overflow: auto;
 }
 
 .radiogroup-ex {
@@ -384,13 +376,11 @@ $colors: (
 }
 
 .citiesPageTitleUp {
-  // margin-top: 6%;
   font-size: 2rem;
   font-weight: bolder;
 }
 
 .citiesPageTitleDown {
-  // margin-top: 2%;
   font-size: 2rem;
   font-weight: bolder;
 }
@@ -436,14 +426,11 @@ $colors: (
 }
 
 .dropdown-container {
-  // width: 60%;
   height: 40px;
   border: none;
   font-weight: bold;
   font-size: 15px;
   text-align: center;
-  // border-radius: 10px;
-  // margin-top: 10px;
   &:hover {
     background-color: #585756;
     transition: 1s;

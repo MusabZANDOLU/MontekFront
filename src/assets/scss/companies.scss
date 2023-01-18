@@ -1,5 +1,4 @@
 $color-grey: rgb(207, 204, 204);
-// $color-bg: #ebecf0;
 $color-shadow: #aeb1bd;
 
 .companies-all-content {
@@ -85,7 +84,7 @@ $color-shadow: #aeb1bd;
 }
 
 @media (max-width: 768px) {
-  .companies-all-content{
+  .companies-all-content {
     height: 100%;
   }
   .companies-table {

@@ -70,18 +70,16 @@ const GiveOffer = () => {
   };
 
   const getOfferByUserName = async () => {
-    radioButtons === "allCustomers"
-      ? getOffer()
-      : await axios
-          .get(`${BASE_URL}/offers/userName/${radioButtons}`, {
-            headers: { Authorization: `Bearer ${accessToken}` },
-          })
-          .then(res => {
-            setOffersByUserName(res.data);
-          });
-    toggleShowOrHideDiv();
+    await axios
+      .get(`${BASE_URL}/offers/userName/${radioButtons}`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      })
+      .then(res => {
+        setOffersByUserName(res.data);
+      });
+    toggleShowOrHideDiv(); //Filtre alanı kapanması için
   };
-  
+
   const getOfferByCities = async () => {
     await axios
       .get(`${BASE_URL}/offers/cities/${selectedCity}`, {
@@ -92,33 +90,38 @@ const GiveOffer = () => {
       });
     toggleShowOrHideDiv();
   };
-  
-  const refreshAllFlter = async () => {
-    offersByUserName([])
-    offersByCities([])
-    
+
+  const getFilterFunction = async () => {
+    if (radioButtons !== "default" && radioButtons) {
+      getOfferByUserName();
+    } else if (selectedCity) {
+      getOfferByCities();
+    }
   };
-  
+
+  const refreshAllFlter = async () => {
+    window.location.reload(false);
+  };
+
   return (
     <div>
       <Navbar />
       <div className="giveFlexAll">
         <div className="leftContainerGive">
           <div className="giveOfferAll">
-            <div className="topAreaGiveOfferPage">
-              <div className="topInputCover">
-                <button
-                  onClick={toggleShowOrHideDiv}
-                  className="selectFilterButton"
-                >
-                  {showFilter ? "Filtrele" : "Filtrelemeyi Kapat"}
-                  <img
-                    className="svgFilter"
-                    src={!showFilter ? upRowSvg : downRowSvg}
-                    alt=""
-                  />
-                </button>
-              </div>
+            <div className="topInputCover">
+              <div className="topInfoText">{radioButtons === 'default' ? 'Tüm Listeler' : radioButtons !== 'default' ? 'Seçilen Müşterinin Listeleri' : null}</div>
+              <button
+                onClick={toggleShowOrHideDiv}
+                className="selectFilterButton"
+              >
+                {showFilter ? "Filtrele" : "Filtrelemeyi Kapat"}
+                <img
+                  className="svgFilter"
+                  src={!showFilter ? upRowSvg : downRowSvg}
+                  alt=""
+                />
+              </button>
             </div>
             <div className={showFilter ? "filterDivHide" : "filterDivShow"}>
               <div className="filterAreaLeft">
@@ -135,11 +138,15 @@ const GiveOffer = () => {
               </div>
               <div className="filterAreaRight">
                 <select
-                  className="selectUserName"
+                  className={
+                    selectedCity && selectedCity !== "allCitiesForSelect"
+                      ? "selectUserName noneClass"
+                      : "selectUserName"
+                  }
                   onChange={e => setRadioButtons(e.target.value)}
                 >
                   <option defaultValue={true} value="allCustomers">
-                    Tüm Müşteriler
+                    Müşteri Seçiniz
                   </option>
                   {usersArray.map(user => (
                     <option key={user._id} value={user._id}>
@@ -150,11 +157,17 @@ const GiveOffer = () => {
                   ))}
                 </select>
                 <select
-                  className="selectUserName"
+                  className={
+                    radioButtons &&
+                    radioButtons !== "default" &&
+                    radioButtons !== "allCustomers"
+                      ? "selectUserName noneClass"
+                      : "selectUserName"
+                  }
                   onChange={e => setSelectedCity(e.target.value)}
                 >
-                  <option defaultValue={true} value="0">
-                    Tüm Şehirler
+                  <option defaultValue={true} value="allCitiesForSelect">
+                    Şehir Seçiniz
                   </option>
                   {cities.map(allcities => (
                     <option key={allcities._id} value={allcities.name}>
@@ -162,28 +175,12 @@ const GiveOffer = () => {
                     </option>
                   ))}
                 </select>
-                <select className="selectUserName">
-                  <option defaultValue={true} value="0">
-                    Tüm Ürünler
-                  </option>
-                  <option>Katlanır Cam</option>
-                  <option>Sürme Cam</option>
-                  <option>Plastik Pencere & Kapı</option>
-                  <option>Alüminyum Kapı & Pvc</option>
-                </select>
-                <button
-                  onClick={
-                    radioButtons !== "default" && radioButtons
-                      ? getOfferByUserName
-                      : selectedCity
-                      ? getOfferByCities
-                      : null
-                  }
-                  className="selectUserName"
-                >
-                  Getir
+                <button onClick={getFilterFunction} className="selectUserName">
+                  Arama Yap
                 </button>
-                <button className="selectUserName" onClick={refreshAllFlter}>Filtreyi temizle</button>
+                <button className="selectUserName" onClick={refreshAllFlter}>
+                  Filtreyi temizle
+                </button>
               </div>
             </div>
             <div
@@ -245,7 +242,9 @@ const GiveOffer = () => {
                         </div>
                       </form>
                     ))
-                : radioButtons && radioButtons !== "default"
+                : radioButtons &&
+                  radioButtons !== "default" &&
+                  (selectedCity === "allCitiesForSelect" || !selectedCity)
                 ? offersByUserName
                     .slice(0)
                     .reverse()
@@ -298,7 +297,10 @@ const GiveOffer = () => {
                         </div>
                       </form>
                     ))
-                : selectedCity
+                : selectedCity &&
+                  selectedCity !== "allCitiesForSelect" &&
+                  (radioButtons === "default" ||
+                    radioButtons === "allCustomers")
                 ? offersByCities
                     .slice(0)
                     .reverse()
@@ -351,7 +353,8 @@ const GiveOffer = () => {
                         </div>
                       </form>
                     ))
-                : null}
+                : // "oldu"
+                  "olmadı"}
             </div>
           </div>
         </div>

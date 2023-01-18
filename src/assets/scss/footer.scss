@@ -13,16 +13,11 @@ $gradient: #00f510;
 }
 
 .footer {
-  // width: 99%;
   text-align: center;
   padding: 20px;
   background-color: rgb(183, 186, 183);
-  // margin-right: 3%;
-  // margin-left: 3%;
   padding-right: 2%;
   padding-left: 2%;
-  // border-top-left-radius: 18px;
-  // border-top-right-radius: 18px;
   &:hover {
     box-shadow: -4px -4px 5px $color-grey, 5px 5px 10px $color-shadow;
     transition: 1s;
@@ -92,7 +87,6 @@ $gradient: #00f510;
 }
 
 .flexFooterInfo {
-  // padding-top: 10%;
   display: flex;
 }
 
@@ -130,8 +124,6 @@ $gradient: #00f510;
 }
 
 .socialContainer {
-  // width: 400px;
-  // margin: 40vh auto;
   text-align: center;
 }
 

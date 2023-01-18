@@ -41,7 +41,6 @@ $color-white: #fff;
   font-size: 20px;
   color: blue;
   font-weight: bold;
-  // text-align: center;
 }
 
 .flexContainerContract {
@@ -228,43 +227,43 @@ $color-white: #fff;
 }
 
 @media screen and (max-width: 768px) {
-  .contractTitleText{
+  .contractTitleText {
     margin-top: 15%;
   }
-  .contractAll{
+  .contractAll {
     height: auto;
   }
-  .leftContractContainer{
+  .leftContractContainer {
     width: 80%;
   }
-  .rightContractContainer{
+  .rightContractContainer {
     padding-top: 20px;
     width: 80%;
   }
-  .contractContainerTitle{
+  .contractContainerTitle {
     text-align: center;
   }
-  .contractContainer{
+  .contractContainer {
     flex-direction: column;
     align-items: center;
     height: auto;
   }
-  .flexContainerContract{
+  .flexContainerContract {
     flex-direction: column;
     align-items: center;
   }
-  .titles{
+  .titles {
     width: auto;
   }
-  .withIdText{
+  .withIdText {
     width: 90%;
     text-align: center;
   }
-  .footerFlex{
+  .footerFlex {
     flex-direction: column;
     align-items: center;
   }
-  .contractButtonsAll{
+  .contractButtonsAll {
     padding: 20px;
     width: 100%;
     display: flex;
@@ -272,62 +271,62 @@ $color-white: #fff;
     flex-direction: column-reverse;
     align-items: center;
   }
-  .contractBtn{
+  .contractBtn {
     width: 28%;
     padding: 5px;
     font-size: 10px;
   }
 
   // ------------------------------------UserContract
-  
-  .titleContTitle{
+
+  .titleContTitle {
     font-size: 25px;
   }
-  .infosContBtn{
+  .infosContBtn {
     width: 20%;
   }
-  .blockContractUser{
+  .blockContractUser {
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
     padding-top: 20px;
   }
-  .upContactUser{
+  .upContactUser {
     margin-top: 15%;
   }
   .flexContractUser {
     flex-direction: column;
     align-items: center;
   }
-  .flexDetailCont{
+  .flexDetailCont {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .userContTitles{
+  .userContTitles {
     width: auto;
   }
-  .boldText{
+  .boldText {
     margin-top: 5px;
   }
-  .deleteContract{
+  .deleteContract {
     margin-top: 10px;
   }
 
   // ------------------------------------CompanyContract
 
-  .inputAndButonCont{
+  .inputAndButonCont {
     margin-top: 20%;
     width: 100%;
   }
-  .inputAndButonCont{
+  .inputAndButonCont {
     flex-direction: column;
     align-items: center;
   }
-  .inputSearchContractId{
+  .inputSearchContractId {
     width: 95%;
   }
-  .svgSearch{
+  .svgSearch {
     margin-top: 10px;
   }
 }

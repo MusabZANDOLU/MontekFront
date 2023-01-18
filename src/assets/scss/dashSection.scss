@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  // background-color: #ecf0f3;
 }
 
 .allDash {
@@ -49,7 +48,6 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-
 
 .nav-links {
   display: flex;
@@ -129,8 +127,7 @@ nav {
   cursor: pointer;
 }
 
-
-.searchText{
+.searchText {
   position: absolute;
   margin: auto;
   top: 0;
@@ -138,7 +135,7 @@ nav {
   right: 0;
   bottom: 0;
   width: 60%;
-  height:30%;
+  height: 30%;
   color: white;
   font-size: 20px;
   text-align: center;
@@ -148,9 +145,7 @@ nav {
 
 .steps {
   margin: auto;
-  // text-align: center;
   padding-top: 10%;
-  // padding: 8px;
 }
 
 .stepRow {
@@ -180,22 +175,22 @@ nav {
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-@media screen and ( max-width: 1170px) {
-  .nav-links #navbar li{
+@media screen and (max-width: 1170px) {
+  .nav-links #navbar li {
     padding: 4px;
     height: 40px;
     padding-top: 5%;
   }
-  .svgNavbar{
+  .svgNavbar {
     display: none;
   }
 
-  .nav-links #navbarRight li{
+  .nav-links #navbarRight li {
     padding: 4px;
     height: 40px;
     padding-top: 5%;
   }
-  .svgNavbar{
+  .svgNavbar {
     display: none;
   }
 }
@@ -217,29 +212,29 @@ nav {
   .idcAll .idcCard {
     width: 100%;
   }
-  .categori-col{
+  .categori-col {
     width: 90%;
     margin-top: 10px;
     height: 130px;
   }
-  .allDash .sliderClass .icerikAll{
+  .allDash .sliderClass .icerikAll {
     width: 98%;
     padding: 1px;
   }
-  .icerikAll .iceriks .icerik-baslik-1{
+  .icerikAll .iceriks .icerik-baslik-1 {
     margin-top: 15px;
     text-align: center;
   }
-  .icerikAll .iceriks .icerik-1{
+  .icerikAll .iceriks .icerik-1 {
     margin-top: 15px;
     text-align: justify;
     width: 95%;
   }
-  .icerikAll .iceriks .icerik-baslik-2{
+  .icerikAll .iceriks .icerik-baslik-2 {
     margin-top: 15px;
     text-align: center;
   }
-  .icerikAll .iceriks .icerik-2{
+  .icerikAll .iceriks .icerik-2 {
     margin-top: 15px;
     text-align: justify;
     width: 95%;
@@ -247,19 +242,19 @@ nav {
   .idcAll .idcCard .idcLeftArea .idcImage {
     width: 90%;
   }
-  .idcAll .idcCard  .idcTitle {
+  .idcAll .idcCard .idcTitle {
     margin-top: 25px;
   }
-  .searchText{
+  .searchText {
     width: 90%;
   }
-  .nav-links{
+  .nav-links {
     height: 50px;
   }
-  .header{
+  .header {
     min-height: 55vh;
   }
-  .headerComp{
+  .headerComp {
     min-height: 100vh;
   }
   .header .wrapperSliderText {
@@ -439,7 +434,7 @@ nav {
 }
 
 .wrapperSliderText {
-font-size: 3rem;
+  font-size: 3rem;
   width: 100%;
 }
 
@@ -448,19 +443,7 @@ font-size: 3rem;
   animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
-  // border-right: 3px solid;
-  // font-family: monospace;
-  // font-size: 2em;
 }
-
-// .typingDemoLogin {
-//   width: 30ch;
-//   animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   // border-right: 1px solid;
-//   font-size: 1.5em;
-// }
 
 @keyframes typing {
   from {
@@ -478,7 +461,6 @@ font-size: 3rem;
   width: 20px;
   color: wheat;
 }
-// ---------------InfoDataCount----------- //.CountCard
 
 .idcAll {
   display: flex;
@@ -494,7 +476,6 @@ font-size: 3rem;
 }
 
 .idcLeftArea {
-  // width: 60%;
   font-size: 30px;
 }
 
@@ -508,7 +489,6 @@ font-size: 3rem;
 }
 
 .idcRightArea {
-  // width: 40%;
   text-align: right;
 }
 
@@ -556,7 +536,6 @@ font-size: 3rem;
     height: 100vh;
     background-color: #3b4553;
     transition: 1s;
-
   }
 
   #navbar.active {
@@ -581,13 +560,13 @@ font-size: 3rem;
   .react-multi-carousel-dot {
     margin: 2%;
   }
-  .more-prodct{
+  .more-prodct {
     text-align: center;
     font-size: 13px;
   }
-  .dash-prdct{
-  font-size: 13px;
-  color: #0f1222;
+  .dash-prdct {
+    font-size: 13px;
+    color: #0f1222;
   }
 }
 
@@ -620,7 +599,7 @@ font-size: 3rem;
   #navbarRight.activeRight {
     right: 0px;
     height: 70vh;
-    border-radius: 20px 0 0 20px ;
+    border-radius: 20px 0 0 20px;
   }
   #navMobileRight {
     display: block;
@@ -646,50 +625,63 @@ font-size: 3rem;
 // }
 
 .arrows {
-	width: 60px;
-	height: 72px;
-	position: absolute;
-	left: 50%;
-	margin-left: -30px;
-	bottom: 20px;
+  width: 60px;
+  height: 72px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: 20px;
 }
 
 .arrows path {
-	stroke: #2994D1;
-	// stroke: #f50303;
-	fill: transparent;
-	stroke-width: 1px;	
-	animation: arrow 2s infinite;
-	-webkit-animation: arrow 2s infinite; 
+  stroke: #2994d1;
+  fill: transparent;
+  stroke-width: 1px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
 }
 
-@keyframes arrow
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-@-webkit-keyframes arrow /*Safari and Chrome*/
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .arrows path.a1 {
-	animation-delay:-1s;
-	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s; /* Safari 和 Chrome */
 }
 
 .arrows path.a2 {
-	animation-delay:-0.5s;
-	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s; /* Safari 和 Chrome */
 }
 
-.arrows path.a3 {	
-	animation-delay:0s;
-	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+.arrows path.a3 {
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s; /* Safari 和 Chrome */
 }

@@ -14,7 +14,6 @@ $timing: 265ms;
 }
 
 .aboutAllPage {
-  // background-image: url(../images/dashboard/about-wall.jpg);
   background-position: center;
   background-size: cover;
   position: relative;
@@ -23,7 +22,6 @@ $timing: 265ms;
 .aboutFlex {
   display: flex;
 }
-
 
 .aboutRightContent {
   width: 70%;
@@ -37,11 +35,9 @@ $timing: 265ms;
 }
 .logoCover {
   background-color: #aeafb1;
-  // margin: 8%;
   transition: all 0.2s ease-in-out;
   cursor: auto;
   width: 50%;
-  // border-radius: 25px;
   &:hover {
     box-shadow: -25px 20px 20px $color-grey, 0px 0px 0px $color-shadow;
     transform: rotate3d(30, 30, 0, 15deg);
@@ -63,7 +59,7 @@ $timing: 265ms;
 }
 
 .social-icons {
-margin-left: -1%;
+  margin-left: -1%;
   .liFooter {
     display: inline-block;
     margin: 0.15em;
@@ -109,7 +105,7 @@ margin-left: -1%;
 }
 
 @media (max-width: 1100px) {
-  .aFooterT{
+  .aFooterT {
     width: 30% !important;
   }
 }
@@ -118,17 +114,17 @@ margin-left: -1%;
   .aboutFlex {
     display: block;
   }
-  #aboutFlexDownId{
+  #aboutFlexDownId {
     display: none;
   }
-  .infoIcons{
+  .infoIcons {
     width: 99%;
     height: 45vh;
   }
-  .logoCover{
+  .logoCover {
     width: 99%;
   }
-  .aboutRightContent .infoIcons .aboutTextTitle{
+  .aboutRightContent .infoIcons .aboutTextTitle {
     width: 100%;
     text-align: center;
     font-size: 23px;
@@ -137,49 +133,47 @@ margin-left: -1%;
   .aboutRightContent {
     width: 100%;
   }
-  .aboutContactTitle{
+  .aboutContactTitle {
     text-align: center;
   }
-  .social-icons{
+  .social-icons {
     text-align: center;
   }
-  .aboutAllPage .aboutFlex .aboutFooterAllLeft{
+  .aboutAllPage .aboutFlex .aboutFooterAllLeft {
     width: 100%;
     height: auto;
   }
-  .aboutAllPage .aboutFlex .aboutFooterAllRight{
+  .aboutAllPage .aboutFlex .aboutFooterAllRight {
     width: 100%;
     height: auto;
   }
-  .aFooterT{
+  .aFooterT {
     width: 25% !important;
   }
-  .aboutRightContent .infoIcons .aboutText{
+  .aboutRightContent .infoIcons .aboutText {
     width: 95%;
   }
 }
 
-.aboutText{
-  // padding-top: 8%;
+.aboutText {
   width: 90%;
   text-align: justify;
   font-weight: bolder;
   padding-left: 1%;
-
 }
 
-.aboutTextTitle{
-padding-top: 8%;
-font-size: 3rem;
-font-weight: bold;
-text-align: center;
+.aboutTextTitle {
+  padding-top: 8%;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-.aboutContactTitle{
+.aboutContactTitle {
   font-size: 2rem;
 }
 
-.aboutFooterAllLeft{
+.aboutFooterAllLeft {
   width: 40%;
   background-color: #aeafb1;
   height: 38.8vh;
@@ -191,28 +185,28 @@ text-align: center;
   }
 }
 
-.aboutFooterAllRight{
+.aboutFooterAllRight {
   width: 60%;
   background-color: #aeafb1;
   height: 38.8vh;
   padding: 2%;
 }
 
-.aboutSpaceBtween{
+.aboutSpaceBtween {
   justify-content: space-around !important;
 }
 
-.aboutFooterText{
+.aboutFooterText {
   display: flex;
 }
 
-.aFooterT{
+.aFooterT {
   width: 10%;
   font-size: 20px;
   font-weight: bolder;
 }
 
-.aFooterA{
+.aFooterA {
   width: auto;
   font-size: 18px;
   color: #234a17;
@@ -222,19 +216,19 @@ text-align: center;
   cursor: default;
 }
 
-.aFooterL{
+.aFooterL {
   width: auto;
   font-size: 18px;
   color: #234a17;
   padding-left: 1%;
   font-weight: bolder;
   text-decoration: none;
-  &:hover{
+  &:hover {
     color: #368b1d;
   }
 }
 
-.sweet-loading{
+.sweet-loading {
   width: 100px;
   height: 101px;
   border-radius: 100%;
@@ -243,5 +237,6 @@ text-align: center;
   border-color: rgb(0, 0, 0) rgb(0, 0, 0) transparent;
   border-image: initial;
   display: inline-block;
-  animation: 0.75s linear 0s infinite normal both running react-spinners-ClipLoader-clip;
+  animation: 0.75s linear 0s infinite normal both running
+    react-spinners-ClipLoader-clip;
 }
