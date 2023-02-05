@@ -192,10 +192,6 @@ function carousel() {
           </div>
         </div>
       </Carousel>
-      <div className="more-prodct">
-
-        Teklif alabilmek için öncelikle giriş yapmalısınız. 
-      </div>
     </div>
   );
 }

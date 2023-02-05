@@ -50,6 +50,7 @@ $color-shadow: #aeb1bd;
   font-weight: bolder;
   width: 47%;
   border-radius: 10px;
+
   &:hover {
     box-shadow: -2px -2px 5px $color-grey, 2px 2px 5px $color-shadow;
   }
@@ -87,30 +88,44 @@ $color-shadow: #aeb1bd;
   .companies-all-content {
     height: 100%;
   }
+
   .companies-table {
     width: 100%;
   }
+
   .companies-text {
     margin-top: 10%;
     font-size: 3rem;
   }
+
   .company-sttng {
     padding: 1rem 1rem;
     margin: 1%;
     height: 100%;
     width: 90%;
   }
+
   .companies-all-table {
     display: flex;
     justify-content: center;
   }
+
   .radiogroupCompanies {
     border-radius: 10px;
     width: 90%;
     margin-top: 5%;
   }
+
   .radiogroupCompaniesOther {
     width: 90%;
+  }
+  .loaderCover .loader{
+    width: 80px;
+    height: 80px;
+  }
+  .loaderText{
+    margin-top: 50%;
+    text-align: center;
   }
 }
 
@@ -174,8 +189,79 @@ $color-shadow: #aeb1bd;
   font-size: 15px;
   text-decoration: none;
   color: #000cff;
+
   &:hover {
     color: forestgreen;
     text-decoration: revert;
   }
+}
+
+.loader {
+  margin-top: 3%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #1a6c3e;
+  animation: prixClipFix 2s linear infinite;
+}
+
+.loader::after {
+  border-color: #010101;
+  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+  // inset: 6px;
+  inset: 6px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+  }
+}
+
+.loaderCover {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loaderText {
+  font-size: 30px;
 }
