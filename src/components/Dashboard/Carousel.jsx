@@ -1,8 +1,11 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
+import AuthLocalStorage from "../localStorage";
 
 function carousel() {
+  const { isLogin, type } = AuthLocalStorage();
+
   const responsive = {
     desktopLarge: {
       breakpoint: { max: 3000, min: 1500 },
@@ -47,7 +50,17 @@ function carousel() {
           <div className="product-col">
             <img src={require("../../assets/images/slider/pvc.jpg")} alt="" />
             <div className="layers">
-              <h3>PVC Cam & Kapı Modelleri</h3>
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/pvc"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <h3>PVC Cam & Kapı Modelleri</h3>
+              </Link>
             </div>
           </div>
         </div>
@@ -58,7 +71,17 @@ function carousel() {
               alt=""
             />
             <div className="layers">
-              <h3>Katlanır & Sürme Cam Modelleri</h3>
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/foldingWindow"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <h3>Katlanır & Sürme Cam Modelleri</h3>
+              </Link>
             </div>
           </div>
         </div>
@@ -69,7 +92,18 @@ function carousel() {
               alt=""
             />
             <div className="layers">
-              <h3>Otomatik Kepeng Modelleri</h3>
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/pvc"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+
+                <h3>Otomatik Kepeng Modelleri</h3>
+              </Link>
             </div>
           </div>
         </div>
@@ -80,7 +114,17 @@ function carousel() {
               alt=""
             />
             <div className="layers">
-              <h3>Duşakabin Modelleri</h3>
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/showerBox"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <h3>Duşakabin Modelleri</h3>
+              </Link>
             </div>
           </div>
         </div>
@@ -91,7 +135,17 @@ function carousel() {
               alt=""
             />
             <div className="layers">
-              <h3>Çelik Kapı Modelleri</h3>
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/pvc"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <h3>Çelik Kapı Modelleri</h3>
+              </Link>
             </div>
           </div>
         </div>
@@ -102,7 +156,17 @@ function carousel() {
               alt=""
             />
             <div className="layers">
-              <h3>Otomatik Kapı Modelleri</h3>
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/shopping"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <h3>Otomatik Kapı Modelleri</h3>
+              </Link>
             </div>
           </div>
         </div>
@@ -113,18 +177,24 @@ function carousel() {
               alt=""
             />
             <div className="layers">
-              <h3>Otomatik Panjur Modelleri</h3>
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/shopping"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <h3>Otomatik Panjur Modelleri</h3>
+              </Link>
             </div>
           </div>
         </div>
       </Carousel>
       <div className="more-prodct">
-        {" "}
-        Ayrıntılar ve daha fazlası için{" "}
-        <Link className="dash-prdct" to="products">
-          ürünler
-        </Link>{" "}
-        sekmemize göz atabilirsiniz.
+
+        Teklif alabilmek için öncelikle giriş yapmalısınız. 
       </div>
     </div>
   );

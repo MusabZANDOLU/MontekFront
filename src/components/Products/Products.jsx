@@ -21,11 +21,21 @@ function Products() {
         <div className="product-cover">
           <div className="products-all-table">
             <div className="product-sttng">
-              <img
-                className="product-logo"
-                src={require("../../assets/images/product/pvc.png")}
-                alt=""
-              />
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/pvc"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <img
+                  className="product-logo"
+                  src={require("../../assets/images/product/pvc.png")}
+                  alt=""
+                />
+              </Link>
               <div className="prdct-text">
                 <div className="borders">
                   <div className="product-name">Ürün Adı</div>
@@ -48,29 +58,39 @@ function Products() {
               </div>
               <hr />
               <div className="prod-url">
-                Ürünle ilgili teklif almak için{" "}
+                Ürünle ilgili teklif almak için
                 <Link
                   to={
                     isLogin && type === "user"
                       ? "/getOffer/pvc"
                       : isLogin && type === "company"
-                      ? "/"
-                      : "/login"
+                        ? "/"
+                        : "/login"
                   }
                 >
                   <i className="fa-solid fa-link"></i>
-                </Link>{" "}
+                </Link>
                 tıklayınız
               </div>
             </div>
           </div>
           <div className="products-all-table">
             <div className="product-sttng">
-              <img
-                className="product-logo"
-                src={require("../../assets/images/product/surme-sistemleri.png")}
-                alt=""
-              />
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/foldingWindow"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <img
+                  className="product-logo"
+                  src={require("../../assets/images/product/surme-sistemleri.png")}
+                  alt=""
+                />
+              </Link>
               <div className="prdct-text">
                 <div className="borders">
                   <div className="product-name">Ürün Adı</div>
@@ -97,29 +117,39 @@ function Products() {
               </div>
               <hr />
               <div className="prod-url">
-                Ürünle ilgili teklif almak için{" "}
+                Ürünle ilgili teklif almak için
                 <Link
                   to={
                     isLogin && type === "user"
                       ? "/getOffer/foldingWindow"
                       : isLogin && type === "company"
-                      ? "/"
-                      : "/login"
+                        ? "/"
+                        : "/login"
                   }
                 >
                   <i className="fa-solid fa-link"></i>
-                </Link>{" "}
+                </Link>
                 tıklayınız
               </div>
             </div>
           </div>
           <div className="products-all-table">
             <div className="product-sttng">
-              <img
-                className="product-logo"
-                src={require("../../assets/images/product/volkswagen.png")}
-                alt=""
-              />
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/pvc"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <img
+                  className="product-logo"
+                  src={require("../../assets/images/product/volkswagen.png")}
+                  alt=""
+                />
+              </Link>
               <div className="prdct-text">
                 <div className="borders">
                   <div className="product-name">Ürün Adı</div>
@@ -144,29 +174,39 @@ function Products() {
               </div>
               <hr />
               <div className="prod-url">
-                Ürünle ilgili teklif almak için{" "}
+                Ürünle ilgili teklif almak için
                 <Link
                   to={
                     isLogin && type === "user"
                       ? "/getOffer/pvc"
                       : isLogin && type === "company"
-                      ? "/"
-                      : "/login"
+                        ? "/"
+                        : "/login"
                   }
                 >
                   <i className="fa-solid fa-link"></i>
-                </Link>{" "}
+                </Link>
                 tıklayınız
               </div>
             </div>
           </div>
           <div className="products-all-table">
             <div className="product-sttng">
-              <img
-                className="product-logo"
-                src={require("../../assets/images/product/celik-kapilar.png")}
-                alt=""
-              />
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/pvc"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <img
+                  className="product-logo"
+                  src={require("../../assets/images/product/celik-kapilar.png")}
+                  alt=""
+                />
+              </Link>
               <div className="prdct-text">
                 <div className="borders">
                   <div className="product-name">Ürün Adı</div>
@@ -193,29 +233,39 @@ function Products() {
               </div>
               <hr />
               <div className="prod-url">
-                Ürünle ilgili teklif almak için{" "}
+                Ürünle ilgili teklif almak için
                 <Link
                   to={
                     isLogin && type === "user"
                       ? "/getOffer/pvc"
                       : isLogin && type === "company"
-                      ? "/"
-                      : "/login"
+                        ? "/"
+                        : "/login"
                   }
                 >
                   <i className="fa-solid fa-link"></i>
-                </Link>{" "}
+                </Link>
                 tıklayınız
               </div>
             </div>
           </div>
           <div className="products-all-table">
             <div className="product-sttng">
-              <img
-                className="product-logo"
-                src={require("../../assets/images/product/panjur-kepeng.png")}
-                alt=""
-              />
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/shopping"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <img
+                  className="product-logo"
+                  src={require("../../assets/images/product/panjur-kepeng.png")}
+                  alt=""
+                />
+              </Link>
               <div className="prdct-text">
                 <div className="borders">
                   <div className="product-name">Ürün Adı</div>
@@ -238,29 +288,39 @@ function Products() {
               </div>
               <hr />
               <div className="prod-url">
-                Ürünle ilgili teklif almak için{" "}
+                Ürünle ilgili teklif almak için
                 <Link
                   to={
                     isLogin && type === "user"
                       ? "/getOffer/shopping"
                       : isLogin && type === "company"
-                      ? "/"
-                      : "/login"
+                        ? "/"
+                        : "/login"
                   }
                 >
                   <i className="fa-solid fa-link"></i>
-                </Link>{" "}
+                </Link>
                 tıklayınız
               </div>
             </div>
           </div>
           <div className="products-all-table">
             <div className="product-sttng">
-              <img
-                className="product-logo"
-                src={require("../../assets/images/product/dusakabin.png")}
-                alt=""
-              />
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/showerBox"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <img
+                  className="product-logo"
+                  src={require("../../assets/images/product/dusakabin.png")}
+                  alt=""
+                />
+              </Link>
               <div className="prdct-text">
                 <div className="borders">
                   <div className="product-name">Ürün Adı</div>
@@ -283,29 +343,39 @@ function Products() {
               </div>
               <hr />
               <div className="prod-url">
-                Ürünle ilgili teklif almak için{" "}
+                Ürünle ilgili teklif almak için
                 <Link
                   to={
                     isLogin && type === "user"
                       ? "/getOffer/showerBox"
                       : isLogin && type === "company"
-                      ? "/"
-                      : "/login"
+                        ? "/"
+                        : "/login"
                   }
                 >
                   <i className="fa-solid fa-link"></i>
-                </Link>{" "}
+                </Link>
                 tıklayınız
               </div>
             </div>
           </div>
           <div className="products-all-table">
             <div className="product-sttng">
-              <img
-                className="product-logo"
-                src={require("../../assets/images/product/otokapi.png")}
-                alt=""
-              />
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/shopping"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <img
+                  className="product-logo"
+                  src={require("../../assets/images/product/otokapi.png")}
+                  alt=""
+                />
+              </Link>
               <div className="prdct-text">
                 <div className="borders">
                   <div className="product-name">Ürün Adı</div>
@@ -328,29 +398,39 @@ function Products() {
               </div>
               <hr />
               <div className="prod-url">
-                Ürünle ilgili teklif almak için{" "}
+                Ürünle ilgili teklif almak için
                 <Link
                   to={
                     isLogin && type === "user"
                       ? "/getOffer/shopping"
                       : isLogin && type === "company"
-                      ? "/"
-                      : "/login"
+                        ? "/"
+                        : "/login"
                   }
                 >
                   <i className="fa-solid fa-link"></i>
-                </Link>{" "}
+                </Link>
                 tıklayınız
               </div>
             </div>
           </div>
           <div className="products-all-table">
             <div className="product-sttng">
-              <img
-                className="product-logo"
-                src={require("../../assets/images/product/sineklik.png")}
-                alt=""
-              />
+              <Link
+                to={
+                  isLogin && type === "user"
+                    ? "/getOffer/swatter"
+                    : isLogin && type === "company"
+                      ? "/"
+                      : "/login"
+                }
+              >
+                <img
+                  className="product-logo"
+                  src={require("../../assets/images/product/sineklik.png")}
+                  alt=""
+                />
+              </Link>
               <div className="prdct-text">
                 <div className="borders">
                   <div className="product-name">Ürün Adı</div>
@@ -373,18 +453,18 @@ function Products() {
               </div>
               <hr />
               <div className="comp-url">
-                Ürünle ilgili teklif almak için{" "}
+                Ürünle ilgili teklif almak için
                 <Link
                   to={
                     isLogin && type === "user"
                       ? "/getOffer/swatter"
                       : isLogin && type === "company"
-                      ? "/"
-                      : "/login"
+                        ? "/"
+                        : "/login"
                   }
                 >
                   <i className="fa-solid fa-link"></i>
-                </Link>{" "}
+                </Link>
                 tıklayınız
               </div>
             </div>

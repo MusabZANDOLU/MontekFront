@@ -95,7 +95,7 @@ const UserInfoPage = () => {
               className="inputInfoUserComp"
               value={il}
               onChange={e => setIl(e.target.value)}
-              placeholder="Email Adresiniz"
+              placeholder="Bağlı olduğunuz il"
             />
           </label>
           <label className="labelLoggInfo textAndInput">
@@ -104,7 +104,7 @@ const UserInfoPage = () => {
               className="inputInfoUserComp"
               value={ilce}
               onChange={e => setIlce(e.target.value)}
-              placeholder="Email Adresiniz"
+              placeholder="Bağlı olduğunuz ilçe"
             />
           </label>
           <label className="labelLoggInfo textAndInput">
@@ -113,7 +113,7 @@ const UserInfoPage = () => {
               className="inputInfoUserComp"
               value={tel}
               onChange={e => setTel(e.target.value)}
-              placeholder="Email Adresiniz"
+              placeholder="Telefon Numaranız"
             />
           </label>
           <label className="labelLoggInfo textAndInput">

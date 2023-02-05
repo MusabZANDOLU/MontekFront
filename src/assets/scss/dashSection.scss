@@ -308,15 +308,16 @@ nav {
 }
 
 .layers:hover {
-  background: rgba(77, 75, 75, 0.7);
+  background: rgba(77, 75, 75, 0.8);
   cursor: default;
 }
 
 .layers h3 {
   width: 100%;
   font-weight: 500;
-  color: white;
+  color: rgb(192, 189, 189);
   font-size: 26px;
+  font-weight: normal;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -328,6 +329,12 @@ nav {
 .layers:hover h3 {
   bottom: 49%;
   opacity: 1;
+}
+
+.layers:hover h3:hover {
+  font-size: bold;
+  color: white;
+  font-weight: bold;
 }
 
 .sliderClass {
