@@ -13,10 +13,12 @@ import { Link } from "react-router-dom";
 const Companies = () => {
   const [companies, setCompanies] = useState([]);
   const { isLogin, id } = AuthLocalStorage();
+  const [timeOut, setTimeOut] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     getCompanies();
+    getCompaniess();
   }, []);
 
   const getCompanies = async () => {
@@ -24,13 +26,21 @@ const Companies = () => {
     setCompanies(response.data);
   };
 
+  const getCompaniess = async () => {
+    setTimeout(() => {
+      setTimeOut(true)
+    }, 7000)
+  };
+
+
   return (
     <>
       <Navbar />
       {companies && companies.length === 0 ?
         <div className="loaderCover">
           <div className="loaderText">Firmalarımız yükleniyor. Lütfen bekleyiniz.</div>
-          <span class="loader loaderClass"></span>
+          <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> 
+          <div className="loaderUnderText">{timeOut === true ? 'Sabrınız için çok teşekkür ederiz' : null}</div>
         </div>
         :
 
