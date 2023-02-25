@@ -7,6 +7,7 @@ import axios from "axios";
 import AuthLocalStorage from "../localStorage";
 import svgTrash from "../../assets/svg/myOffer/svgTrash.svg";
 import "../../assets/scss/myOffers.scss";
+import LoadList from '../LoadingPage/loadListPage'
 
 const MyOffers = () => {
   const [myOffers, setMyOffer] = useState([]);
@@ -44,6 +45,7 @@ const MyOffers = () => {
   return (
     <div className="myOfferBody">
       <Navbar />
+      {/* {      <LoadList/>} */}
       {myOffers && myOffers.length === 0 ? (
         <div className="myOfferTopText">
           Henüz teklifiniz bulunmamaktadır.

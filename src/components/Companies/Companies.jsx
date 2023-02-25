@@ -40,7 +40,7 @@ const Companies = () => {
         <div className="loaderCover">
           <div className="loaderText">Firmalarımız yükleniyor. Lütfen bekleyiniz.</div>
           <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> 
-          <div className="loaderUnderText">{timeOut === true ? 'Sabrınız için çok teşekkür ederiz' : null}</div>
+          <div className="loaderUnderText">{timeOut === true ? 'Beklediğiniz için çok teşekkür ederiz' : null}</div>
         </div>
         :
 

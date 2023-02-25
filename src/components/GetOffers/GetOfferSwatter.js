@@ -9,7 +9,6 @@ import AuthLocalStorage from '../localStorage';
 import '../../assets/scss/getOffer.scss';
 import 'alertifyjs/build/css/alertify.min.css';
 
-
 const info1 = () => {
     alertify.alert('Seçilecek Ürünler Hakkında', 'Plise sineklik akordiyon yapıda ve katlanabilir olarak tasarlanmıştır. Sabit sineklik direkt monte eildiği yerde sabit olarak kalır, menteşeli sineklik açılıp kapanabilen sinekliktir. Sarhoş sineklik serbest yapıda olur sağa ya da sola katlanabilir.');
 }
@@ -34,9 +33,7 @@ const info6 = () => {
     alertify.alert('Teklif Kontrol', 'Teklifinizi aşağıdaki kutudan kontrol ediniz. Eğer istemediğiniz ya da yanlış olan seçim varsa o adıma geri gidip düzenleyebilirsiniz.');
 }
 
-
 const GetOfferSwatter = () => {
-
     const { accessToken, id, name, surName } = AuthLocalStorage()
     const [divs, setDivs] = useState(1);
     const [inputCheck, setInputCheck] = useState();
@@ -75,7 +72,6 @@ const GetOfferSwatter = () => {
                 city: selectedCity,
                 town: selectedCityCounties,
             }, { headers: { Authorization: `Bearer ${accessToken}` } })
-            navigate("/myOffers")
         } catch (error) {
             console.log(error)
         }
@@ -587,6 +583,8 @@ const GetOfferSwatter = () => {
                                                         </div>
                                                         <div className='citiesButtons'>
                                                             <div className="buttons">
+                                                                {/* <button className="getOfferButton">Kendi il ve ilçemi kullan.</button>
+                                                                <hr /> */}
                                                                 <button className="getOfferButton" onClick={() => { setDivs(8) }}><i className="fa-solid fa-arrow-right-long"></i> Sonraki Adım</button>
                                                                 <hr />
                                                                 <button className="getOfferButton" onClick={() => { setDivs(6) }}><i className="fa-solid fa-arrow-left-long"></i> Önceki Adım</button>
