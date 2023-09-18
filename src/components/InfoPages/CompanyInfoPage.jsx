@@ -6,6 +6,13 @@ import axios from "axios";
 import alertify from "alertifyjs";
 import "../../assets/scss/login_Register_Info.scss";
 
+// import svgFacebookColor from "../../assets/svg/settingCompany/svgFacebookColor";
+// import svgFacebook from "../../assets/svg/settingCompany/svgFacebook";
+// import svgInstagramColor from "../../assets/svg/settingCompany/svgInstagram";
+// import svgInstagram from "../../assets/svg/settingCompany/svgInstagramColor";
+// import svgLinkedinColor from "../../assets/svg/settingCompany/svgLinkedinColor";
+// import svgLinkedin from "../../assets/svg/settingCompany/svgLinkedin";
+
 const updateSuccessful = () => {
   alertify.alert(
     "Bilgi Güncelleme",
@@ -25,6 +32,7 @@ const CompanyInfoPage = () => {
   const [firmMail, setFirmMail] = useState();
   const [firmUrl, setFirmUrl] = useState();
   const [firmServices, setFirmServices] = useState();
+  const [socialMedia, setSocialMedia] = useState('f');
   const { accessToken, id } = AuthLocalStorage();
 
   useEffect(() => {
@@ -70,6 +78,18 @@ const CompanyInfoPage = () => {
       updateUnsuccessful();
     }
   };
+
+  const togglePassword = (e) => {
+    if (e === 'f') {
+      setSocialMedia(e);
+    } else if (e === 'i') {
+      setSocialMedia(e);
+    } else {
+      setSocialMedia(e);
+    }
+
+  };
+  console.log(socialMedia)
 
   return (
     <div className="loginAll">
@@ -135,6 +155,18 @@ const CompanyInfoPage = () => {
           </label>
           <label className="labelLoggInfo textAndInput">
             <div className="infoCompanyText">Verilen Hizmetler</div>
+            <input
+              className="inputInfoUserComp"
+              value={firmServices}
+              onChange={e => setFirmServices(e.target.value)}
+              placeholder="Örn. Katlanır Cam, Çelik Kapı, Duşakabin..."
+            />
+          </label>
+          <label className="labelLoggInfo textAndInput">
+            <div className="infoCompanyText">Sosyal Medyalar Url</div>
+            {/* <img src={svgFacebookColor} onClick={e => togglePassword('f')} alt=""/>
+            <img src={svgInstagramColor} onClick={e => togglePassword('i')} alt=""/>
+            <img src={svgLinkedinColor} onClick={e => togglePassword('l')} alt=""/> */}
             <input
               className="inputInfoUserComp"
               value={firmServices}
